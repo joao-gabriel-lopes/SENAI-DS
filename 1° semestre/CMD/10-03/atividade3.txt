@@ -1,0 +1,5 @@
+mkdir Backup
+
+copy *.txt Backup
+
+echo "Backup finalizado!"

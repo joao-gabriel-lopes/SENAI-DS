@@ -1,0 +1,63 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+}
+
+.branco{
+    color: rgb(255, 255, 255);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+
+nav{
+    height: 80px;
+}
+
+.img-logo{
+    height: 80px;
+    width: 80px;
+}
+
+.img-perfil{
+    height: 80px;
+    width: 80px;
+}
+
+nav{
+    background-color: black;
+}
+
+article{
+    background-color: rgb(189, 189, 189);
+    border-radius: 30px;
+    text-align: center;
+    padding: 2%;
+    height: 200px;
+}
+
+.pesquisar{
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+.pesquisar-btn{
+    border-radius: 0px 10px 10px 0px;
+    width: 30px;
+    border: none;
+    background-color: gainsboro;
+}
+
+footer{
+    background-color: black;
+    padding: 0.5%;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+h4{
+    color: white;
+
+}

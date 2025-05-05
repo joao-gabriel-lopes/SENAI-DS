@@ -1,0 +1,20 @@
+table{
+    text-align: left;
+    margin: 0px auto;
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.cabecalho{
+    text-align: center;
+}
+
+caption{
+    font-weight: bold;
+    font-size: 1.5em;
+}

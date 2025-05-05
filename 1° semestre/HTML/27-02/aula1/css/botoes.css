@@ -1,0 +1,13 @@
+button{
+    padding: 5px;
+    border: 1px black solid;
+    border-radius: 10px;
+}
+
+.botao-confirmar{
+    background-color: aquamarine;
+}
+
+.botao-cancelar{
+    background-color: indianred;
+}

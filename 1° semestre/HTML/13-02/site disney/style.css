@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    color-scheme: dark;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.parallax{
+    background-image: url('lampada.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+section{
+    height: 100vh;
+    width: auto;
+    color: #fff;
+    font-size: 35px;
+}
+
+.fundo{
+    background-image: url('aladdin.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1, h2, p{
+    display: flex;
+    justify-content: center;
+    align-self: baseline;
+}
+
+p{
+    margin-top: 50px;
+}
+
+h1{
+    padding-top: 220px;
+}
+
+h2{
+    padding-top: 265px;
+    font-size: 45px;
+}
+
+

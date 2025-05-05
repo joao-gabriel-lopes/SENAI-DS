@@ -1,0 +1,51 @@
+.teste {
+  text-align: center;
+}
+
+.img2 {
+  width: 200px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.ses{
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
+.teste55{
+  text-align: center;
+}
+
+
+.body2 {
+  background-image: url('imagens/');
+  background-size: 100px 100px;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  height: 100vh;
+}

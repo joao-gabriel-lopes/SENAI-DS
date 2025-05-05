@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<main>
+
+  <body>
+    <p>Qual é o seu gênero?</p>
+    <input type="radio" name="genero" id="homo"> <label for="homo">Homo</label>
+    <input type="radio" name="genero" id="canis"> <label for="canis">Canis</label>
+    <input type="radio" name="genero" id="felis"> <label for="felis">Felis</label>
+    <input type="radio" name="genero" id="sus"> <label for="sus">Sus</label>
+
+    <br><br>
+    <button onclick="VerificarRadio()">Verificar</button>
+    <button onclick="LimparTela()">Limpar Tela</button>
+    <p id="respostaRadio"></p>
+  </body>
+</main>
+
+</html>

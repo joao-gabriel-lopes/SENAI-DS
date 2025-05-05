@@ -1,0 +1,7 @@
+mkdir TesteCMD
+
+cd TesteCMD
+
+echo "CMD é poderoso!" > mensagem.txt
+
+type mensagem.txt

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Listador de Nomes</h1>
+        <p>Insira os nomes que deseja adicionar à lista</p>
+
+        <label for="nome">Nome: </label>
+        <input type="text" id="nome">
+        <button onclick="AdicionarNome()">Adicionar</button> <br> <br>
+
+        <button onclick="ListarNomes()">Listar nomes</button> 
+        <button onclick="LimparLista()">Limpar lista</button> 
+        
+        <p id="mensagem"></p>
+        <div id ="lista"></div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+html, body{
+    height: 100%;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    min-height: 100vh;
+    width: 100%;
+    background-color: blue;
+    grid-template-rows: auto 1fr 1fr auto;
+    grid-template-areas: 
+        'topo topo topo topo topo topo'
+        'principal principal principal principal principal principal'
+        'principal principal principal principal principal principal'
+        'rodape rodape rodape rodape rodape rodape'
+    ;
+}
+
+.topo{
+    grid-area: topo;
+    background-color: darkred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* color: white; */
+}
+
+.topo h1{
+    color: white;
+    font-size: clam(0.5rem 1.5rem 4rem); /* clamp(medidamínima medidaPeferível medidaMaxima) */
+}
+
+.principal{
+    grid-area: principal;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-template-areas: 'menu conteudo';
+    /* grid-template-rows: 1fr 5fr; */
+}
+
+.menu{
+    background-color: whitesmoke;
+}
+
+.conteudo{
+    background-color: whitesmoke;
+}
+
+.rodape{
+    grid-area: rodape;
+    background-color: darkred;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+}

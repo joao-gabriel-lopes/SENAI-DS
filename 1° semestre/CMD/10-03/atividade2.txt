@@ -1,0 +1,8 @@
+dir
+
+ipconfig
+
+systeminfo
+
+exit
+

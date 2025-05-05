@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Autenticação</h1>
+        <p>Informe o usuário e a senha</p>
+
+        <label for="usuario">Usuário: </label> <br>
+        <input type="text" id="usuario"> <br>
+        <label for="senha">Senha: </label> <br>
+        <input type="password" id="senha"> <br> <br>
+
+        <button onclick="ValidarLogin()">Efetuar Login</button> 
+        <p id="tentativa">Tentativas realizadas: 0/3</p>
+        <p id="mensagem"></p>
+    </main>
+</body>
+</html>

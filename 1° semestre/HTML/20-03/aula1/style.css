@@ -1,0 +1,26 @@
+table{    
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0px auto;
+    animation: girar 5s infinite alternate;   
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 8px 15px;
+}
+
+.linha1{
+    font-weight: bold;
+}
+
+@keyframes girar1 {
+    from{
+        transform: rotate(3600deg);
+    }
+
+    to{
+        transform: rotate(-3600deg);
+    }
+}

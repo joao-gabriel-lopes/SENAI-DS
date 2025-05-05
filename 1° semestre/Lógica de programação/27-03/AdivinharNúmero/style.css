@@ -1,0 +1,47 @@
+*{
+    margin-top: 20px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: gainsboro;
+    margin: 0%;
+    padding: 0%;
+    
+}
+
+.fundo{
+    background-color: white;
+    margin-top: 8%;
+    width: 40%;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: -7px -7px 2px gray inset;
+}
+
+button{
+    margin-top: 3%; 
+    background-color: rgb(17, 197, 17);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+input{
+    width: 60%;
+    margin-bottom: 2%;
+}
+
+.correto{
+    color: rgb(54, 202, 9);
+}
+
+.maior{
+    color: rgb(213, 2, 2);
+}
+
+.menor{
+    color: rgb(236, 236, 0);
+}

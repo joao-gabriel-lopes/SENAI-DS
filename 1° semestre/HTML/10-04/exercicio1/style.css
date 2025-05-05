@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(71, 71, 71);
+}
+
+.container{
+    background-color: aqua;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+    /* align-content: center; */
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* flex-flow: column wrap-reverse; */
+    /* flex-wrap: wrap-reverse;
+    flex-direction: column; */
+}
+
+.num{
+    background-color: blueviolet;
+    border: 1px solid black;
+    color: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.num-1{
+    align-self: end;
+}
+
+.num-7:hover{
+    align-self: flex-start;
+}

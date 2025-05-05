@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <main>
+    <p>Qual é a sua sua idade?</p>
+    <input type="radio" name="idade" id="ate14"> 0 à 14 anos
+    <input type="radio" name="idade" id="ate24"> 15 à 25 anos
+    <input type="radio" name="idade" id="ate64"> 26 à 64 anos
+    <input type="radio" name="idade" id="65acima"> 65 anos ou mais <br> <br>
+
+    <button onclick="VerificarRadio()">Verificar</button>
+    <p id="respostaRadio"></p>
+  </main>
+</body>
+
+</html>

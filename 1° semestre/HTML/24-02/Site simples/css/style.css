@@ -1,0 +1,183 @@
+
+*{
+    margin: 0px;/* Remove as margens de todos os elementos */
+    padding: 0px;/* Remove o preenchimento (padding) de todos os elementos */
+}
+
+body {
+    background-color: rgb(255, 255, 255);/* Define a cor de fundo do corpo da página como branco */
+    font-family: Arial, Helvetica, sans-serif;/* Define a fonte usada no corpo da página */
+}
+
+
+.topo {
+    text-align: center;/* Centraliza o conteúdo dentro do topo */
+    margin: auto;/* Centraliza o elemento na tela */
+    min-height: 150px;/* Define altura mínima de 150px para o topo */
+    background-image: radial-gradient(white, #b8b0aa );/* Define um gradiente radial de branco para cinza */
+
+}
+
+.topo > img{
+    max-width: 100%;/* Garante que a imagem não ultrapasse a largura do container */
+    max-height: 250px;/* Limita a altura máxima da imagem a 250px */
+    height: auto;/* Ajusta a altura automaticamente de acordo com a largura */
+    width: auto;/* Ajusta a largura automaticamente */
+    filter: drop-shadow(6px 2px 4px rgba(0, 0, 0, 0.37));/* Aplica uma sombra na imagem */
+    padding: 20px;/* Aplica 20px de preenchimento ao redor da imagem */
+}
+
+.menu {
+    text-align: center;/* Centraliza o texto do menu */
+    padding: 15px 0px;
+    /*fazer este antes para corrigir erro padding 15px */
+    width: 100%;/* Define a largura do menu como 100% */
+    min-width: 325px;/* Define a largura mínima do menu como 325px */
+    margin: auto;/* Centraliza o menu horizontalmente */
+    background-color: rgb(62, 151, 151);/* Define o fundo do menu com uma cor verde-azulada */
+}
+
+
+.menu ul li{
+    display: inline;/* Exibe os itens de lista na mesma linha */
+    flex-wrap: wrap;/* Permite que os itens de lista quebrem para a próxima linha, se necessário */
+}
+
+.menu ul li a{
+    padding: 2px 10px;/* Adiciona preenchimento ao redor do link */
+    color: azure;/* Define a cor do texto dos links como azul claro */
+    text-decoration: none;/* Remove o sublinhado do link */
+}
+
+.menu ul li a:hover, #Dados a:hover{
+    color: rgb(11, 11, 20);/* Muda a cor do texto do link quando o mouse passa sobre ele */
+    text-decoration: underline; /* Adiciona sublinhado ao link quando o mouse passa sobre ele */
+}
+
+#Dados a{
+    padding: 2px 10px;/* Adiciona preenchimento ao redor do link */
+    color: rgb(0, 195, 195);/* Define a cor do texto dos links como azul claro */
+    text-decoration: none;/* Remove o sublinhado do link */
+}
+
+#Sobre, #Dados{
+    background-color: #dfdfdf;/* Define a cor de fundo da seção sobre como cinza claro */
+    text-align: center;/* Centraliza o texto da seção sobre */
+    padding-top: 60px;/* Adiciona preenchimento superior de 60px */
+}
+
+#Sobre > h1, #Dados > h1{
+    font-size: 2em;/* Define o tamanho da fonte do título como 2 vezes o tamanho base */
+    color: rgb(62, 151, 151);/* Define a cor do título como verde-azulado */
+    font-size: 30px;/* Define o tamanho final do título como 30px */
+}
+
+#Sobre > p, #Dados > p{
+    font-size: 20px;/* Define o tamanho da fonte do parágrafo como 20px */
+    padding: 5px 20px 30px 20px;/* Adiciona preenchimento ao redor do parágrafo */
+}
+
+#Tecnologias{
+    padding-top: 50px; /* Adiciona preenchimento superior de 50px */
+    padding-bottom: 30px; /* Adiciona preenchimento inferior de 30px */
+    text-align: center; /* Centraliza o texto da seção de tecnologias */
+    width: 100%; /* Define a largura da seção como 100% */
+}
+
+#Tecnologias > h1{
+    padding-bottom: 5px;/* Adiciona preenchimento inferior de 5px */
+    font-size: 30px;/* Define o tamanho da fonte do título como 30px */
+}
+
+#Tecnologias > p{
+    font-size: 20px;/* Define o tamanho da fonte do parágrafo como 20px */
+    padding: 5px 20px 10px 20px;/* Adiciona preenchimento ao redor do parágrafo */
+}
+
+#Tecnologias > img{
+    margin-bottom: 10px; /* Dá um espaçamento entre a imagem e o botão */
+    max-width: 100%;/* Limita a largura da imagem a 100% do container */
+    max-height: 400px; /* Limita a altura máxima da imagem a 400px */
+    height: auto;/* Ajusta a altura automaticamente de acordo com a largura */
+    width: auto;/* Ajusta a largura automaticamente */
+    padding: 20px;/* Adiciona preenchimento ao redor da imagem */
+}
+
+.image{
+    padding: 10px 0px;/* Adiciona preenchimento superior e inferior de 10px */
+    width: 60px;/* Define a largura da imagem como 60px */
+}
+
+
+.rodape {
+    background-color: rgb(62, 151, 151);/* Define o fundo do rodapé com a mesma cor do menu */
+    text-align: center;/* Centraliza o texto do rodapé */
+    padding: 20px 0px;/* Adiciona 20px de preenchimento ao redor do rodapé */
+}
+
+.rodape > p{ /*Esse seletor seleciona apenas os elementos <p> que são filhos diretos de um elemento com a classe .rodape. Ou seja, ele só vai aplicar o estilo aos elementos <p> que estão imediatamente dentro da .rodape, sem considerar <p> que estão aninhados em outros elementos dentro de .rodape.
+*/
+    padding: 2px 0px;/* Adiciona preenchimento ao redor do parágrafo no rodapé */
+    color: azure;/* Define a cor do texto como azul claro */
+    text-decoration: none;/* Remove o sublinhado do texto */
+    
+}
+
+.rodape > p a {
+    color: white;/* Define a cor do link dentro do rodapé como branca */
+}
+
+
+.rodape > p a:hover{
+    color: rgb(11, 11, 20);/* Muda a cor do link no rodapé ao passar o mouse */
+    text-decoration: underline;/* Adiciona sublinhado ao link no rodapé ao passar o mouse */
+}
+
+.sessaobotao {
+    text-align: center;/* Centraliza o conteúdo da seção de botão */
+    padding-top: 100px;/* Adiciona preenchimento superior de 100px */
+
+}
+
+/* Estilos para o link agindo como botão */
+.botao-voltar {
+    background-color: black;
+    padding: 50px 60px 50px 60px; /*sequencia topo, direita, baixo, esquerda*/
+    background-image: url(imagens/triste.png); /* Caminho da sua imagem de fundo */
+    background-size: contain;
+    background-position: center;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-decoration: none;  /* Remove o sublinhado do link */
+    text-align: center;
+    transition: all 0.3s ease;/*A propriedade transition no CSS permite que você defina animações suaves quando um elemento muda de estado (por exemplo, quando o mouse passa sobre ele, ou quando você altera uma propriedade CSS como cor, tamanho, opacidade, etc.).*/
+   
+}
+
+/* Efeito ao passar o mouse sobre o link */
+.botao-voltar:hover { /*A pseudo-classe :hover é muito útil para melhorar a interatividade e usabilidade de um site, pois permite feedback visual quando o usuário interage com os elementos. Você pode usá-la para criar efeitos dinâmicos e tornar os sites mais atraentes e intuitivos.*/
+    opacity: 0.8;  /* Efeito de opacidade ao passar o mouse */
+}
+
+
+
+/*
+
+
+all:
+
+O valor all significa que todas as propriedades que podem ser animadas devem sofrer uma transição suave. Ou seja, se você alterar qualquer propriedade do elemento que tenha um efeito visual (como cor de fundo, borda, tamanho, etc.), todas essas mudanças terão uma animação suave.
+Alternativa: Você pode substituir all por uma propriedade específica, como background-color, width, opacity, etc., caso queira animar apenas essa propriedade.
+0.3s:
+
+Esse valor define o tempo de duração da transição, ou seja, quanto tempo a animação vai levar para ser concluída.
+0.3s significa que a transição levará 0,3 segundos (300 milissegundos) para ocorrer.
+Você pode ajustar esse valor para mais ou menos, dependendo de quão rápida ou lenta você deseja a animação.
+ease:
+
+O valor ease é um timing function que define a velocidade da animação ao longo do tempo. Ele faz com que a animação comece devagar, acelere no meio e depois desacelere no final.
+Existem outras opções para a timing function, como:
+linear: A animação acontece a uma velocidade constante.
+ease-in: A animação começa devagar e acelera.
+ease-out: A animação começa rapidamente e desacelera.
+ease-in-out: A animação começa devagar, acelera e depois desacelera.*/

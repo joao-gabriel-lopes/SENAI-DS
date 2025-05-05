@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipulação de Vetores</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-content">
+    <div class="container">
+      <h1>Manipulação de Vetores</h1>
+
+      <div class="actions">
+        <input type="text" id="elemento" placeholder="Digite o valor do elemento a ser criado">
+        <button onclick="adicionarElemento()">Adicionar Elemento</button>
+      </div>
+
+      <div class="actions">
+        <input type="number" id="indiceRemover" placeholder="Digite o índice do elemento a ser removido">
+        <button onclick="removerElemento()">Remover Elemento</button>
+      </div>
+      
+      <div class="actions">
+        <input type="number" id="indiceLer" placeholder="Digite o índice do elemento a ser lido">
+        <button onclick="lerElemento()">Ler Elemento</button>
+      </div>    
+      
+      <div class="actions">
+        <button onclick="lerTodosElementos()">Ler Todos</button>
+      </div>      
+
+      <div class="actions">
+        <button onclick="limparVetor()">Limpar Vetor</button>
+      </div>
+
+      <div class="actions">
+        <button onclick="recriarTabela()">Criar tabela com os dados do vetor</button>
+      </div>    
+
+      <table id="tabela-vetor">
+      </table>
+    </div>
+
+    <div class="log">
+      <p>Log(Resultado) de execução de comandos: </p>      
+      <p id="mensagem"> </p>
+    </div>
+  </div>
+
+  <br>  
+  <script src="script.js"></script>
+</body>
+
+</html>

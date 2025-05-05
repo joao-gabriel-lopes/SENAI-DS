@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;/* Faz com que html e body ocupem 100% da altura da janela do navegador */
+}
+
+.container{
+    display: grid;
+    /* height: 100vh; */
+    min-height: 100vh;/* Garante que o elemento tenha no mínimo a altura total da janela (viewport) */
+    width: 100%;/* Faz o elemento ocupar toda a largura disponível */
+    grid-template-columns: repeat(6, 1fr);
+    /* grid-template-rows: repeat(4, minmax(100px, auto)); */
+    grid-template-rows: auto 1fr 1fr auto;
+    
+    grid-template-areas:
+    'top top top top top top'
+    'principal principal principal principal principal principal'
+    'principal principal principal principal principal principal'
+    'footer footer footer footer footer footer'
+    ;
+}
+
+.topo{
+    background-color: rgb(88, 19, 19);
+    grid-area: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.topo > h1{
+    color: white;
+    font-size: clamp(1.5rem, 10vw, 3rem);/* Define o tamanho da fonte de forma responsiva: mínimo de 1.5rem, cresce com a largura da tela (10vw), mas não passa de 3rem */
+}
+
+.topo > p{
+    color: white;
+    font-size: clamp(0.5rem, 10vw, 1.5rem);
+    font-style: italic;
+}
+
+.principal{
+    min-height: 100%;
+    background-color: rgb(225, 225, 226);
+    grid-area: principal;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-template-areas: "menu conteudo";
+}
+
+.menu{
+    /* background-color: aqua; */
+    grid-area: menu;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px 0;
+    /* border: 1px dashed rgb(88, 19, 19); */
+
+    border-right:1px dashed rgb(88, 19, 19) ;
+}
+
+.menu a{
+    text-decoration: none;
+    color: rgb(88, 19, 19);
+}
+
+.menu img{
+    display: none;
+    width: 50px;
+}
+
+.sobre{
+    border: 1px solid rgb(88, 19, 19);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%; /* Faz o elemento ocupar 100% da largura disponível do seu contêiner pai */
+    max-width: 150px; /* Limita a largura máxima do elemento a 150px, mesmo que 100% seja maior que isso */
+    text-align: center;
+}
+
+.sobre a{
+    padding: 20px;
+    width: 100%;  /* Faz com que o link ocupe todo o espaço disponível */
+    max-width: 150px; /* Limita o tamanho máximo */
+    font-size: 1.2rem;
+}
+
+.sobre:hover{
+    background-color: rgb(88, 19, 19);
+}
+
+.sobre a:hover{
+    color: white;
+}
+
+
+
+.conteudo{
+    /* background-color: aquamarine; */
+    grid-area: conteudo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.conteudo p{
+    color:rgb(88, 19, 19);
+    margin: 10px 0;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.conteudo p::after{
+    content: "Vamos ver esta imagem mudando utilizando media querie";
+}
+.conteudo  h2{
+    font-size: clamp(1rem, 5vw, 5rem);
+    color:rgb(88, 19, 19);
+    margin: 10px 0;
+}
+
+.conteudo > img {
+    width: 700px;
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    
+}
+
+.logoazul{
+    display: none;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer{
+    background-color: rgb(88, 19, 19);
+    grid-area: footer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.footer > img {
+    width: 200px;
+    min-width: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer > p{
+    color: white;
+    font-size: 1rem;
+    font-style: italic;
+
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "top"
+            "principal"
+            "footer";
+    }
+
+    .principal {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "menu"
+            "conteudo";
+    }
+
+    .menu {
+        border-right: none;
+        border-bottom: 1px dashed rgb(88, 19, 19);
+        flex-direction: row;
+        gap: 20px;
+        text-align: center;
+        
+    }
+
+    .conteudo > img {
+        width: 50%;
+    }
+
+    .sobre {
+        width: 100%;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .footer{
+        padding: 0;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 540px) {
+    .sobre{
+        border: none;
+        max-width: 100px;
+        margin: 10px;
+        
+    }
+
+    .menu{
+        gap: 0;
+    }
+
+    .menu img{
+        display: inline;
+    }
+
+    .menu a{
+        display: none;
+        border: none;
+    }
+
+    .conteudo p::after{
+        content: "A foto trocou ao ficar menor!";
+    }
+    .frentesenai{
+        display: none;
+    }
+
+    .logoazul{
+        display: inline;
+        width: 100%;
+    }
+}
