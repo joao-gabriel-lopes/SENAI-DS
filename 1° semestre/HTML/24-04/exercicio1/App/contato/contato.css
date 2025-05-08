@@ -39,7 +39,6 @@ footer{
     background-color: black;
     padding: 0.5%;
     text-align: center;
-    margin-top: 40vh;
 }
 
 ul, li{
@@ -54,37 +53,25 @@ h4{
 @media (min-width: 0px) and (max-width: 767.99px) {
 
     footer{
-        margin-top: 80vh;
+        position: relative;
+        top: 58vh;
     }
 
-    nav{
+    nav {
         height: 150px;
     }
 }
 
-/*Medium devices (tablets, 768px e superior)*/
-@media (min-width: 768px ) {
-
-    footer{
-        margin-top: 55vh;
+@media (min-width: 768px) {
+    footer {
+        position: relative;
+        top: 60vh;
     }
-
-    nav{
-        height: 150px;
-    }
-    
 }
 
-/*Large devices (desktops, 992px e superior)*/
-@media (min-width: 992px) {
-    /*body {
-        background: yellow;
-    }*/
-}
-
-/*Extra large devices (large desktops, 1200px e superior)*/
-@media (min-width: 1200px) {
-    /*body {
-        background: gray;
-    }*/
+@media (min-height: 1100px) {
+    footer {
+        position: relative;
+        top: 80vh;
+    }
 }

@@ -60,16 +60,17 @@ h4{
     color: white;
 }
 
-@media (min-width: 0px) and (max-width: 767.99px) {
+@media (min-width: 0px) and (max-width: 766.98px) {
     .lateral{
         visibility: hidden;
         height: 10px;
         width: 10px;
-        
+        display: none;
     }
 
     footer{
-        margin-top: 80vh;
+        position: relative;
+        top: 100%;
     }
 
     nav{
@@ -77,21 +78,18 @@ h4{
     }
 }
 
-/*Medium devices (tablets, 768px e superior)*/
-@media (min-width: 768px ) {
-    
+@media (min-width: 767px) {
+    footer{
+        position: relative;
+        top: 100%;
+    }
 }
 
-/*Large devices (desktops, 992px e superior)*/
-@media (min-width: 992px) {
-    /*body {
-        background: yellow;
-    }*/
-}
-
-/*Extra large devices (large desktops, 1200px e superior)*/
-@media (min-width: 1200px) {
-    /*body {
-        background: gray;
-    }*/
+@media (min-height: 1200px) {
+    footer{
+        position: relative;
+        top: 100%;
+        padding: 2% 0%;
+        margin-top: 40%;
+    }
 }
