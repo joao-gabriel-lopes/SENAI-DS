@@ -16,7 +16,7 @@ function calcularTabuada() {
 
     for (i = 0; i <= 10; i++){
         arr_numeros.push(i)
-        arr_resultados.push(arr_numeros[i] * numero)
+        arr_resultados.push(i * numero)
     }
 
     let table = document.createElement('table')
@@ -47,37 +47,6 @@ function calcularTabuada() {
         document.getElementById('c' + i).innerText = arr_resultados[i]
     }
     
-    /*
-    if(document.getElementById('tabela')){
-        document.getElementById('tabela').remove()
-    }
-
-    let numero = document.getElementById('numero').value
-
-        if (numero < 1 || numero > 10){
-        alert('Por favor insira um número entre 1 e 10')
-
-        return
-    }
-    
-    let tabelaHTML = ''
-
-    tabelaHTML += "<table id='tabela'>"
-    tabelaHTML += '<tbody>'
-
-    for (i = 1; i <= 10; i++) {
-        tabelaHTML += '<tr>'
-        tabelaHTML += '<td>' + numero + '</td>'
-        tabelaHTML += '<td>' + i + '</td>'
-        tabelaHTML += '<td>' + numero * i + '</td>'
-        tabelaHTML += '</tr>'
-    }
-
-    tabelaHTML += '</tbody>'
-    tabelaHTML += '</table>'
-
-    document.body.innerHTML += tabelaHTML
-    */
 }
 
 
