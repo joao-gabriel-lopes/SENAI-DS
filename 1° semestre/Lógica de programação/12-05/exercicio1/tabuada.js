@@ -8,7 +8,7 @@ function calcularTabuada() {
 
     let numero = document.getElementById('numero').value
 
-    if (numero < 1 || numero > 10){
+    if (numero < 1 || numero > 100){
         alert('Por favor insira um número entre 1 e 10')
 
         return
