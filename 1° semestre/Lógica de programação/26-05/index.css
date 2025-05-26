@@ -1,0 +1,155 @@
+* {
+    text-decoration: none;
+    margin: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    height: 45px;
+    color: white;
+    background-color: rgb(100, 0, 0);
+    align-items: center;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer {
+    padding: 5px;
+    height: 25px;
+    color: white;
+    background-color: rgb(100, 0, 0);
+    text-align: center;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+header img {
+    max-height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 40% 1px 20% 1px 39%;
+    transition: grid-template-columns 0.05s ease;
+    background: rgb(255, 245, 245);
+    padding: 0;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.apresentacao,
+.entradas,
+.saidas {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    overflow-wrap: break-word;
+    overflow: auto;
+    border: 1px solid rgb(150, 150, 150);
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1px 8px 0 rgb(220, 220, 220);
+}
+
+.apresentacao ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.apresentacao li {
+    padding: 7px;
+}
+
+.apresentacao li::before {
+    content: '➥';
+    margin-right: 8px;
+}
+
+.apresentacao span {
+    color: rgb(70, 0, 0);
+    font-weight: bolder;
+}
+
+.entradas input {
+    padding: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+.entradas input:hover {
+    border-color: rgb(120, 0, 0);
+    background: rgb(250, 240, 240);
+}
+
+.entradas button {
+    padding: 5px;
+    background: rgb(250, 200, 200);
+    border: 1px solid black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.entradas button:hover {
+    transition: ease 0.5s;
+    background: rgb(120, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+table,
+td,
+th {
+    border: 1px solid rgb(150, 150, 150);
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgb(100, 0, 0);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.linhaVertical.separador {
+    position: relative;
+    background: rgb(200, 200, 200);
+    cursor: ew-resize;
+    width: 1px;
+    height: 100%;
+    align-self: center;
+}
+
+.drag-handle {
+    position: absolute;
+    width: 5px;
+    left:-3px;
+    height: 100%;
+    background: rgb(210, 210, 210);
+}
+
+.drag-handle:hover {
+    box-shadow:
+        1px 1px 2px rgba(250, 200, 200),
+        -1px -1px 2px rgba(250, 200, 200);
+}
