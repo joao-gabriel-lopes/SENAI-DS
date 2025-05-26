@@ -6,6 +6,12 @@ function AdicionarPessoa() {
     let nome = document.getElementById('nome').value
     let altura = parseFloat(document.getElementById('altura').value)
 
+    if (nome == '' || isNaN(altura)){
+        document.getElementById('resultado').innerHTML = 'Insira valores váidos nos campos!'
+    
+        return 
+    }
+
     dados['nome'].push(nome)
     dados['altura'].push(altura)
 
