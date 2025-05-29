@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: orange;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 6rem;
+    background: 
+    url('1666045-padrao-sem-emenda-de-laranjas-e-folhas-vetor.jpg') center;
+    background-size: contain;
+    background-clip: text;
+    color: transparent;
+    animation: animate 10s linear infinite;
+}
+
+/* 
+ background-clip: text;
+Faz com que a **imagem de fundo apareça somente onde há texto.
+
+O conteúdo do fundo fica "dentro" das letras, como uma máscara.
+
+Isso só funciona com color: transparent, pois estamos literalmente usando o texto como "recorte" para ver o fundo. */
+
+@keyframes animate{
+    to {
+        background-position-x: -200px ;
+    }
+}

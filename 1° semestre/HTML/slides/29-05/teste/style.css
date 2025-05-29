@@ -1,0 +1,241 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+header{
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.botoes{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+ 
+}
+
+.botoes a{
+   text-decoration: none;
+   padding: 40px;
+   background-color: black;
+   color: white;
+   border-radius: 20px;
+}
+
+.bot1{
+  animation: Anim1 2s ease 0s 3 normal forwards;
+}
+
+.bot2{
+  animation: Anim2 5s ease 0s 3 alternate forwards;
+}
+
+.bot3{
+  animation: Anim3 5s ease 0s 3 alternate forwards;
+}
+
+.bot4{
+  animation: Anim4 1s linear 0s 1 normal none;
+}
+
+.texto{
+   width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.texto p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+}
+
+/* Parte	Valor	Significado
+text1	Nome da animação (keyframe)	Refere-se a @keyframes text1 definido em algum lugar no CSS.
+1s	Duração	A animação dura 1 segundo.
+linear	Função de tempo (timing-function)	A animação ocorre a uma velocidade constante.
+5s	Atraso (delay)	A animação começa 5 segundos depois que o elemento aparece na tela.
+1	Número de repetições	A animação será executada apenas uma vez.
+normal	Direção (direction)	A animação vai do início ao fim (não é reversa ou alternada).
+none	Estado final (fill-mode)	O elemento não mantém os estilos do final da animação. */
+
+.text1{
+  animation: text1 1s linear 5s 1 normal ;
+}
+
+.text2{
+  animation: text2 1s linear 0s 1 normal none;
+}
+
+.Nanimado{
+  animation: piscar 1s infinite;
+}
+
+.text4{
+   animation: mudarCor 4s linear infinite;
+}
+
+.imagem{
+  width: 100%;
+}
+
+.imagem img{
+  max-width: 100%;
+  height: auto;
+  width: 800px;
+  transform: translateX(-1000px);
+  animation: aparecer 1s linear 0s 1 normal forwards;
+}
+
+@keyframes aparecer{
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  50% {
+     transform: translateX(-500px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes mudarCor {
+  0%   { color: red; }
+  25%  { color: blue; }
+  50%  { color: green; }
+  75%  { color: orange; }
+  100% { color: red; }
+}
+
+@keyframes piscar {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes text2 {
+			
+		0% {
+			letter-spacing:-.5em;
+			transform:translateY(-300px);
+			filter:blur(12px);
+			opacity:0;
+		}
+		0% {
+			transform:translateY(0);
+			filter:blur(0);
+			opacity:1;
+		}
+	}
+
+@keyframes text1 {
+			
+		0% {
+			filter:blur(12px);
+			opacity:0;
+		}
+		100% {
+			filter:blur(0);
+			opacity:1;
+		}
+	}
+
+@keyframes Anim4 {
+			
+		0% {
+			transform:translateY(600px) rotateX(-30deg) scale(6.5);
+			transform-origin:50% -100%;
+			opacity:0;
+		}
+		100% {
+			transform:translateY(0) rotateX(0) scale(1);
+			transform-origin:50% 500px;
+			opacity:1;
+		}
+	}
+
+@keyframes Anim3 {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes Anim2 {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(-6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(-3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(-1.2deg);
+	}
+}
+
+
+@keyframes Anim1 {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
