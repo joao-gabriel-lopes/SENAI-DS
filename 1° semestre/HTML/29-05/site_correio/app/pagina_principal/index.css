@@ -13,14 +13,6 @@
     align-items: center;
 }
 
-.input-dex {
-    width: 300px;
-    height: 30px;
-    border-radius: 10px;
-    border: none;
-    padding-left: 10px;
-}
-
 .lista-dex {
     display: flex;
     list-style: none;
@@ -35,16 +27,39 @@
     height: 50px;
 }
 
-i {
+.logo-dex:hover {
+    scale: 1.05;
+    transition: 0.3s;
+}
+
+.icone-barra{
     color: white;
     padding: 10px;
 }
 
-i:hover {
+.icone-barra:hover {
     background-color: rgb(255, 255, 0);
     border-radius: 10px;
     color: rgb(27, 27, 120);
     cursor: pointer;
+}
+
+.icone-lupa{
+    border-radius: 0px 10px 10px 0px;
+}
+
+.input-dex {
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid rgb(84, 84, 84);
+}
+
+.input-dex:hover{
+    border: 1px solid rgb(255, 255, 0);
+    transition: 0.3s;
+}
+
+.caixa-img{
+    animation: mover-y 0.5s infinite alternate;
 }
 
 .menu {
@@ -63,12 +78,16 @@ i:hover {
     background-color: rgb(255, 255, 0);
     margin: 10px 0;
     border-radius: 20px;
-    padding: 0px 5px;
+    padding: 0px 10px;
 }
 
 .menu li:hover {
     background-color: rgb(255, 255, 255);
-    color: white;
+}
+
+.menu li a:hover{
+    color: rgb(255, 255, 0);
+    transition: 0.3s;
 }
 
 .conteudo {
@@ -104,6 +123,10 @@ i:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.descricao-imagem{
+    animation: mover-y 2s infinite alternate;
 }
 
 .rodape {
@@ -143,6 +166,16 @@ i:hover {
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes mover-y {
+    from {
+        transform: translateY(-5%);
+    }
+
+    to {
+        transform: translateY(0);
     }
 }
 

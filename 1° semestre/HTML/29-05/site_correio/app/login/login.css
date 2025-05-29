@@ -33,11 +33,13 @@ body{
 .input-login:focus{
     border-color: #007bff;
     outline: none;
+    transition: 0.5s;
 }
 
 .input-login:hover{
     border-color: #007bff;
     outline: none;
+    transition: 0.5s;
 }
 
 .btn-login{
