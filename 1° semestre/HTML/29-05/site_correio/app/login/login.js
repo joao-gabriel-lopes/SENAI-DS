@@ -2,8 +2,6 @@ function Login() {
     let email = document.getElementById("email-login").value;
     let senha = document.getElementById("senha-login").value;
 
-    console.log('a')
-
     if (email != '' && senha != '') {
 
         if (email == 'cleiton@gmail.com' && senha == '123456') {
