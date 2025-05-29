@@ -1,0 +1,202 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.nav-dex {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(27, 27, 120);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-dex {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+}
+
+.lista-dex {
+    display: flex;
+    list-style: none;
+    color: white;
+}
+
+.logo-dex {
+    background-image: url('../../img/van.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+}
+
+i {
+    color: white;
+    padding: 10px;
+}
+
+i:hover {
+    background-color: rgb(255, 255, 0);
+    border-radius: 10px;
+    color: rgb(27, 27, 120);
+    cursor: pointer;
+}
+
+.menu {
+    background-color: rgb(27, 27, 120);
+    position: absolute;
+    right: 0%;
+    z-index: 2;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0px 0px 20px 20px;
+    visibility: hidden;
+}
+
+.menu li {
+    list-style: none;
+    background-color: rgb(255, 255, 0);
+    margin: 10px 0;
+    border-radius: 20px;
+    padding: 0px 5px;
+}
+
+.menu li:hover {
+    background-color: rgb(255, 255, 255);
+    color: white;
+}
+
+.conteudo {
+    text-align: center;
+}
+
+.linha {
+    background-color: yellow;
+    height: 1px;
+    width: 90%;
+    animation: fadeIn 0.5s;
+}
+
+.principal {
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.descricao {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 0);
+    border-radius: 10px;
+}
+
+.descricao-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(27, 27, 120);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+}
+
+.rodape p {
+    margin: 0;
+}
+
+.lateral {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 0);
+    border-radius: 10px;
+    animation: fadeIn 0.5s;
+}
+
+.img-lateral {
+    max-width: 90%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    input {
+        border: 1px solid rgb(84, 84, 84);
+    }
+
+    .nav-dex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-dex {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .lista-dex {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .descricao {
+        width: 90%;
+    }
+
+    .caixa-img {
+        display: none;
+    }
+
+    .lateral {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 767.01px) and (max-width: 1024px) {
+
+    input {
+        border: 1px solid rgb(84, 84, 84);
+    }
+
+    .lateral {
+        margin-top: 10px;
+        padding: 15px 0px;
+    }
+
+    .caixa-img {
+        display: none;
+    }
+}
