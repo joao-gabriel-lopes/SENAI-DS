@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="imagens/senai-logo.png">
+        <h1>Atividade: Tabuada</h1>
+    </header>
+    <main>
+        <section class="apresentacao">
+            <h4>Descrição da Atividade</h4>
+            <hr>
+            <p>Crie um script, utilizando lógica de programação:</p>
+            <ul>
+                <li>Início;</li>
+                <li>Leia(numero);</li>
+                <li>Leia(inicio);</li>
+                <li>Leia(fim);</li>
+                <li>Calcule e armazene numa matriz com 3 colunas (numero, fator e resultado) a tabuada do número
+                    informado. Os fatores devem ir do início ao fim informados pelo usuário;</li>
+                <li>Usando os dados armazenados na matriz, exiba o resultado da tabuada em formato de texto ou de
+                    tabela;</li>
+                <li>Fim.</li>
+            </ul>
+            <span>Observação: ESCREVA O TEU NOME NO RODAPÉ</span>
+        </section>
+
+        <div class="linhaVertical separador" data-left="apresentacao" data-right="entradas">
+            <div class="drag-handle"></div>
+        </div>
+
+        <section class="entradas">
+            <h4>Entrada(s)</h4>
+            <hr>
+
+            <label for="numero">Número: </label>
+            <input id="numero" type="number" placeholder="Número">
+
+            <label for="inicio">Início: </label>
+            <input id="inicio" type="number" placeholder="Início da tabuada">
+
+            <label for="fim">Fim: </label>
+            <input id="fim" type="number" placeholder="Fim da tabuada">
+
+            <button onclick="GerarTabuada(parseFloat(document.getElementById('numero').value), parseFloat(document.getElementById('inicio').value), parseFloat(document.getElementById('fim').value))">Gerar Tabuada</button>
+            <button onclick="RecarregarPágina()">Recarregar Página</button>
+        </section>
+
+        <div class="linhaVertical separador" data-left="entradas" data-right="saidas">
+            <div class="drag-handle"></div>
+        </div>
+
+        <section class="saidas">
+            <h4>Saída(s)</h4>
+            <hr>
+            <p id="resultado">...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Nome do aluno: João Gabriel Penha Lopes</p>
+    </footer>
+</body>
+
+<script>
+    function iniciarSeparadores() {
+        const container = document.querySelector("main");
+        const separadores = document.querySelectorAll(".linhaVertical.separador");
+
+        let isDragging = false;
+        let currentSeparator = null;
+
+        separadores.forEach(separador => {
+            const handle = separador.querySelector(".drag-handle");
+
+            handle.addEventListener("mousedown", (e) => {
+                isDragging = true;
+                currentSeparator = separador;
+                document.body.style.cursor = "ew-resize";
+                e.preventDefault();
+            });
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging || !currentSeparator) return;
+
+            const containerRect = container.getBoundingClientRect();
+            const mouseX = e.clientX - containerRect.left;
+            const percentX = (mouseX / containerRect.width) * 100;
+
+            let col1 = 40, col2 = 20, col3 = 39;
+
+            if (currentSeparator.dataset.left === "apresentacao") {
+                if (percentX < 10 || percentX > 80) return;
+                col1 = percentX;
+                col3 = 100 - col1 - col2 - 2 * 0.1;
+            } else if (currentSeparator.dataset.left === "entradas") {
+                const apresentacao = document.querySelector(".apresentacao");
+                const apresentacaoWidth = apresentacao.getBoundingClientRect().width;
+                const col1Percent = (apresentacaoWidth / containerRect.width) * 100;
+
+                const col2Percent = percentX - col1Percent;
+                if (col2Percent < 10 || col2Percent > 80) return;
+
+                col1 = col1Percent;
+                col2 = col2Percent;
+                col3 = 100 - col1 - col2 - 2 * 0.1;
+            }
+
+            container.style.gridTemplateColumns = `${col1}% 1px ${col2}% 1px ${col3}%`;
+        });
+
+        document.addEventListener("mouseup", () => {
+            if (isDragging) {
+                isDragging = false;
+                currentSeparator = null;
+                document.body.style.cursor = "default";
+            }
+        });
+    }
+
+    window.onload = iniciarSeparadores;
+</script>
+
+
+</html>
