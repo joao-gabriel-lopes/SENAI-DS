@@ -1,15 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
 }
 
-.nav-topo{
+.nav-topo {
     background-color: rgb(80, 80, 80);
     height: 60px;
 }
 
-.nome{
+.nome {
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -17,23 +17,23 @@
     text-decoration: none;
 }
 
-.nome:hover{
+.nome:hover {
     color: black;
     transition: 0.3s;
     text-decoration: none;
 }
 
-.img-perfil{
+.img-perfil {
     width: 40px;
     height: 40px;
     cursor: pointer;
 }
 
-.li-perfil a{
+.li-perfil a {
     border-radius: 15px;
 }
 
-.li-perfil a:hover{
+.li-perfil a:hover {
     background-color: white;
     border-radius: 15px;
     transition: 0.3s;
@@ -72,60 +72,60 @@
     transition: 0.3s;
 }
 
-section{
+section {
     width: 100%;
-    height: 50vh;
+    height: 70vh;
 }
 
-.titulo{
+.titulo {
     text-align: center;
     padding: 20px;
     height: 10%;
 }
 
-.titulo h1{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.titulo h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.conteudo{
+.conteudo {
     padding: 20px;
     height: 30vh;
-    text-align: center;    
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.conteudo h1{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.conteudo h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.parallax-1{
+.parallax-1 {
     background-attachment: fixed;
     background-size: cover;
     background-image: url(img/relogio_velho.jpg);
 }
 
-.parallax-2{
+.parallax-2 {
     background-attachment: fixed;
     background-size: cover;
     background-image: url(img/relogio_simples.jpg);
 }
 
-.parallax-3{
+.parallax-3 {
     background-attachment: fixed;
     background-size: cover;
     background-image: url(img/relogio_futurista.jpg);
 }
 
-.parallax-4{
+.parallax-4 {
     background-attachment: fixed;
     background-size: cover;
     background-image: url(img/relogio2.webp);
 }
 
-.rodape{
+.rodape {
     background-color: rgb(80, 80, 80);
     height: 60px;
     position: relative;
@@ -135,4 +135,79 @@ section{
     align-items: center;
     justify-content: center;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .nav-topo {
+        height: 50px;
+    }
+
+    .nome {
+        font-size: 16px;
+    }
+
+    .img-perfil {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu {
+        width: 150px;
+        height: auto;
+    }
+
+    .conteudo {
+        height: 45vh;
+    }
+
+    .parallax-1 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 40%;
+        background-image: url(img/relogio_velho.jpg);
+    }
+
+    .parallax-2 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 5%;
+        background-image: url(img/relogio_simples.jpg);
+    }
+
+    .parallax-3 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 50%;
+        background-image: url(img/relogio_futurista.jpg);
+    }
+
+    .parallax-4 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 50%;
+        background-image: url(img/relogio2.webp);
+    }
+}
+
+@media (min-width: 600.05px) and (max-width: 1200px) {
+    .parallax-1 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 40%;
+        background-image: url(img/relogio_velho.jpg);
+    }
+
+    .parallax-3 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 50%;
+        background-image: url(img/relogio_futurista.jpg);
+    }
+
+    .parallax-4 {
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: 50%;
+        background-image: url(img/relogio2.webp);
+    }
 }
