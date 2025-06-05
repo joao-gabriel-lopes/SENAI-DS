@@ -49,6 +49,7 @@
     visibility: hidden;
     z-index: 2;
     width: 200px;
+    height: auto;
 }
 
 .lista_menu {
@@ -153,7 +154,6 @@ section {
 
     .menu {
         width: 150px;
-        height: auto;
     }
 
     .conteudo {
