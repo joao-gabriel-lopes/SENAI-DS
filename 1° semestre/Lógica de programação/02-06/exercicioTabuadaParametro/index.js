@@ -77,8 +77,7 @@ function GerarTabuada(numero, inicio, fim) {
         document.getElementById(`td${i}2`).innerHTML = tabuada['fator'][i]
         document.getElementById(`td${i}3`).innerHTML = tabuada['resultado'][i]
     }
-
-    console.log(tabuada)
+    
 }
 
 
