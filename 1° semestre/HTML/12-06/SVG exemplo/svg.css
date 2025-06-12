@@ -1,0 +1,6 @@
+.svg-exemplo circle:hover {
+  fill: red;
+  stroke: black;
+  stroke-width: 2px;
+
+}
