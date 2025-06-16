@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d8978e3739.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>Carrinho de compras</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand nav-senai">
+
+        <a href="index.html" class="navbar-brand"><img class="nav-img" src="img/senai-logo.png" alt="SENAI"></a>
+
+        <h4 class="nav-titulo">Atividade: Compras</h4>
+    </nav>
+
+</body>
+
+<main class="principal row">
+
+    <section class="descricao col-3">
+
+        <p class="sect-titulo texto-vermelho">Descrição da atividade</p>
+
+        <hr class="hr-titulo">
+
+        <p>Crie um script, utilizando lógica de programação, que realiza as seguintes funções:</p>
+
+        <ul class="lista-descricao">
+            <li>
+                <i class="fa-solid fa-check"></i>
+                Adicionar itens ao carrinho;
+            </li>
+
+            <li>
+                <i class="fa-solid fa-check"></i>
+                Aplicar % de desconto ao total dos itens do carrinho
+            </li>
+        </ul>
+
+        <p class="texto-vermelho">Observação: ESCREVA SEU NOME NO RODAPÉ</p>
+    </section>
+
+    <section class="carrinho col-4">
+
+        <p class="sect-titulo texto-vermelho">Entrada(s)</p>
+
+        <hr class="hr-titulo">
+
+        <p>Menus:</p>
+
+        <section class="cartoes">
+            <article class="cartao">
+
+                <img class="cartao-img" src="img/banana.png" alt="Banana">
+
+                <hr>
+
+                <p class="cartao-p">Código: 1</p>
+                <p class="cartao-p">Produto: Banana</p>
+                <p class="cartao-p">Preço: R$4,00</p>
+
+                <hr>
+
+                <label class="cartao-label" for="banana_input">Quantidade:</label>
+                <input class="cartao-input" type="number" name="banana-input" id="banana_input">
+
+                <button onclick="AdicionarProduto(    
+                    1,
+                    'Banana',
+                    4,
+                    document.getElementById('banana_input').value
+                    )" class="btn-adicionar">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </article>
+
+            <article class="cartao">
+
+                <img class="cartao-img" src="img/laranja.webp" alt="Laranja">
+
+                <hr>
+
+                <p class="cartao-p">Código: 2</p>
+                <p class="cartao-p">Produto: Laranja</p>
+                <p class="cartao-p">Preço: R$2,00</p>
+
+                <hr>
+
+                <label class="cartao-label" for="laranja_input">Quantidade:</label>
+                <input class="cartao-input" type="number" name="laranja-input" id="laranja_input">
+
+                <button onclick="AdicionarProduto(    
+                    2,
+                    'Laranja',
+                    2,
+                    document.getElementById('laranja_input').value
+                    )" class="btn-adicionar">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </article>
+        </section>
+
+        <section class="cartoes">
+            <article class="cartao">
+
+                <img class="cartao-img" src="img/maça.png" alt="Maçã">
+
+                <hr>
+
+                <p class="cartao-p">Código: 3</p>
+                <p class="cartao-p">Produto: Maçã</p>
+                <p class="cartao-p">Preço: R$4,00</p>
+
+                <hr>
+
+                <label class="cartao-label" for="maca_input">Quantidade:</label>
+                <input class="cartao-input" type="number" name="maca-input" id="maca_input">
+
+                <button onclick="AdicionarProduto(    
+                    3,
+                    'Maçã',
+                    4,
+                    document.getElementById('maca_input').value
+                    )" class="btn-adicionar">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </article>
+
+            <article class="cartao">
+
+                <img class="cartao-img" src="img/melancia.png" alt="Melancia">
+
+                <hr>
+
+                <p class="cartao-p">Código: 4</p>
+                <p class="cartao-p">Produto: Melancia</p>
+                <p class="cartao-p">Preço: R$16,00</p>
+
+                <hr>
+
+                <label class="cartao-label" for="melancia_input">Quantidade:</label>
+                <input class="cartao-input" type="number" name="melancia-input" id="melancia_input">
+
+                <button onclick="AdicionarProduto(
+                    4,
+                    'Melancia',
+                    16,
+                    document.getElementById('melancia_input').value
+                    )" class="btn-adicionar">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </article>
+        </section>
+
+        <article class="desconto">
+            <p class="desconto-p">Desconto no carrinho:</p>
+
+            <hr class="hr-titulo">
+
+            <label class="desconto-label" for="input-desconto">% de desconto</label>
+            <input class="desconto-input" type="number" name="input-desconto" id="input-desconto">
+            <button onclick="Comprar(    
+                document.getElementById('banana_input').value,
+                document.getElementById('laranja_input').value,
+                document.getElementById('maca_input').value,
+                document.getElementById('melancia_input').value,
+                document.getElementById('input-desconto').value
+                )" class="btn-desconto">Aplicar</button>
+        </article>
+
+    </section>
+
+    <section class="saidas col-5">
+
+        <p class="sect-titulo texto-vermelho">Saída(s)</p>
+
+        <hr class="hr-titulo">
+
+        <p class="sect-titulo">Carrinho de compras:</p>
+
+        <hr class="hr-titulo">
+
+        <section class="resultado" id="resultado"></section>
+
+    </section>
+
+</main>
+
+<footer class="rodape">
+    <p>Nome: João Gabriel Penha Lopes</p>
+</footer>
+
+</html>

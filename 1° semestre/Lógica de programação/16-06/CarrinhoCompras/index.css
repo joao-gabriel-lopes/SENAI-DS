@@ -1,0 +1,184 @@
+* , .row{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav-senai {
+    background-color: rgb(107, 0, 0);
+}
+
+.nav-titulo {
+    color: white;
+    margin: 0%;
+}
+
+.nav-img {
+    max-width: 150px;
+}
+
+.cartoes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cartao{
+    background-color: rgb(255, 232, 232);
+    max-width: 200px;
+    font-size: 13px;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.cartao-img{
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.cartao-input{
+    display: inline;
+    width: 40px;
+    border-radius: 5px;
+    border: 1.5px solid;
+    padding-left: 5px;
+}
+
+.cartao-input:hover, .cartao-input:focus{
+    border-color: rgb(191, 0, 0);
+    outline: none;
+    transition: 0.3s;
+}
+
+.cartao-label{
+    display: inline;
+}
+
+.cartao-p{
+    margin: 0px;
+}
+
+.btn-adicionar{
+    display: inline;
+    width: 30px;
+    background-color: rgb(251, 141, 141);
+    border-radius: 5px;
+    border: 1.5px solid;
+    cursor: pointer;
+}
+
+.btn-adicionar:hover{
+    border-color: rgb(251, 141, 141);
+    background-color: white;
+    color: rgb(251, 141, 141);
+    transition: 0.3s;
+}
+
+.desconto{
+    max-width: 170px;
+    border: 2px solid rgb(251, 141, 141);
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 12px;
+    margin-bottom: 40px;
+}
+
+.desconto-p{
+    margin-bottom: 0%;
+}
+
+.desconto-label{
+    margin-bottom: 0px;
+}
+
+.desconto-input{
+    width: 100%;
+    border-radius: 5px;
+    border: 1.5px solid;
+    padding: 0px 5px;
+}
+
+.desconto-input:hover, .desconto-input:focus{
+    border-color: rgb(191, 0, 0);
+    outline: none;
+    transition: 0.3s;
+}
+
+.btn-desconto{
+    width: 100%;
+    background-color: rgb(251, 141, 141);
+    border-radius: 5px;
+    border: 1.5px solid;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.btn-desconto:hover{
+    border-color: rgb(251, 141, 141);
+    background-color: white;
+    color: rgb(251, 141, 141);
+    transition: 0.3s;
+}
+
+.sect-titulo {
+    margin-bottom: 0%;
+}
+
+.lista-descricao {
+    padding-left: 20px;
+}
+
+.lista-descricao li{
+    padding: 5px;
+}
+
+.lista-descricao li i{
+    color: rgb(0, 207, 0);
+}
+
+.texto-vermelho{
+    color: rgb(127, 0, 0);
+}
+
+.hr-titulo{
+    margin: 0%;
+}
+
+hr{
+    margin: 2%;
+    border: 1px solid rgb(114, 114, 114);
+}
+
+.descricao, .carrinho{
+    border-right: 1.5px solid black;
+}
+
+#tabela{
+    width: 100%;
+    text-align: center;
+}
+
+th, td{
+    border: 1px solid black;
+}
+
+.rodape {
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(107, 0, 0);
+}
+
+.rodape p {
+    font-size: 18px;
+    margin: 0%;
+    padding: 10px;
+}
