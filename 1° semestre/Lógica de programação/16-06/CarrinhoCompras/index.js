@@ -94,9 +94,9 @@ function Comprar(qtd_banana, qtd_laranja, qtd_maca, qtd_melancia, desconto, desc
         document.getElementById(`td${MatrizProdutos[i]}${produtos}1`).innerHTML = MatrizProdutos['indice'][i]
         document.getElementById(`td${MatrizProdutos[i]}${produtos}2`).innerHTML = MatrizProdutos['codigo'][i]
         document.getElementById(`td${MatrizProdutos[i]}${produtos}3`).innerHTML = MatrizProdutos['descricao'][i]
-        document.getElementById(`td${MatrizProdutos[i]}${produtos}4`).innerHTML = MatrizProdutos['preco'][i]
+        document.getElementById(`td${MatrizProdutos[i]}${produtos}4`).innerHTML = 'R$ ' + MatrizProdutos['preco'][i]
         document.getElementById(`td${MatrizProdutos[i]}${produtos}5`).innerHTML = MatrizProdutos['quantidade'][i]
-        document.getElementById(`td${MatrizProdutos[i]}${produtos}6`).innerHTML = MatrizProdutos['subtotal'][i]
+        document.getElementById(`td${MatrizProdutos[i]}${produtos}6`).innerHTML = 'R$ ' + MatrizProdutos['subtotal'][i]
 
         produtos++
 
@@ -113,8 +113,8 @@ function Comprar(qtd_banana, qtd_laranja, qtd_maca, qtd_melancia, desconto, desc
 
     valor_descontado = valor_total - desconto
 
-    document.getElementById('resultado').innerHTML += `Valor da total compra: ${valor_total} <br>`
-    document.getElementById('resultado').innerHTML += `Valor descontado: ${desconto} <br>`
-    document.getElementById('resultado').innerHTML += `Valor final da compra: ${valor_descontado} <br>`
+    document.getElementById('resultado').innerHTML += `Valor da total compra: R$ ${valor_total} <br>`
+    document.getElementById('resultado').innerHTML += `Valor descontado: R$ ${desconto} <br>`
+    document.getElementById('resultado').innerHTML += `Valor final da compra: R$ ${valor_descontado} <br>`
 
 }   
