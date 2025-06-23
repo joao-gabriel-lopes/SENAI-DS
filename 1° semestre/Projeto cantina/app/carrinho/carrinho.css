@@ -1,0 +1,221 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+}
+
+body{
+    background-image: url(../../img/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.nav-senai{
+    background-color: rgb(147, 0, 0);
+}
+
+.nav-senai li{
+    display: flex;
+    align-items: center;
+}
+
+.nav-senai li a {
+    color: white;
+    margin-left: 10px;    
+    border-radius: 10px;
+}
+
+.nav-senai li a:hover {
+    background-color: white;
+    color: rgb(147, 0, 0);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-senai img{
+    max-width: 150px;
+}
+
+.img-perfil {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../img/perfil.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.rodape{
+    background-color: rgb(147, 0, 0);
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+.principal{
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.menu{
+    position: absolute;
+    background-color: rgb(147, 0, 0);
+    padding: 20px;
+    border-radius: 0px 0px 20px 20px;
+    text-align: center;
+    right: 0%;
+    visibility:hidden;
+    z-index: 2;
+}
+
+.lista_menu{
+    list-style: none;
+}
+
+.lista_menu li{
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.lista_menu li a{
+    text-decoration: none;
+    color: black;
+}
+
+.lista_menu li a:hover {
+    color: rgb(197, 0, 0);
+    transition: 0.3s;
+}
+
+.linha_salgado{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.principal{
+    background-color: white;
+    border-radius: 30px;
+    padding: 1% 3%;
+    margin-top: 20px;
+    animation: fadein 1s;
+}
+
+.produto{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.img-carrinho{
+    height: 200px;
+}
+
+.titulo-carrinho{
+    font-size: 1.4rem;
+    margin-top: 13px;
+}
+
+.preco-carrinho{
+    margin-top: 13px;
+}
+
+.quantidade{
+    margin-top: 13px;
+}
+
+.btn-carrinho{
+    background-color: rgb(197, 0, 0);
+    color: white;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.btn-carrinho:hover{
+    background-color: white;
+    color: rgb(197, 0, 0);
+    border: rgb(197, 0, 0) 1px solid;
+    transition: 0.3s;
+}
+
+.btn-concluir-compra{
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    padding: 1%;
+    background-color: rgb(197, 0, 0);
+    color: white;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.btn-concluir-compra:hover{
+    background-color: white;
+    color: rgb(197, 0, 0);
+    border: rgb(197, 0, 0) 1px solid;
+    padding: 1.1%;
+    transition: 0.3s;
+}
+
+.mensagem{
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .img-carrinho{
+        height: 150px;
+    }
+    .titulo-carrinho{
+        font-size: 0.7rem;
+    }
+    .preco-carrinho{
+        font-size: 0.7rem;
+    }
+    .quantidade{
+        font-size: 0.7rem;
+    }
+    .btn-carrinho{
+        font-size: 0.7rem;
+        padding: 0px;
+    }
+    .mensagem{
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .img-carrinho{
+        height: 200px;
+    }
+    .titulo-carrinho{
+        font-size: 1rem;
+    }
+    .preco-carrinho{
+        font-size: 1rem;
+    }
+    .quantidade{
+        font-size: 1rem;
+    }
+    .btn-carrinho{
+        font-size: 1rem;
+    }
+    .mensagem{
+        font-size: 1rem;
+    }
+}

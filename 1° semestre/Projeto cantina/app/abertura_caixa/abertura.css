@@ -1,0 +1,184 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+}
+
+body{
+    background-image: url(../../img/bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.nav-senai{
+    background-color: rgb(147, 0, 0);
+}
+
+.nav-senai li{
+    display: flex;
+    align-items: center;
+}
+
+.nav-senai li a {
+    color: white;
+    margin-left: 10px;    
+    border-radius: 10px;
+}
+
+.nav-senai li a:hover {
+    background-color: white;
+    color: rgb(147, 0, 0);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-senai img{
+    max-width: 150px;
+}
+
+.img-perfil {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../img/perfil.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.rodape{
+    background-color: rgb(147, 0, 0);
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+.principal{
+    position: relative;
+    background-color: white;
+    width: 85%;
+    margin: 20px auto 70px auto;
+    border-radius: 20px;
+    padding: 20px 30px;
+    animation: fadein 1s;
+}
+
+.menu{
+    position: absolute;
+    background-color: rgb(147, 0, 0);
+    padding: 20px;
+    border-radius: 0px 0px 20px 20px;
+    text-align: center;
+    right: 0%;
+    visibility:hidden;
+    z-index: 2;
+}
+
+.lista_menu{
+    list-style: none;
+}
+
+.lista_menu li{
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.lista_menu li a{
+    text-decoration: none;
+    color: black;
+}
+
+.lista_menu li a:hover {
+    color: rgb(197, 0, 0);
+    transition: 0.3s;
+}
+
+.input-movimentacao{
+    margin: 0px 10px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.btn-seta:hover{
+    border-color: rgb(197, 0, 0);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-seta{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+}
+
+.input-movimentacao:hover{
+    border-color: rgb(197, 0, 0);
+    transition: 0.3s;
+}
+
+.input-movimentacao:focus{
+    border-color: rgb(197, 0, 0);
+    outline: none;
+}
+
+#tabela-movimentacao{
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+}
+
+th{
+    margin: 0px auto;
+    border: 1.5px solid black; 
+    background-color: rgb(197, 0, 0);
+    color: white;
+}
+
+th:hover{
+    background-color: rgba(197, 0, 0, 0.7);
+}
+
+td{
+    margin: 0px auto;
+    border: 1.5px outset black;
+}
+
+td:hover{
+    background-color: rgba(241, 241, 241, 0.7);
+
+}
+
+select{
+    border: 2px rgb(50, 50, 50);
+    border-style: inset;
+}
+
+select option{
+    text-align: left;
+    color: black;
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    td{
+        max-width: 40px;
+        font-size: 10px;
+    }
+    th{
+        max-width: 40px;
+        font-size: 7.5px;
+    }
+}
+

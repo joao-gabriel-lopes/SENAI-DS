@@ -1,0 +1,99 @@
+body {
+    background-image: url(../../img/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: radial-gradient(rgb(255, 255, 255), rgb(192, 184, 184));
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px grey;
+    width: 350px;
+    margin: 0px auto;
+}
+
+label{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+}
+
+input{
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+input:hover{
+    border-color: rgb(220, 0, 0);
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: rgb(197, 0, 0);
+    outline: none;
+}
+
+button{
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: rgb(197, 0, 0);
+    font-size: 20px;
+    color: white;
+}
+
+button:hover{
+    background-color: white;
+    color: rgb(197, 0, 0);
+    transition: 0.3s;
+    cursor: pointer;
+    border-color: rgb(197, 0, 0);
+}
+
+.img-logo{
+    width: 400px;
+    border-radius: 140px;
+    margin-bottom: 10px;
+}
+
+#mensagem{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    color: rgb(212, 8, 8);
+}
+
+.rodape{
+    background-color: rgb(147, 0, 0);
+    color: white;
+    padding: 13px 0px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0%;
+}
+
+.container{
+    position: relative;
+    margin-bottom: 70px;
+    animation: fadein 1s;
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}

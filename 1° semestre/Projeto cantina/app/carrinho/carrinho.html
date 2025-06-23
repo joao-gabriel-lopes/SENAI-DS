@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantina SENAI - Carrinho</title>
+    <link rel="shortcut icon" href="../../img/logo.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="carrinho.css">
+    <script src="carrinho.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm nav-senai">
+
+        <a class="navbar-brand img-senai" href="../pagina_principal/home.html"><img src="../../img/senai.png" alt="SENAI"></a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="../pagina_principal/home.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a onclick="AbrirMenu()" class="nav-link img-perfil"></a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div class="menu" id="menu">
+        <ul class="lista_menu">
+            <li><a href="">Você</a></li>
+            <li><a href="">Configurações</a></li>
+            <li><a href="../home/index.html">Logoff</a></li>
+        </ul>
+    </div>
+
+
+    <main class="principal container">
+
+
+        <section class="produto row">
+            <img class="col-3 img-carrinho" src="../../img/bauru.png" alt="bauru">
+            <p class="col-2 titulo-carrinho">Bauru</p>
+            <p class="quantidade col-2" id="quantidade1">Quantidade: 0</p>
+            <p class="col-3 preco-carrinho" id="preco1">Preço: R$ 0</p>
+            <button onclick="AdicionarCarrinho('1', '-', '6.50')" class="col-1 btn-carrinho">-</button>
+            <button onclick="AdicionarCarrinho('1', '+', '6.50')" class="col-1 btn-carrinho">+</button>
+        </section>
+
+        <section class="produto row">
+            <img class="col-3 img-carrinho" src="../../img/hamburguer.png" alt="hamburguer">
+            <p class="col-2 titulo-carrinho">Hamburguer</p>
+            <p class="quantidade col-2" id="quantidade2">Quantidade: 0</p>
+            <p class="col-3 preco-carrinho" id="preco2">Preço: R$ 0</p>
+            <button onclick="AdicionarCarrinho('2', '-', '9.00')" class="col-1 btn-carrinho">-</button>
+            <button onclick="AdicionarCarrinho('2', '+', '9.00')" class="col-1 btn-carrinho">+</button>
+        </section>
+
+        <section class="produto row">
+            <img class="col-3 img-carrinho" src="../../img/croissant.png" alt="croissant">
+            <p class="col-2 titulo-carrinho">Croissant</p>
+            <p class="quantidade col-2" id="quantidade3">Quantidade: 0</p>
+            <p class="col-3 preco-carrinho" id="preco3">Preço: R$ 0</p>
+            <button onclick="AdicionarCarrinho('3', '-', '7.00')" class="col-1 btn-carrinho">-</button>
+            <button onclick="AdicionarCarrinho('3', '+', '7.00')" class="col-1 btn-carrinho">+</button>
+        </section>
+
+        <section class="produto row">
+            <img class="col-3 img-carrinho" src="../../img/pao_batata.png" alt="croissant">
+            <p class="col-2 titulo-carrinho">Pão de batata</p>
+            <p class="quantidade col-2" id="quantidade4">Quantidade: 0</p>
+            <p class="col-3 preco-carrinho" id="preco4">Preço: R$ 0</p>
+            <button onclick="AdicionarCarrinho('4', '-', '7.00')" class="col-1 btn-carrinho">-</button>
+            <button onclick="AdicionarCarrinho('4', '+', '7.00')" class="col-1 btn-carrinho">+</button>
+        </section>
+
+        <button onclick="ConcluirCompra()" class="btn-concluir-compra">Concluir compra</button>
+
+        <p class="mensagem" id="mensagem"></p>
+    </main>
+
+    <footer class="rodape">
+
+        © Copyright 2025 Cantina SENAI
+
+    </footer>
+
+</body>
+
+
+
+</html>

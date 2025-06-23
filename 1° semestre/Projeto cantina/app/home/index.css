@@ -1,0 +1,250 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+}
+
+body {
+    background-image: url(../../img/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.amarelo {
+    color: rgb(255, 255, 80);
+    text-shadow: red 1px 1px 1px;
+    animation: text-shadow-titulo infinite alternate 1.5s;
+}
+
+.nav-senai {
+    background-color: rgb(147, 0, 0);
+}
+
+.nav-senai li a {
+    color: white;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.nav-senai li a:hover {
+    background-color: white;
+    color: rgb(147, 0, 0);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-senai img {
+    max-width: 150px;
+}
+
+.img-cantina img {
+    max-width: 300px;
+    animation: alternate infinite 1.5s aumentar-logo;
+}
+
+.home-botoes ul {
+    margin-top: 10%;
+    list-style: none;
+}
+
+h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 5rem;
+    line-height: 65px;
+}
+
+p {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.home-botoes li {
+    height: 20px;
+}
+
+.home-botoes a {
+    background-color: rgb(221, 0, 0);
+    padding: 4% 10%;
+    font-size: 1.1rem;
+    height: 100px;
+    border-radius: 15px;
+    color: white;
+}
+
+.home-botoes a:hover {
+    background-color: white;
+    color: rgb(221, 0, 0);
+    text-decoration: none;
+    box-shadow: 0px 0px 10px red;
+    transition: 0.3s;
+}
+
+.img-cantina img {
+    border-radius: 200px;
+}
+
+.rodape {
+    background-color: rgb(147, 0, 0);
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+.texto-principal {
+    margin-top: 7%;
+}
+
+.img-cantina {
+    margin-top: 7%;
+}
+
+.principal {
+    position: relative;
+    margin-bottom: 100px;
+    animation: fadein 1s;
+}
+
+@keyframes text-shadow-titulo {
+    from {
+        text-shadow: 1px 1px 5px red;
+    }
+
+    to {
+        text-shadow: 1px 1px 5px rgb(203, 203, 62);
+    }
+}
+
+@keyframes aumentar-logo {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.03);
+    }
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    h3 {
+        font-size: 5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .home-botoes a {
+        padding: 4% 5%;
+        font-size: 1.3rem;
+    }
+
+    .img-cantina {
+        display: none;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 350px) {
+
+
+    .home-botoes a {
+        padding: 4% 5%;
+        font-size: 1.2rem;
+    }
+
+}
+
+
+@media (min-height: 700px) and (max-height: 749.98px) {
+
+    .principal {
+        margin-top: 15%;
+    }
+}
+
+@media (min-height: 750px) and (max-height: 991px) {
+
+    .principal {
+        margin-top: 30%;
+    }
+}
+
+@media (min-height: 992px) and (max-height: 1100px) {
+
+    .principal {
+        margin-top: 25%;
+    }
+}
+
+@media (min-height: 1101px) and (max-height: 1400px) {
+
+    .principal {
+        margin-top: 35%;
+    }
+
+    h3 {
+        font-size: 6rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    .home-botoes {
+        padding: 4% 5%;
+    }
+
+    .home-botoes a {
+        padding: 4% 5%;
+        font-size: 1.285rem;
+    }
+
+    .img-cantina {
+        scale: 1.1;
+        margin-top: 15%;
+    }
+}
+
+@media (min-width: 1300px) {
+
+    .principal {
+        margin-top: 7%;
+    }
+
+    h3 {
+        font-size: 6rem;
+        line-height: 100px;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    .home-botoes {
+        padding: 4% 5%;
+    }
+
+    .home-botoes a {
+        padding: 4% 5%;
+        font-size: 1.285rem;
+    }
+
+    .img-cantina{
+        scale: 1.2;
+        margin-top: 10%;
+    }
+
+}
