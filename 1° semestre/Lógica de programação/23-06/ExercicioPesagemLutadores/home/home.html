@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesagem</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="home.js"></script>
+</head>
+
+<body>
+
+    <main class="principal">
+
+        <h1 class="titulo">Peso e sexo dos lutadores:</h1>
+
+        <label class="label-lutador" for="lutadorA">Lutador A:</label>
+        <input class="input-lutador" type="number" id="lutadorA">
+
+        <label class="label-lutador" for="lutadorB">Lutador B:</label>
+        <input class="input-lutador" type="number" id="lutadorB">
+
+        <label class="label-sexo" for="input-sexo">Sexo dos lutadores (F/M):</label>
+        <input class="input-sexo" type="text" maxlength="1" id="inputSexo">
+
+        <button class="btn-verificar" onclick="(VerificarPesagem(document.getElementById('lutadorA').value, document.getElementById('lutadorB').value, document.getElementById('inputSexo').value))">Validar Pesagem</button>
+
+        <p class="resultado" id="resultado"></p>
+
+    </main>
+
+</body>
+
+</html>

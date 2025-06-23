@@ -1,0 +1,52 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 7%;
+    width: 30%;
+    padding: 20px;
+}
+
+.titulo{
+    padding: 20px 0px;
+    font-size: 34px;
+}
+
+.input-lutador{
+    width: 100%;
+    margin: 5px;
+}
+
+.label-lutador{
+    align-self: flex-start;
+    margin: 5px 5px 5px 0px;
+}
+
+.input-sexo{
+    width: 100%;
+    margin: 5px;
+}
+
+.label-sexo{
+    align-self: flex-start;
+    margin: 5px 5px 5px 0px;
+}
+
+.btn-verificar{
+    width: 100%;
+    margin: 40px;
+}
