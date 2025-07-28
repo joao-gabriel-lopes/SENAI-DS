@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <label for="usuario">Usuário</label><br>
+    <input type="text" id="usuario">
+    <br><br>
+    <label for="senha">Senha</label><br>
+    <input type="text" id="senha">    
+    <br><br>
+    <button onclick="Autenticar(
+        document.getElementById('usuario').value,
+        document.getElementById('senha').value
+    )">Autenticar</button>
+</body>
+</html>
