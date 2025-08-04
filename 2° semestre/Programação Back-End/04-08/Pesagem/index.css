@@ -1,0 +1,45 @@
+*{
+    padding: 0%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(225, 225, 225);
+    padding: 0px 20px;
+    border-radius: 20px;
+    margin-top: 130px;
+    box-shadow: 5px 5px 0px 0px rgb(146, 146, 146);
+}
+
+label {
+    font-size: 20px;
+}
+
+input{
+    text-align: center;
+}
+
+.input-enviar{
+    background-color: rgb(181, 0, 0);
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    padding: 3px 20px;
+}
+
+.input-enviar:hover{
+    background-color: white;
+    color: rgb(209, 0, 0);
+    cursor: pointer;
+    border-color: red;
+}

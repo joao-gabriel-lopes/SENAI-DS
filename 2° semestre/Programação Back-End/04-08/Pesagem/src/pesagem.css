@@ -1,0 +1,29 @@
+*{
+    padding: 0%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(225, 225, 225);
+    padding: 0px 20px;
+    border-radius: 20px;
+    margin-top: 200px;
+    box-shadow: 5px 5px 0px 0px rgb(146, 146, 146);
+}
+
+.aprovado{
+    color: rgb(4, 244, 0);
+}
+
+.reprovado{
+    color: red;
+}
