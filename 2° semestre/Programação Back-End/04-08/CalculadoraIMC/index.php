@@ -67,22 +67,27 @@
 
                 $imc = $peso / ($altura * $altura);
 
-                $imc = number_format($imc,2, ",", ".");
+                $imc = number_format($imc, 2, ",", ".");
 
                 echo "O seu IMC é de $imc <br>";
 
                 if ($imc < 18.5) {
-                    echo "Magreza";
-                } else if ($imc >= 18.5 && $imc < 24.9) {
-                    echo "Normal";
-                } else if ($imc >= 24.9 && $imc < 29.9) {
-                    echo "Sobrepeso";
-                } else if ($imc >= 29.9 && $imc < 34.9) {
-                    echo "Obesidade grau 1";
-                } else if ($imc >= 34.9 && $imc < 39.9) {
-                    echo "Obesidade grau 2";
-                } else {
-                    echo "Obesidade grau 3";
+                    echo "Você está magro(a)";
+                } 
+                else if ($imc <= 24.9) {
+                    echo "Você está normal";
+                } 
+                else if ($imc <= 29.9) {
+                    echo "Você está com sobrepeso";
+                } 
+                else if ($imc <= 34.9) {
+                    echo "Você está com obesidade grau 1";
+                } 
+                else if ($imc <= 39.9) {
+                    echo "Você está com obesidade grau 2";
+                } 
+                else {
+                    echo "Você está com obesidade grau 3";
                 }
             }
 
