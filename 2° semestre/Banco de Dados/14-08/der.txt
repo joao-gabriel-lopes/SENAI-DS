@@ -1,0 +1,30 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Livro{
+  id int [pk]
+  id_autor int
+  nome varchar(255)
+}
+
+table Autor{
+  id int [pk]
+  nome varchar(255)
+}
+
+table Empréstimo{
+  id int [pk]
+  cliente_id int
+  livro_id int
+  hora datetime
+}
+
+table Usuário{
+  id int [pk]
+  nome varchar(200)
+  email varchar(70)
+}
+
+Ref Livro: Livro.id_autor <> Autor.id
+Ref Empréstimo: Empréstimo.livro_id <> Livro.id
+ref Usuário: Usuário.id > Empréstimo.cliente_id
