@@ -1,0 +1,33 @@
+.principal{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container a{
+    width: 330px;
+    height: 330px;
+    background-color: rgb(247, 247, 247);
+    padding: 0px 20px;
+    border-radius: 40px;
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 10px 10px 5px 3px grey;
+}
+
+.container a:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.img-cartao{
+    max-width: 200px;
+}
+
+.titulo-cartao{
+    color: black;
+}

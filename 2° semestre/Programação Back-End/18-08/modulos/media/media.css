@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px 50px;
+    border-radius: 30px;
+    margin-top: 40px;
+    box-shadow: 8px 8px 5px 5px grey;
+}
+
+.label-nota{
+    font-size: 20px;
+    
+}
+
+.input-nota{
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+    border: 1.7px solid rgb(0, 0, 0);
+    text-align: center;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.input-nota:hover, .input-nota:focus{
+    border: 1.7px solid rgb(0, 140, 158);
+}
+
+.input-calcular{
+    width: 45%;
+    border-radius: 20px;
+    padding: 5px 0px;
+    background-color: rgb(0, 140, 158);
+    color: white;
+    border: 1.7px solid rgb(0, 0, 0);
+    font-size: 15px;
+}
+
+.input-calcular:hover{
+    cursor: pointer;
+    background-color: white;
+    color: rgb(0, 140, 158);
+    border: 1.7px solid rgb(0, 140, 158);
+    transition: 0.3s;
+}
+
+.media{
+    font-size: 15px;
+}
