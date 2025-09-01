@@ -1,5 +1,5 @@
 <?php
-    require_once 'produto.php';
+require_once 'produto.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,9 @@
 
     <h1>Produto</h1>
 
-    <?php 
+    <?php
+
+    try {
         $produto = new Produto(
             nome: "Leite",
             valorUnitario: 6.95,
@@ -27,7 +29,12 @@
         echo "Data de Validade: " . $produto->GetDataVencimento() . "<br>";
         echo "O produto está: ";
         echo $produto->VerificarSeEstaVencido();
-    
+
+    } catch (Exception $e) {
+        echo "Erro: ". $e->getMessage();
+    }
+
+
     ?>
 
 </body>
