@@ -15,10 +15,10 @@ class Produto
 
     public function SetNome($parametroNome)
     {
-        if (strlen($parametroNome) > 0) {
+        if (strlen($parametroNome) >= 3) {
             $this->nome = $parametroNome;
         } else {
-            throw new InvalidArgumentException("O nome do produto não deve pode possuir zero ou menos caracteres");
+            throw new InvalidArgumentException("O nome do produto deve possuir no mínimo 3 caracteres");
         }
     }
 
@@ -27,7 +27,7 @@ class Produto
         if ($parametroValorUnitario > 0) {
             $this->valorUnitario = $parametroValorUnitario;
         } else {
-            throw new InvalidArgumentException("O valor unitário deve ser maior que zero");
+            throw new InvalidArgumentException("O valor unitário não deve ser menor que zero");
         }
     }
 
