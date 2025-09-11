@@ -1,0 +1,24 @@
+Table Livro {
+  Id int [primary key]
+  Nome varchar(50) [not null]
+  Autor varchar(50) [not null]
+  Editora varchar(30)
+  Genero varchar(30) 
+}
+
+Table Usuario {
+  Id int [primary key]
+  Nome varchar(50) [not null]
+  CPF varchar(11) [not null]
+  Telefone varchar(11)
+}
+
+Table Emprestimo {
+  Id int [primary key]
+  Id_usuario int [not null]
+  Id_livro int [not null]
+  Data datetime [not null]
+}
+
+Ref Usuario: Usuario.Id < Emprestimo.Id_usuario
+Ref Livro: Livro.Id <> Emprestimo.Id_livro
