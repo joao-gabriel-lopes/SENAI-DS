@@ -1,0 +1,24 @@
+Table Aluno {
+  Id int [primary key]
+  Nome varchar(80) [not null]
+  Cpf varchar(11) [not null]
+  Email varchar(50) 
+  Telefone varchar(11)
+}
+
+Table Matricula{
+  Id int [primary key]
+  IdAluno int [not null]
+  IdCurso int [not null]
+  DataMatricula datetime [not null]
+}
+
+Table Curso{
+  Id int [primary key]
+  Nome varchar(80) [not null]
+  Descricao text [not null]
+  CargaHoraria int [not null]
+}
+
+Ref Aluno: Aluno.Id < Matricula.IdAluno
+Ref Curso: Curso.Id < Matricula.IdCurso
