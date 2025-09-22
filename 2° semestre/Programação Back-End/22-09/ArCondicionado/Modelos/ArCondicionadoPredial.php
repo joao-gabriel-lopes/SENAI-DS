@@ -37,7 +37,7 @@ class ArCondicionadoPredial implements IArCondicionado
     {
         if ($this->temperaturaAtual < $this->temperaturaMaxima) {
             $this->temperaturaAtual++;
-            return "A temperatura aumentou 1°C <br>" . $this->VerificarTemperaturaAtual() . "°C";
+            return "A temperatura aumentou 1°C";
         } else {
             return "A temperatura atual é a temperatura máxima, sendo " . $this->GetTemperaturaMaxima() . "°C";
         }
@@ -47,7 +47,7 @@ class ArCondicionadoPredial implements IArCondicionado
     {
         if ($this->temperaturaAtual > $this->temperaturaMinima) {
             $this->temperaturaAtual--;
-            return "A temperatura diminuiu 1°C <br>" . $this->VerificarTemperaturaAtual() . "°C";
+            return "A temperatura diminuiu 1°C";
         } else {
             return "A temperatura atual é a temperatura mínima, sendo " . $this->GetTemperaturaMinima() . "°C";
         }
@@ -60,7 +60,7 @@ class ArCondicionadoPredial implements IArCondicionado
 
     public function VerificarTemperaturaAtual()
     {
-        return "O ar-condicionado está: " . $this->temperaturaAtual;
+        return "O ar-condicionado está: " . $this->temperaturaAtual . "°C";
     }
 
     public function SetTemperaturaMinima($temperaturaMinima)
