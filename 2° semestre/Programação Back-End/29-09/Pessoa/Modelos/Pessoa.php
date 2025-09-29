@@ -11,7 +11,7 @@ abstract class Pessoa implements IPessoa{
     public function __construct($nome, $cpf, $dataNascimento){
         $this->nome = $nome;
         $this->SetCpf($cpf);
-        $this->dataNascimento = $dataNascimento;
+        $this->dataNascimento = new DateTime($dataNascimento);
     }
 
     public function SetCpf($cpf){
@@ -23,8 +23,8 @@ abstract class Pessoa implements IPessoa{
     }
 
     public function CalcularIdade(){
-        $dataHoje = new Datetime('Y-m-d');
-        return date_diff($dataHoje, $this->dataNascimento);
+        $dataHoje = new DateTime('now');
+        return $dataHoje->diff($this->dataNascimento)->y;
     }
 
     public function GetNome(){

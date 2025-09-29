@@ -7,7 +7,7 @@ class Aluno extends Pessoa{
     private $nota2;
     private $valorAjudaCusto;
 
-    public function __construct($ra, $nota1, $nota2, $valorAjudaCusto, $nome, $cpf, $dataNascimento) {
+    public function __construct( $nome, $cpf, $dataNascimento, $ra, $nota1, $nota2, $valorAjudaCusto) {
         parent::__construct($nome, $cpf, $dataNascimento);
         $this->ra = $ra;
         $this->nota1 = $nota1;
