@@ -359,10 +359,10 @@ design rules under a new name.
 <wire x1="186.7236" y1="9.5664" x2="151.0425" y2="7.8034" width="0" layer="19" extent="1-1"/>
 <wire x1="186.7236" y1="9.5664" x2="218.2682" y2="9.9476" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="U1_D4">
+<signal name="U1_D6">
 <contactref element="SERVO2" pad="3"/>
-<contactref element="U1" pad="D4"/>
-<wire x1="213.1882" y1="9.9476" x2="63.125" y2="53.975" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="D6"/>
+<wire x1="213.1882" y1="9.9476" x2="58.045" y2="53.975" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="U1_5V">
 <contactref element="U1" pad="5V"/>
@@ -373,25 +373,25 @@ design rules under a new name.
 <wire x1="184.1836" y1="9.5664" x2="115.4825" y2="53.5234" width="0" layer="19" extent="1-1"/>
 <wire x1="47.885" y1="5.715" x2="115.4825" y2="53.5234" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="U1_D3">
+<signal name="U1_D5">
 <contactref element="SERVO1" pad="3"/>
-<contactref element="U1" pad="D3"/>
-<wire x1="181.6436" y1="9.5664" x2="65.665" y2="53.975" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="D5"/>
+<wire x1="181.6436" y1="9.5664" x2="60.585" y2="53.975" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="U1_D2">
 <contactref element="U1" pad="D2"/>
 <contactref element="PIR1" pad="1"/>
 <wire x1="68.205" y1="53.975" x2="112.9425" y2="53.5234" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="U1_D6">
+<signal name="U1_D4">
 <contactref element="D2" pad="1"/>
-<contactref element="U1" pad="D6"/>
-<wire x1="153.5825" y1="23.0434" x2="58.045" y2="53.975" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="D4"/>
+<wire x1="153.5825" y1="23.0434" x2="63.125" y2="53.975" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="U1_D5">
-<contactref element="U1" pad="D5"/>
+<signal name="U1_D3">
 <contactref element="D1" pad="1"/>
-<wire x1="60.585" y1="53.975" x2="143.4225" y2="23.0434" width="0" layer="19" extent="1-1"/>
+<contactref element="U1" pad="D3"/>
+<wire x1="143.4225" y1="23.0434" x2="65.665" y2="53.975" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="D1_C">
 <contactref element="R1" pad="2"/>
