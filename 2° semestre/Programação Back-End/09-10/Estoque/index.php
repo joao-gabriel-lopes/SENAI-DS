@@ -27,22 +27,27 @@ require_once "Entidades/Localizacao.php";
 
         <input class="submit-localizacao" type="submit" value="Salvar">
 
-    </form>
+        <?php
 
-    <?php
-    
         $conexao = Conectar();
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nome = $_POST["nome"];
             $descricao = $_POST["descricao"];
 
-            $localizacao = new Localizacao($nome, $descricao);
-            $localizacao->Salvar($conexao);
+            try {
+                $localizacao = new Localizacao($nome, $descricao);
+                $localizacao->Salvar($conexao);
+                echo "<p class='sucesso'>Sucesso ao salvar localização!</p>";
+            } catch (Exception $e) {
+                echo "<p class='erro'>" . "Erro ao salvar localização: " . $e->getMessage() . "</p>";
+            }
 
         }
 
-    ?>
+        ?>
+
+    </form>
 
 </body>
 

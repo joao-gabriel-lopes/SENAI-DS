@@ -11,10 +11,10 @@ body {
     flex-direction: column;
     background-color: rgb(222, 222, 222);
     width: 20%;
-    margin-top: 5%;
+    margin-top: 3%;
     border-radius: 15px;
     padding: 20px 50px;
-    box-shadow: 3px 5px 5px rgb(125, 125, 125);
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
 }
 
 .label-localizacao {
@@ -67,4 +67,14 @@ body {
 .submit-localizacao:hover {
     border: 1.5px solid rgb(0, 173, 173);
     color: rgb(0, 173, 173);
+}
+
+.sucesso{
+    color: rgb(0, 187, 0);
+    font-size: 18px;
+}
+
+.erro{
+    color: red;
+    font-size: 18px;
 }
