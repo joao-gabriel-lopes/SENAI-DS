@@ -1,0 +1,79 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(222, 222, 222);
+    width: 30%;
+    margin-top: 1%;
+    border-radius: 15px;
+    padding: 20px 50px;
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
+}
+
+.label-pet {
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+.input-pet {
+    width: 94%;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.input-pet:hover, .input-pet:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.textarea-pet {
+    max-width: 94%;
+    min-width: 94%;
+    max-height: 50px;
+    min-height: 50px;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.textarea-pet:hover, .textarea-pet:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.submit-pet {
+    width: 90%;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1.5px solid black;
+    transition: 0.4s;
+}
+
+.submit-pet:hover {
+    border: 1.5px solid rgb(0, 173, 173);
+    color: rgb(0, 173, 173);
+}
+
+.sucesso{
+    color: rgb(0, 187, 0);
+    font-size: 18px;
+}
+
+.erro{
+    color: red;
+    font-size: 18px;
+}
