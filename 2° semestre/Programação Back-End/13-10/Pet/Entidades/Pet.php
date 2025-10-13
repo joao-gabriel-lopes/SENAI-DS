@@ -71,6 +71,10 @@ class Pet
 
         try {
             $stmt->execute();
+
+            $id = $conexao->lastInsertId();
+
+            header("Location: index.php?id=$id");
         } catch (Exception $e) {
             throw new Exception("Erro ao salvar: " . $e->getMessage());
         }
