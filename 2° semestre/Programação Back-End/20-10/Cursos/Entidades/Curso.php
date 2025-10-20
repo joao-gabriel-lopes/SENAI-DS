@@ -83,6 +83,8 @@ class Curso
                 $stmt->execute();
 
                 echo "<p class='sucesso'>Curso atualizado com sucesso!</p>";
+
+                header("Location: index.php?id=" . $this->GetId());
             } catch (Exception $e) {
                 echo "<p class='erro'>Erro ao atualizar: " . $e->getMessage() . "</p>";
             }
