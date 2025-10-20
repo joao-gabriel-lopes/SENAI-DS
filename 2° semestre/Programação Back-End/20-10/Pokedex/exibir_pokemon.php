@@ -54,6 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $pokemon->SetNomeImagem($_POST["fotoNome"]);
 
                 $pokemon->Salvar();
+
+                header("location: exibir_pokemon.php?id=" . $pokemon->GetId());
             }
             ?>
         </section>
