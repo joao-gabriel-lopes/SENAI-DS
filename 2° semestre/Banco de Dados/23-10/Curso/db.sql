@@ -1,0 +1,34 @@
+CREATE DATABASE ESCOLA;
+
+USE ESCOLA;
+
+CREATE TABLE CURSO (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE ALUNO (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(100) NOT NULL,
+    CURSO_ID INT,
+    FOREIGN KEY (CURSO_ID) REFERENCES CURSO(ID)
+);
+
+INSERT INTO CURSO (NOME)
+VALUES
+    ('Desenv. Sistemas'),
+    ('MS Power BI'),
+    ('MS Office');
+
+INSERT INTO ALUNO (NOME, CURSO_ID)
+VALUES
+    ('Laura', 1),
+    ('Laura', 2),
+    ('Jonas', 1),
+    ('Daniel', 1),
+    ('Goku', null),
+    ('Peter', null),
+    ('Clark', null);    
+   
+SELECT * FROM ALUNO;
+SELECT * FROM CURSO;
