@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(222, 222, 222);
+    width: 30%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+    padding: 20px 50px;
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
+}
+
+.label-curso {
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+.input-curso {
+    width: 94%;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.input-curso:hover, .input-curso:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.textarea-curso {
+    max-width: 94%;
+    min-width: 94%;
+    max-height: 50px;
+    min-height: 50px;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.textarea-curso:hover, .textarea-curso:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.area-botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.botao{
+    width: 60%;
+    border-radius: 5px;
+    background-color: white;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.3s;
+}
+
+.botao:hover, .botao:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.sucesso{
+    color: rgb(0, 187, 0);
+    font-size: 18px;
+}
+
+.erro{
+    color: red;
+    font-size: 18px;
+}
