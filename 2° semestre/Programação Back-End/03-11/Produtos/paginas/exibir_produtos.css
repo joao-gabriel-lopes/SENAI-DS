@@ -1,0 +1,104 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container img {
+    max-width: 300px;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(222, 222, 222);
+    width: 30%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+    padding: 20px 50px;
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
+}
+
+.label-produto {
+    align-self: flex-start;
+    font-size: 20px;
+}
+
+.input-produto {
+    width: 94%;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.input-produto:hover, .input-produto:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.textarea-produto {
+    max-width: 94%;
+    min-width: 94%;
+    max-height: 50px;
+    min-height: 50px;
+    margin-bottom: 10%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.textarea-produto:hover, .textarea-produto:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.area-pesquisa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(222, 222, 222);
+    width: 30%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+    padding: 20px 50px;
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
+}
+
+.input-pesquisa{
+    width: 70%;
+    padding: 5px 10px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1.5px solid rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.input-pesquisa:hover, .input-pesquisa:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    outline: none;
+}
+
+.botao{
+    width: 30%;
+    padding: 5px 10px;
+    border-radius: 0px 5px 5px 0px;
+    background-color: white;
+    border: 1.5px solid rgb(0, 0, 0);
+    border-left: none;
+    transition: 0.3s;
+}
+
+.botao:hover, .botao:focus {
+    border: 1.5px solid rgb(0, 173, 173);
+    border-left: none;
+    outline: none;
+}
