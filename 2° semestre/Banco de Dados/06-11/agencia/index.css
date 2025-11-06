@@ -1,0 +1,78 @@
+/* ===== Estilo geral ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f3f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Container principal ===== */
+main {
+    width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Título ===== */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* ===== Informações da conta ===== */
+p {
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+/* ===== Formulário ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2b3d59;
+}
+
+input[type="number"],
+select {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fafafa;
+    transition: border-color 0.2s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* ===== Botão ===== */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
