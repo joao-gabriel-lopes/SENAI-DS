@@ -8,7 +8,7 @@ $valor = isset($_POST['valor']) ? $_POST['valor'] : "";
 
 $conexao->beginTransaction();
 
-try{
+try {
     $sql = '
         UPDATE CONTA_BANCARIA
         SET SALDO = (SALDO - :P_VALOR)
@@ -22,12 +22,16 @@ try{
 
     $stmt->execute();
 
+    if ($stmt->rowCount() < 0) {
+        throw new Exception('Erro ao retirar valor do Pix, nenhuma linha foi afetada');
+    }
+
     $sql = '
         UPDATE CONTA_BANCARIA
         SET SALDO = (SALDO + :P_VALOR)
         WHERE NUMERO = :P_CONTA_DESTINO;
         ';
-        
+
     $stmt = $conexao->prepare($sql);
 
     $stmt->bindParam(':P_VALOR', $valor);
@@ -35,10 +39,14 @@ try{
 
     $stmt->execute();
 
+    if ($stmt->rowCount() < 0) {
+        throw new Exception('Erro ao adicionar valor do Pix, nenhuma linha foi afetada');
+    }
+
     $conexao->commit();
 
     $mensagem = "Pix realizado com sucesso!";
- } catch(Exception $e){
+} catch (Exception $e) {
     $conexao->rollback();
     $mensagem = "Erro ao realizar o Pix: " . $e->getMessage();
 }
@@ -55,12 +63,14 @@ $lista_contas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado do PIX</title>
     <link rel="stylesheet" href="realizarPix.css">
 </head>
+
 <body>
     <div class="status">
         <?= $mensagem ?>
@@ -97,4 +107,5 @@ $lista_contas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="index.php">← Voltar</a>
     </div>
 </body>
+
 </html>
