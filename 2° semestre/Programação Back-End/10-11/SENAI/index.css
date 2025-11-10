@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(237, 237, 237);
+    color: rgb(33, 33, 201);
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.label-senai {
+    margin: 10px;
+    font-size: 20px;
+    align-self: flex-start;
+}
+
+.input-senai {
+    margin: 10px;
+    padding: 10px;
+    width: 87%;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: black;
+    transition: border 0.3s ease;
+}
+
+.input-senai:focus, .input-senai:hover {
+    outline: none;
+    border: 1px solid rgb(33, 33, 201);
+}
+
+.input-senai::file-selector-button {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.botao-senai {
+    width: 94%;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    background-color: rgb(33, 33, 201);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-senai:hover {
+    background-color: rgb(169, 16, 16);
+}
+
+.link {
+    padding: 10px;
+    width: 88%;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(201, 33, 33);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: rgb(16, 16, 169);
+}
+
