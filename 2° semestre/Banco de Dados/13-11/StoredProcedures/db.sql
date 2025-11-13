@@ -1,0 +1,63 @@
+#Métodos
+    #Procedimentos armazenados (stored procedures)
+    #Funções armazenadas (stored functions)
+
+DROP DATABASE IF EXISTS EXEMPLOS_SP;
+
+CREATE DATABASE EXEMPLOS_SP;
+
+USE EXEMPLOS_SP;
+
+DELIMITER $$
+CREATE PROCEDURE SP_CUMPRIMENTAR(
+    IN PNOME VARCHAR(50),
+    IN PSOBRENOME VARCHAR(50)
+)
+BEGIN
+    SELECT CONCAT('Olá, ',PNOME, ' ', PSOBRENOME) AS CUMPRIMENTO;
+END $$
+DELIMITER ;
+
+CALL SP_CUMPRIMENTAR('Hugo', 'Celli');
+
+DELIMITER $$
+CREATE PROCEDURE SP_TABUADA(IN PNUMERO INT)
+BEGIN
+    DECLARE I INT DEFAULT 1;
+    DECLARE RESULTADO TEXT DEFAULT '';
+    
+    WHILE(I <= 10) DO
+		SET RESULTADO = CONCAT(RESULTADO, PNUMERO, " X ", I, " = " , (PNUMERO * I), CHAR(10));
+        SET I = (I + 1);
+	END WHILE;
+    
+    SELECT RESULTADO;
+END $$
+DELIMITER ;
+
+CALL SP_TABUADA(3);
+
+DELIMITER $$
+CREATE PROCEDURE CALCULAR_IMC(IN PESO DECIMAL(7,2), IN ALTURA DECIMAL(5,2))
+BEGIN
+    DECLARE IMC DECIMAL(5,2);
+    
+    SET IMC = PESO / (ALTURA * ALTURA);
+    
+    IF IMC < 18.5 THEN
+        SELECT 'Você está abaixo do peso';
+    ELSEIF IMC BETWEEN 18.5 AND 24.9 THEN
+        SELECT 'Você está no peso normal';
+    ELSEIF IMC BETWEEN 25 AND 29.9 THEN
+        SELECT 'Você está acima do peso';
+    ELSEIF IMC BETWEEN 30 AND 34.9 THEN
+        SELECT 'Você está com obesidade';
+    ELSEIF IMC BETWEEN 35 AND 39.9 THEN
+        SELECT 'Você está com obesidade severa';
+    ELSE
+        SELECT 'Você está com obesidade mórbida';
+    END IF;
+END $$
+DELIMITER ;
+
+CALL CALCULAR_IMC(80, 1.80);

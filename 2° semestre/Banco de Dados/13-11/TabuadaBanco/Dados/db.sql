@@ -1,0 +1,26 @@
+#Métodos
+    #Procedimentos armazenados (stored procedures)
+    #Funções armazenadas (stored functions)
+
+DROP DATABASE IF EXISTS EXEMPLOS_SP;
+
+CREATE DATABASE EXEMPLOS_SP;
+
+USE EXEMPLOS_SP;
+
+DELIMITER $$
+CREATE PROCEDURE SP_TABUADA(IN PNUMERO INT)
+BEGIN
+    DECLARE I INT DEFAULT 1;
+    DECLARE RESULTADO TEXT DEFAULT '';
+    
+    WHILE(I <= 10) DO
+		SET RESULTADO = CONCAT(RESULTADO, PNUMERO, " X ", I, " = " , (PNUMERO * I), CHAR(10));
+        SET I = (I + 1);
+	END WHILE;
+    
+    SELECT RESULTADO;
+END $$
+DELIMITER ;
+
+CALL SP_TABUADA(3);
