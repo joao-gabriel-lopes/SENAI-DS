@@ -7,7 +7,7 @@ try{
     $stmt = $conexao->prepare("CALL SALVAR_LIVRO(?, ?, ?)");
 
     $stmt->execute([
-        $_POST['id'] ?? 0,
+        isset($_POST['id']) ? (int)$_POST['id'] : 0,
         $_POST['nome'],
         $_POST['genero']
     ]);
