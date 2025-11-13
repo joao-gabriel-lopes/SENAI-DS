@@ -33,6 +33,7 @@ input{
 }
 
 button{
+    font-size: 18px;
     width: 70%;
     margin: 20px 0;
     padding: 10px;
