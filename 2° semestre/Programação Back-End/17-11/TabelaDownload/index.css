@@ -1,0 +1,28 @@
+body {
+font-family: Arial, sans-serif;
+margin: 40px;
+}
+
+a {
+color: #007BFF;
+text-decoration: none;
+}
+
+h1 {
+color: #333;
+}
+
+form {
+margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, td {
+    border: 1px solid #b9b9b9;
+    padding: 8px;
+    text-align: left;
+}
