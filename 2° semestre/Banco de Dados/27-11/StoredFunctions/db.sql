@@ -1,0 +1,111 @@
+DROP DATABASE IF EXISTS BANCO_TESTE;
+
+CREATE DATABASE BANCO_TESTE;
+
+USE BANCO_TESTE;
+
+CREATE TABLE PESSOA (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(100),
+    PESO DECIMAL(5, 2) NOT NULL,
+    ALTURA DECIMAL(3, 2) NOT NULL
+);
+
+-- Procedure para salvar
+DELIMITER $$
+CREATE PROCEDURE SALVAR_PESSOA(
+    IN P_ID INT,
+    IN P_NOME VARCHAR(100),
+    IN P_PESO DECIMAL(5, 2),
+    IN P_ALTURA DECIMAL(3, 2)
+)
+BEGIN
+    IF(P_ID > 0)
+    THEN
+        UPDATE PESSOA SET 
+            NOME = P_NOME, 
+            PESO = P_PESO, 
+            ALTURA = P_ALTURA 
+        WHERE 
+            ID = P_ID;
+    ELSE
+        INSERT INTO PESSOA (NOME, PESO, ALTURA) 
+        VALUES (P_NOME, P_PESO, P_ALTURA);
+    END IF;
+END $$
+DELIMITER ;
+
+-- Função para calcular IMC
+DELIMITER $$
+CREATE FUNCTION CALCULAR_IMC(
+    P_PESO DECIMAL(5, 2),
+    P_ALTURA DECIMAL(3, 2)
+)
+RETURNS DECIMAL(5, 2) DETERMINISTIC
+BEGIN
+    DECLARE IMC DECIMAL(5, 2);
+    SET IMC = P_PESO / (P_ALTURA * P_ALTURA);
+    RETURN IMC;
+END $$
+DELIMITER ;
+
+-- Função para analisar a situação do IMC
+DELIMITER $$
+CREATE FUNCTION SITUACAO_IMC(
+    P_PESO DECIMAL(5, 2),
+    P_ALTURA DECIMAL(3, 2)
+)
+RETURNS VARCHAR(100) DETERMINISTIC
+BEGIN
+    DECLARE IMC DECIMAL (5, 2);
+    SET IMC = CALCULAR_IMC(P_PESO, P_ALTURA);
+
+    IF (IMC < 18.5)
+    THEN
+        RETURN "Abaixo do peso";
+    ELSEIF (IMC <= 24.9)
+    THEN
+        RETURN "Peso normal";
+    ELSEIF (IMC <= 29.9)
+    THEN
+        RETURN "Acima do peso";
+    ELSEIF (IMC <= 34.9)
+    THEN
+        RETURN "Obesidade grau I";
+    ELSEIF (IMC <= 39.9)
+    THEN
+        RETURN "Obesidade grau II";
+    ELSE
+        RETURN "Obesidade grau III";
+    END IF;
+END $$
+DELIMITER ;
+
+-- Insert
+CALL SALVAR_PESSOA(0, 'Hugo Celli', 70.5, 1.75);
+CALL SALVAR_PESSOA(0, "Rogério", 84, 1.85);
+CALL SALVAR_PESSOA(0, "Pedro", 76, 1.78);
+CALL SALVAR_PESSOA(0, "José", 90, 1.83);
+CALL SALVAR_PESSOA(0, "Bernardo", 78, 1.87);
+SELECT * FROM PESSOA;
+
+-- Update
+CALL SALVAR_PESSOA(1, 'Hugo Celli', 100, 1.80);
+SELECT * FROM PESSOA;
+
+SELECT CALCULAR_IMC(70.5, 1.75);
+
+-- Select com função
+SELECT
+    NOME,
+    CALCULAR_IMC(PESO, ALTURA) AS IMC
+FROM PESSOA;
+
+-- Select com situação IMC
+SELECT
+    NOME,
+    ALTURA,
+    PESO,
+    CALCULAR_IMC(PESO, ALTURA) AS IMC,
+    SITUACAO_IMC(PESO, ALTURA) AS SITUACAO_IMC
+FROM PESSOA;
