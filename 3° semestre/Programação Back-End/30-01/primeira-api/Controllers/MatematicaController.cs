@@ -34,5 +34,19 @@ namespace primeira_api.Controllers
             Multiplicacao multiplicacao = new Multiplicacao(numero1, numero2);
             return multiplicacao;
         }
+
+        [HttpGet("/potenciacao")]
+        public Potenciacao PotenciarNumeros(int numero1, int numero2)
+        {
+            Potenciacao potenciacao = new Potenciacao(numero1, numero2);
+            return potenciacao;
+        }
+
+        [HttpGet("/raiz")]
+        public Radiciacao CalcularRaizNumeros(int numero1)
+        {
+            Radiciacao radiciacao = new Radiciacao(numero1);
+            return radiciacao;
+        }
     }
 }
