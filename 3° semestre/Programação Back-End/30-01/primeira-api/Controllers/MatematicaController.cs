@@ -43,7 +43,7 @@ namespace primeira_api.Controllers
         }
 
         [HttpGet("/radiciacao")]
-        public Radiciacao CalcularRaizNumeros(int numero1)
+        public Radiciacao RadiciarNumeros(int numero1)
         {
             Radiciacao radiciacao = new Radiciacao(numero1);
             return radiciacao;

@@ -9,13 +9,13 @@ namespace primeira_api.Models
     {
         public int Numero1 { get; set; }
         public int Numero2 { get; set; }
-        public int Resultado { get; }
+        public double Resultado { get; }
 
         public Divisao(int numero1, int numero2)
         {
             Numero1 = numero1;
             Numero2 = numero2;
-            Resultado = Numero1 / Numero2;
+            Resultado = (double) Numero1 / Numero2;
         }
 
     }
