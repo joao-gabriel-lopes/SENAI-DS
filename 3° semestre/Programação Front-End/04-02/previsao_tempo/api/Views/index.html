@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section id="lista">
+
+    </section>
+
+</body>
+
+<script>
+    async function fetchItems() {
+        try {
+            // Replace with the actual URL of your C# API endpoint
+            const response = await fetch('https://ECFP662N1265443:7215/weatherforecast/');
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json(); // Parses the response body as JSON
+            return data;
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    fetchItems().then(lista => {
+        for (i = 0; i < lista.length; i++) {
+            var h2 = document.createElement("h2")
+            h2.innerHTML = lista[i].date
+            document.getElementById("lista").appendChild(h2)
+
+            var h3 = document.createElement("h3")
+            h3.innerHTML = lista[i].temperatureC + "°C / " + lista[i].temperatureF + "°F"
+            document.getElementById("lista").appendChild(h3)
+
+            var h3 = document.createElement("h3")
+            h3.innerHTML = lista[i].summary
+            document.getElementById("lista").appendChild(h3)
+
+            var br = document.createElement("br")
+            document.getElementById("lista").appendChild(br)
+        }
+    })
+
+</script>
+
+</html>
