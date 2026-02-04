@@ -5,7 +5,8 @@ interface IPrevisao {
   date: Date,
   temperatureC: Number,
   temperatureF: Number,
-  summary: String
+  summary: String,
+  city: String
 }
 
 function App() {
@@ -25,8 +26,9 @@ function App() {
       {lista.map((item) => (
         <div>
           <h2>{item.date.toString()}</h2>
-          <h3>{item.temperatureC.toFixed()}°C / {item.temperatureF.toFixed()}°F</h3>
-          <h3>{item.summary}</h3>
+          <h3>Temperatura: {item.temperatureC.toFixed()}°C / {item.temperatureF.toFixed()}°F</h3>
+          <h3>Clima: {item.summary}</h3>
+          <h3>Cidade: {item.city}</h3>
           <br></br>
         </div>
       ))}

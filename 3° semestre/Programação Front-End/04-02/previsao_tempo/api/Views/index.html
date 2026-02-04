@@ -36,7 +36,7 @@
     fetchItems().then(lista => {
         var h1 = document.createElement("h1")
         h1.innerHTML = "Previsão do tempo"
-        document.getElementById("lista").appendChild(h2)
+        document.getElementById("lista").appendChild(h1)
 
         for (i = 0; i < lista.length; i++) {
             var h2 = document.createElement("h2")
@@ -44,11 +44,15 @@
             document.getElementById("lista").appendChild(h2)
 
             var h3 = document.createElement("h3")
-            h3.innerHTML = lista[i].temperatureC + "°C / " + lista[i].temperatureF + "°F"
+            h3.innerHTML = "Temperatura: " +  lista[i].temperatureC + "°C / " + lista[i].temperatureF + "°F"
             document.getElementById("lista").appendChild(h3)
 
             var h3 = document.createElement("h3")
-            h3.innerHTML = lista[i].summary
+            h3.innerHTML = "Clima: " + lista[i].summary
+            document.getElementById("lista").appendChild(h3)
+
+            var h3 = document.createElement("h3")
+            h3.innerHTML = "Cidade: " + lista[i].city
             document.getElementById("lista").appendChild(h3)
 
             var br = document.createElement("br")
