@@ -34,6 +34,10 @@
     }
 
     fetchItems().then(lista => {
+        var h1 = document.createElement("h1")
+        h1.innerHTML = "Previsão do tempo"
+        document.getElementById("lista").appendChild(h2)
+
         for (i = 0; i < lista.length; i++) {
             var h2 = document.createElement("h2")
             h2.innerHTML = lista[i].date

@@ -21,11 +21,11 @@ function App() {
 
   return (
     <div>
+      <h1>Previsão do tempo</h1>
       {lista.map((item) => (
         <div>
-          <h1>{item.date.toString()}</h1>
-          <h3>{item.temperatureC.toFixed()}</h3>
-          <h3>{item.temperatureF.toFixed()}</h3>
+          <h2>{item.date.toString()}</h2>
+          <h3>{item.temperatureC.toFixed()}°C / {item.temperatureF.toFixed()}°F</h3>
           <h3>{item.summary}</h3>
           <br></br>
         </div>
