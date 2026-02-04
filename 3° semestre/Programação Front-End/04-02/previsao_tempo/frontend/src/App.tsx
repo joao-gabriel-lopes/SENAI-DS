@@ -23,15 +23,17 @@ function App() {
   return (
     <div>
       <h1>Previsão do tempo</h1>
-      {lista.map((item) => (
-        <div>
-          <h2>{item.date.toString()}</h2>
-          <h3>Temperatura: {item.temperatureC.toFixed()}°C / {item.temperatureF.toFixed()}°F</h3>
-          <h3>Clima: {item.summary}</h3>
-          <h3>Cidade: {item.city}</h3>
-          <br></br>
-        </div>
-      ))}
+      <div className='container'>
+        {lista.map((item) => (
+          <div className='card'>
+            <h2>{item.date.toString()}</h2>
+            <h3>Temperatura: {item.temperatureC.toFixed()}°C / {item.temperatureF.toFixed()}°F</h3>
+            <h3>Clima: {item.summary}</h3>
+            <h3>Cidade: {item.city}</h3>
+            <br></br>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
