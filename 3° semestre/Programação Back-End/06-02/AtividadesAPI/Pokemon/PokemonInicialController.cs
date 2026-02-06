@@ -13,8 +13,7 @@ namespace AtividadesAPI.Pokemon
         [HttpGet("/pokemon")]
         public IList<PokemonModel> ApresentarOpcoes()
         {
-            IList<PokemonModel> listaPokemon = DadosMocados.RetornarIniciais();
-            return listaPokemon;
+            return DadosMocados.RetornarIniciais();
         }
     }
 }
