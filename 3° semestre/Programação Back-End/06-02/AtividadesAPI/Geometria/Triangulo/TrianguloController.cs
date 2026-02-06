@@ -11,7 +11,7 @@ namespace AtividadesAPI.Geometria.Triangulo
     public class TrianguloController : ControllerBase
     {
         [HttpGet("/triangulo")]
-        public TrianguloModel GetRetangulo(decimal comprimento, decimal largura)
+        public TrianguloModel GetTriangulo(decimal comprimento, decimal largura)
         {
             return new TrianguloModel(comprimento, largura);
         }
