@@ -75,16 +75,18 @@ export default function App() {
           }}
         />
 
-        <RadioButton.Group onValueChange={value => setValorSelecionado(value)} value={valorSelecionado}>
-          <View style={styles.opcao}>
-            <Text>Retângulo</Text>
-            <RadioButton value="retangulo" />
-          </View>
-          <View style={styles.opcao}>
-            <Text>Triângulo</Text>
-            <RadioButton value="triangulo" />
-          </View>
-        </RadioButton.Group>
+        <View style={styles.grupoRadio}>
+          <RadioButton.Group onValueChange={value => setValorSelecionado(value)} value={valorSelecionado}>
+            <View style={styles.opcao}>
+              <Text>Retângulo</Text>
+              <RadioButton value="retangulo" />
+            </View>
+            <View style={styles.opcao}>
+              <Text>Triângulo</Text>
+              <RadioButton value="triangulo" />
+            </View>
+          </RadioButton.Group>
+        </View>
 
         <Pressable
           style={styles.botaoCalcular}
@@ -157,5 +159,12 @@ const styles = StyleSheet.create({
   opcao: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  grupoRadio: {
+    borderBlockColor: "gray",
+    borderWidth: 1,
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20
   }
 });
