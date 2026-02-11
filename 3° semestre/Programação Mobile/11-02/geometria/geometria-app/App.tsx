@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
 interface IRetangulo {
   comprimento: number,
@@ -10,7 +10,7 @@ interface IRetangulo {
 
 export default function App() {
   async function CarregarDados(comprimento: number, largura: number) {
-    const resposta = await fetch(`https://localhost:7138/retangulo?comprimento=${comprimento}&largura=${largura}`)
+    const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`)
     const dados = await resposta.json()
     setRetangulo(dados)
   }
@@ -42,9 +42,14 @@ export default function App() {
             setLargura(Number(text))
           }}
         />
-        <Pressable style={styles.botaoCalcular} onPress={() => CarregarDados(comprimento, largura)}>
-          Calcular
+
+        <Pressable
+          style={styles.botaoCalcular}
+          onPress={() => CarregarDados(comprimento, largura)}
+        >
+          <Text style={styles.textoBotao}>Calcular</Text>
         </Pressable>
+
       </View>
 
       <View style={styles.exibicao}>
@@ -98,10 +103,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#178de1c7",
     borderBlockColor: "gray",
     width: "80%",
-    textAlign: "center",
     borderWidth: 1,
     borderRadius: 20,
     paddingHorizontal: 20,
     paddingVertical: 10
   },
+  textoBotao: {
+    textAlign: "center"
+  }
 });
