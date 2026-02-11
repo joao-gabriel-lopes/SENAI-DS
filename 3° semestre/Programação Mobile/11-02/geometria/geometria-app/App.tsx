@@ -10,15 +10,15 @@ interface IRetangulo {
 
 export default function App() {
   async function CarregarDados(comprimento: number, largura: number) {
-    const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`)
-    const dados = await resposta.json()
-    setRetangulo(dados)
+    const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`);
+    const dados = await resposta.json();
+    setRetangulo(dados);
   }
 
-  const [comprimento, setComprimento] = useState(0)
-  const [largura, setLargura] = useState(0)
+  const [comprimento, setComprimento] = useState(0);
+  const [largura, setLargura] = useState(0);
 
-  const [retangulo, setRetangulo] = useState<IRetangulo>()
+  const [retangulo, setRetangulo] = useState<IRetangulo>();
 
   return (
     <View style={styles.body}>
@@ -30,7 +30,7 @@ export default function App() {
           keyboardType='numeric'
           placeholder='Digite o comprimento'
           onChangeText={(text) => {
-            setComprimento(Number(text))
+            setComprimento(Number(text));
           }}
         />
         <TextInput
@@ -39,7 +39,7 @@ export default function App() {
           keyboardType='numeric'
           placeholder='Digite a largura'
           onChangeText={(text) => {
-            setLargura(Number(text))
+            setLargura(Number(text));
           }}
         />
 
@@ -53,8 +53,8 @@ export default function App() {
       </View>
 
       <View style={styles.exibicao}>
-        <Text>Área: {retangulo?.area}</Text>
-        <Text>Perímetro: {retangulo?.perimetro}</Text>
+        <Text style={styles.textoExibicao}>Área: {retangulo?.area}</Text>
+        <Text style={styles.textoExibicao}>Perímetro: {retangulo?.perimetro}</Text>
       </View>
     </View>
   );
@@ -110,5 +110,8 @@ const styles = StyleSheet.create({
   },
   textoBotao: {
     textAlign: "center"
+  },
+  textoExibicao: {
+    fontSize: 15
   }
 });
