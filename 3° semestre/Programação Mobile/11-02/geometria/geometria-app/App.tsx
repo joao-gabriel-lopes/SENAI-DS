@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
-interface IRetangulo {
+interface IRespostaJson {
   comprimento: number,
   largura: number,
   area: number,
@@ -12,13 +12,13 @@ export default function App() {
   async function CarregarDados(comprimento: number, largura: number) {
     const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`);
     const dados = await resposta.json();
-    setRetangulo(dados);
+    setRespostaJson(dados);
   }
 
   const [comprimento, setComprimento] = useState(0);
   const [largura, setLargura] = useState(0);
 
-  const [retangulo, setRetangulo] = useState<IRetangulo>();
+  const [respostaJson, setRespostaJson] = useState<IRespostaJson>();
 
   return (
     <View style={styles.body}>
@@ -51,10 +51,10 @@ export default function App() {
         </Pressable>
 
       </View>
-
+      
       <View style={styles.exibicao}>
-        <Text style={styles.textoExibicao}>Área: {retangulo?.area}</Text>
-        <Text style={styles.textoExibicao}>Perímetro: {retangulo?.perimetro}</Text>
+        <Text style={styles.textoExibicao}>Área: {respostaJson?.area}</Text>
+        <Text style={styles.textoExibicao}>Perímetro: {respostaJson?.perimetro}</Text>
       </View>
     </View>
   );
