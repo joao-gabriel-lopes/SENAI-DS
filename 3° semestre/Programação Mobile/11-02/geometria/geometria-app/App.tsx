@@ -1,24 +1,56 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
+import { RadioButton } from 'react-native-paper';
 
-interface IRespostaJson {
+interface IRetangulo {
   comprimento: number,
   largura: number,
   area: number,
   perimetro: number
 }
 
+interface ITriangulo {
+  comprimento: number,
+  largura: number,
+  area: number,
+}
+
 export default function App() {
   async function CarregarDados(comprimento: number, largura: number) {
-    const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`);
-    const dados = await resposta.json();
-    setRespostaJson(dados);
+    if (valorSelecionado == "retangulo") {
+      const resposta = await fetch(`http://joao-api.runasp.net/retangulo?comprimento=${comprimento}&largura=${largura}`);
+      const dados = await resposta.json();
+      setRetangulo(dados);
+    } else if (valorSelecionado == "triangulo") {
+      const resposta = await fetch(`http://joao-api.runasp.net/triangulo?comprimento=${comprimento}&largura=${largura}`);
+      const dados = await resposta.json();
+      setTriangulo(dados);
+    }
   }
 
   const [comprimento, setComprimento] = useState(0);
   const [largura, setLargura] = useState(0);
+  const [valorSelecionado, setValorSelecionado] = useState("retangulo");
 
-  const [respostaJson, setRespostaJson] = useState<IRespostaJson>();
+  const [retangulo, setRetangulo] = useState<IRetangulo>()
+  const [triangulo, setTriangulo] = useState<ITriangulo>()
+
+  function Exibicao() {
+    if (valorSelecionado == "retangulo") {
+      return (
+        <View style={styles.exibicao}>
+          <Text style={styles.textoExibicao}>Área: {retangulo?.area}</Text>
+          <Text style={styles.textoExibicao}>Perímetro: {retangulo?.perimetro}</Text>
+        </View>
+      );
+    } else if (valorSelecionado == "triangulo") {
+      return (
+        <View style={styles.exibicao}>
+          <Text style={styles.textoExibicao}>Área: {triangulo?.area}</Text>
+        </View>
+      );
+    }
+  }
 
   return (
     <View style={styles.body}>
@@ -43,19 +75,27 @@ export default function App() {
           }}
         />
 
+        <RadioButton.Group onValueChange={value => setValorSelecionado(value)} value={valorSelecionado}>
+          <View style={styles.opcao}>
+            <Text>Retângulo</Text>
+            <RadioButton value="retangulo" />
+          </View>
+          <View style={styles.opcao}>
+            <Text>Triângulo</Text>
+            <RadioButton value="triangulo" />
+          </View>
+        </RadioButton.Group>
+
         <Pressable
           style={styles.botaoCalcular}
           onPress={() => CarregarDados(comprimento, largura)}
         >
           <Text style={styles.textoBotao}>Calcular</Text>
         </Pressable>
+      </View>
 
-      </View>
-      
-      <View style={styles.exibicao}>
-        <Text style={styles.textoExibicao}>Área: {respostaJson?.area}</Text>
-        <Text style={styles.textoExibicao}>Perímetro: {respostaJson?.perimetro}</Text>
-      </View>
+      {Exibicao()}
+
     </View>
   );
 }
@@ -113,5 +153,9 @@ const styles = StyleSheet.create({
   },
   textoExibicao: {
     fontSize: 15
+  },
+  opcao: {
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 });
