@@ -393,3 +393,8 @@ app-example
 # generated native folders
 /ios
 /android
+
+#Vite (React + typescript)
+
+dist-ssr
+*.local
