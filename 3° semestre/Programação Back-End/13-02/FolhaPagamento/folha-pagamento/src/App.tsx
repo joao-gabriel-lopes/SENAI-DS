@@ -15,7 +15,7 @@ function App() {
   const [lista, setLista] = useState<IFuncionario[]>([]);
 
   async function CarregarDados() {
-    const resposta = await fetch('https://localhost:7028/funcionarios');
+    const resposta = await fetch('http://apisenai.runasp.net/funcionarios/');
     const dados = await resposta.json();
     setLista(dados);
   }
