@@ -1,0 +1,6 @@
+@Calculo.Formas_HostAddress = http://localhost:5274
+
+GET {{Calculo.Formas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
