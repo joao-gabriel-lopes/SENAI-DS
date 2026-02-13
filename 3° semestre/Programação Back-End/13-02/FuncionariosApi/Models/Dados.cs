@@ -11,21 +11,21 @@ namespace FuncionariosApi.Models
         {
             ComissionadoModel comissionado = new ComissionadoModel(
                 "Guilherme",
-                "https://cdn-icons-png.flaticon.com/512/4792/4792929.png",
+                "https://randomuser.me/api/portraits/men/1.jpg",
                 5m,
                 10000m
             );
 
             AssalariadoModel assalariado = new AssalariadoModel(
                 "Pedro",
-                "https://cdn-icons-png.flaticon.com/512/4792/4792929.png",
+                "https://randomuser.me/api/portraits/men/56.jpg",
                 2000m,
                 5m
             );
 
             HoristaModel horista = new HoristaModel(
                 "Rodrigo",
-                "https://cdn-icons-png.flaticon.com/512/4792/4792929.png",
+                "https://randomuser.me/api/portraits/men/63.jpg",
                 160m,
                 20m
             );
