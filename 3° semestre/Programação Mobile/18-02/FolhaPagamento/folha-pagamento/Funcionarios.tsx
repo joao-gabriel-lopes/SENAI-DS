@@ -58,7 +58,7 @@ export default function Funcionarios() {
 
   return (
     <>
-      <ScrollView style={styles.scroll}>
+      <View style={styles.scroll}>
         <View style={styles.container}>
           <Text style={styles.titulo}>Funcionários</Text>
           {listaFuncionarios.length > 0 && FuncionarioCard(listaFuncionarios[numeroFuncionario])}
@@ -71,7 +71,7 @@ export default function Funcionarios() {
             <Text style={styles.textoBotao}>Próximo</Text>
           </Pressable>
         </View>
-      </ScrollView>
+      </View>
     </>
   )
 }
