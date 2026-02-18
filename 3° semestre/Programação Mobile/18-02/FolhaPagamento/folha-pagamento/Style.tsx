@@ -46,6 +46,25 @@ const styles = StyleSheet.create({
   scroll: {
     paddingVertical: 30,
     backgroundColor: '#eeeeee',
+  },
+  botaoVerFuncionarios: {
+    backgroundColor: "#3ca0d6",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginTop: 30
+  },
+  textoBotao: {
+    color: "#fff",
+    fontSize: 18,
+    textAlign: "center"
+  },
+  containerBotao: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    gap: 20
   }
 });
 

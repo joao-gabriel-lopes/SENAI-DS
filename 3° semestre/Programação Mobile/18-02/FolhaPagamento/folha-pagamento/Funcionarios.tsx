@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, Text, View, Image } from 'react-native';
+import { ScrollView, Text, View, Image, Pressable } from 'react-native';
 import styles from './Style';
 
 interface IFuncionario {
@@ -12,20 +12,33 @@ interface IFuncionario {
 export default function Funcionarios() {
   const [listaFuncionarios, setLista] = useState<IFuncionario[]>([])
 
-  const [numeroFuncionario, serNumeroFuncionario] = useState(0);
+  const [numeroFuncionario, setNumeroFuncionario] = useState(0);
 
   async function ConsultarApi() {
     const resposta = await fetch("http://apisenai.runasp.net/funcionarios/")
-
-    if (resposta.ok) {
-      const dados = await resposta.json();
-      setLista(dados);
-    } else {
-      throw new Error("Erro ao consultar a API")
-    }
+    const dados = await resposta.json();
+    setLista(dados);
   }
 
   useEffect(() => { ConsultarApi() }, []);
+
+  function Anterior() {
+    if (numeroFuncionario > 0) {
+      setNumeroFuncionario(numeroFuncionario - 1);
+    } else {
+      let ultimoFuncionario = listaFuncionarios.length - 1;
+      setNumeroFuncionario(ultimoFuncionario);
+    }
+  }
+
+  function Proximo() {
+    let ultimoFuncionario = listaFuncionarios.length - 1;
+    if (numeroFuncionario < ultimoFuncionario) {
+      setNumeroFuncionario(numeroFuncionario + 1);
+    } else {
+      setNumeroFuncionario(0);
+    }
+  }
 
   function FuncionarioCard(funcionario: IFuncionario) {
     return (
@@ -48,9 +61,15 @@ export default function Funcionarios() {
       <ScrollView style={styles.scroll}>
         <View style={styles.container}>
           <Text style={styles.titulo}>Funcionários</Text>
-          <View style={styles.containerCard}>
-            {FuncionarioCard(listaFuncionarios[numeroFuncionario])}
-          </View>
+          {listaFuncionarios.length > 0 && FuncionarioCard(listaFuncionarios[numeroFuncionario])}
+        </View>
+        <View style={styles.containerBotao}>
+          <Pressable onPress={() => Proximo()} style={styles.botaoVerFuncionarios}>
+            <Text style={styles.textoBotao}>Ver Funcionários</Text>
+          </Pressable>
+          <Pressable onPress={() => Anterior()} style={styles.botaoVerFuncionarios}>
+            <Text style={styles.textoBotao}>Ver Funcionários</Text>
+          </Pressable>
         </View>
       </ScrollView>
     </>

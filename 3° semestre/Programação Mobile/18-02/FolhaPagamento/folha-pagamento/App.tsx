@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, Text, View, Image, Button } from 'react-native';
+import { ScrollView, Text, View, Image, Button, Pressable } from 'react-native';
 import styles from './Style';
 
 interface IFuncionario {
@@ -9,7 +9,7 @@ interface IFuncionario {
   pagamento: Number
 }
 
-export default function App() {
+export default function App({ navigation }: any) {
   const [listaFuncionarios, setLista] = useState<IFuncionario[]>([]);
 
   async function ConsultarApi() {
@@ -51,6 +51,9 @@ export default function App() {
               FuncionarioCard(funcionario, index)
             ))}
           </View>
+          <Pressable onPress={() => navigation.navigate('Funcionarios')} style={styles.botaoVerFuncionarios}>
+            <Text style={styles.textoBotao}>Ver Funcionários</Text>
+          </Pressable>
         </View>
       </ScrollView>
     </>
