@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, Text, View, Image, Pressable } from 'react-native';
+import { Text, View, Image, Pressable } from 'react-native';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import styles from './Style';
 
 interface IFuncionario {
@@ -58,20 +59,22 @@ export default function Funcionarios() {
 
   return (
     <>
-      <View style={styles.scroll}>
-        <View style={styles.container}>
-          <Text style={styles.titulo}>Funcionários</Text>
-          {listaFuncionarios.length > 0 && FuncionarioCard(listaFuncionarios[numeroFuncionario])}
+      <GestureRecognizer onSwipeLeft={Anterior} onSwipeRight={Proximo}>
+        <View style={styles.scroll}>
+          <View style={styles.container}>
+            <Text style={styles.titulo}>Funcionários</Text>
+            {listaFuncionarios.length > 0 && FuncionarioCard(listaFuncionarios[numeroFuncionario])}
+          </View>
+          <View style={styles.containerBotao}>
+            <Pressable onPress={() => Proximo()} style={styles.botaoVerFuncionarios}>
+              <Text style={styles.textoBotao}>Anterior</Text>
+            </Pressable>
+            <Pressable onPress={() => Anterior()} style={styles.botaoVerFuncionarios}>
+              <Text style={styles.textoBotao}>Próximo</Text>
+            </Pressable>
+          </View>
         </View>
-        <View style={styles.containerBotao}>
-          <Pressable onPress={() => Proximo()} style={styles.botaoVerFuncionarios}>
-            <Text style={styles.textoBotao}>Anterior</Text>
-          </Pressable>
-          <Pressable onPress={() => Anterior()} style={styles.botaoVerFuncionarios}>
-            <Text style={styles.textoBotao}>Próximo</Text>
-          </Pressable>
-        </View>
-      </View>
+      </GestureRecognizer>
     </>
   )
 }
