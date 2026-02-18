@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ScrollView, Text, View, Image, Button } from 'react-native';
+import { ScrollView, Text, View, Image } from 'react-native';
 import styles from './Style';
 
 interface IFuncionario {
@@ -9,8 +9,10 @@ interface IFuncionario {
   pagamento: Number
 }
 
-export default function App() {
-  const [listaFuncionarios, setLista] = useState<IFuncionario[]>([]);
+export default function Funcionarios() {
+  const [listaFuncionarios, setLista] = useState<IFuncionario[]>([])
+
+  const [numeroFuncionario, serNumeroFuncionario] = useState(0);
 
   async function ConsultarApi() {
     const resposta = await fetch("http://apisenai.runasp.net/funcionarios/")
@@ -19,15 +21,15 @@ export default function App() {
       const dados = await resposta.json();
       setLista(dados);
     } else {
-      throw new Error("Erro ao consultar a API");
+      throw new Error("Erro ao consultar a API")
     }
   }
 
   useEffect(() => { ConsultarApi() }, []);
 
-  function FuncionarioCard(funcionario: IFuncionario, index: number) {
+  function FuncionarioCard(funcionario: IFuncionario) {
     return (
-      <View key={index} style={styles.card}>
+      <View style={styles.card}>
         <View style={styles.conteudoCard}>
           <Image
             source={{ uri: funcionario.urlFoto.toString() }}
@@ -47,9 +49,7 @@ export default function App() {
         <View style={styles.container}>
           <Text style={styles.titulo}>Funcionários</Text>
           <View style={styles.containerCard}>
-            {listaFuncionarios.map((funcionario, index) => (
-              FuncionarioCard(funcionario, index)
-            ))}
+            {FuncionarioCard(listaFuncionarios[numeroFuncionario])}
           </View>
         </View>
       </ScrollView>
