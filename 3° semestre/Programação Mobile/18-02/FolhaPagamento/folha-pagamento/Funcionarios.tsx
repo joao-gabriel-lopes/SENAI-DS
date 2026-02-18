@@ -65,10 +65,10 @@ export default function Funcionarios() {
         </View>
         <View style={styles.containerBotao}>
           <Pressable onPress={() => Proximo()} style={styles.botaoVerFuncionarios}>
-            <Text style={styles.textoBotao}>Ver Funcionários</Text>
+            <Text style={styles.textoBotao}>Anterior</Text>
           </Pressable>
           <Pressable onPress={() => Anterior()} style={styles.botaoVerFuncionarios}>
-            <Text style={styles.textoBotao}>Ver Funcionários</Text>
+            <Text style={styles.textoBotao}>Próximo</Text>
           </Pressable>
         </View>
       </ScrollView>
