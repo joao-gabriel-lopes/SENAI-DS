@@ -24,6 +24,24 @@ function Paginacao() {
 
   useEffect(() => { CarregarDados() }, []);
 
+  function Anterior() {
+    if (numeroFuncionario > 0) {
+      setNumeroFuncionario(numeroFuncionario - 1);
+    } else {
+      let ultimoFuncionario = lista.length - 1;
+      setNumeroFuncionario(ultimoFuncionario);
+    }
+  }
+
+  function Proximo() {
+    let ultimoFuncionario = lista.length - 1;
+    if (numeroFuncionario < ultimoFuncionario) {
+      setNumeroFuncionario(numeroFuncionario + 1);
+    } else {
+      setNumeroFuncionario(0);
+    }
+  }
+
   function FuncionarioCard(funcionario: IFuncionario) {
     return (
       <Card className='card'>
@@ -52,13 +70,13 @@ function Paginacao() {
       <div className='botoes-container'>
         <button
           onClick={
-            () => numeroFuncionario > 0 ? setNumeroFuncionario(numeroFuncionario - 1) : setNumeroFuncionario(numeroFuncionario)
+            () => Anterior()
           }>
           Anterior
         </button>
         <button
           onClick={
-            () => numeroFuncionario + 1 < lista.length ? setNumeroFuncionario(numeroFuncionario + 1) : setNumeroFuncionario(numeroFuncionario)
+            () => Proximo()
           }>
           Próximo
         </button>
