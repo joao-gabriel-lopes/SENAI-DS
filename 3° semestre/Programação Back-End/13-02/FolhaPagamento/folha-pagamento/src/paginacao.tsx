@@ -10,9 +10,11 @@ interface IFuncionario {
   pagamento: Number
 }
 
-function App() {
+function Paginacao() {
 
   const [lista, setLista] = useState<IFuncionario[]>([]);
+
+  const [numeroFuncionario, setNumeroFuncionario] = useState(0);
 
   async function CarregarDados() {
     const resposta = await fetch('http://apisenai.runasp.net/funcionarios/');
@@ -22,9 +24,9 @@ function App() {
 
   useEffect(() => { CarregarDados() }, []);
 
-  function FuncionarioCard(funcionario: IFuncionario, index: number) {
-    return(      
-      <Card key={index} className='card'>
+  function FuncionarioCard(funcionario: IFuncionario) {
+    return (
+      <Card className='card'>
         <CardContent className='conteudo-card'>
           <CardMedia
             className='img-card'
@@ -45,12 +47,24 @@ function App() {
     <>
       <h1 className='titulo'>Funcionários</h1>
       <div className='container'>
-        {lista.map((funcionario, index) => (
-          FuncionarioCard(funcionario, index)
-        ))}
+        {FuncionarioCard(lista[numeroFuncionario])}
+      </div>
+      <div className='botoes-container'>
+        <button
+          onClick={
+            () => numeroFuncionario > 0 ? setNumeroFuncionario(numeroFuncionario - 1) : setNumeroFuncionario(numeroFuncionario)
+          }>
+          Anterior
+        </button>
+        <button
+          onClick={
+            () => numeroFuncionario + 1 < lista.length ? setNumeroFuncionario(numeroFuncionario + 1) : setNumeroFuncionario(numeroFuncionario)
+          }>
+          Próximo
+        </button>
       </div>
     </>
   )
 }
 
-export default App
+export default Paginacao
