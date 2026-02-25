@@ -22,24 +22,55 @@ export default function CadastroPassaportes() {
         carregaPassaporte();
     }, []);
 
-    return (
-        <View>
-            <Text>{passaporte?.nome}</Text>
-            <Text>{passaporte?.sobrenome}</Text>
-            <Text>{passaporte?.numero}</Text>
-            <Text>{passaporte?.cpf}</Text>
-            <Text>{passaporte?.tipo}</Text>
-            <Text>{passaporte?.urlFoto}</Text>
-            <Text>{passaporte?.paisEmissor}</Text>
-            <Text>{passaporte?.nacionalidade}</Text>
-            <Text>{passaporte?.naturalidade}</Text>
-            <Text>{passaporte?.dataNascimento.toString()}</Text>
-            <Text>{passaporte?.sexo}</Text>
-            <Text>{passaporte?.nomePai}</Text>
-            <Text>{passaporte?.nomeMae}</Text>
-            <Text>{passaporte?.dataExpedimento.toString()}</Text>
-            <Text>{passaporte?.dataVencimento.toString()}</Text>
-            <Text>{passaporte?.autoridade}</Text>
-        </View>
+    const cartao = () => {
+        return (
+            <View style={styles.card}>
+                <Text style={styles.cardTexto}>{passaporte?.nome}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.sobrenome}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.numero}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.cpf}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.tipo}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.urlFoto}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.paisEmissor}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.nacionalidade}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.naturalidade}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.dataNascimento.toString()}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.sexo}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.nomePai}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.nomeMae}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.dataExpedimento.toString()}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.dataVencimento.toString()}</Text>
+                <Text style={styles.cardTexto}>{passaporte?.autoridade}</Text>
+            </View>
+        );
+    }
+
+    if (id){
+        return (
+        <>
+            {cartao()}
+        </>
     );
+    } else{
+        return(
+            <View>
+                <Text>Id não fornecido</Text>
+            </View>
+        )
+    }
 }
+
+const styles = StyleSheet.create({
+    card: {
+        borderBlockColor: "black",
+        borderWidth: 2,
+        padding: 10,
+        marginVertical: 5,
+        marginHorizontal: 10,
+        textAlign: "center"
+    },
+    cardTexto: {
+        textAlign: "center",
+        padding: 5
+    }
+});

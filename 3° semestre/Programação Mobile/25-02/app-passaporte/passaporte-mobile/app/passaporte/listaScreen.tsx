@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { ListarPassaportes } from '../passaporte/passaporteApi';
 import IPassaporte from './passaporteInterface';
 import { useRouter } from "expo-router";
@@ -25,13 +25,24 @@ export default function TelaPassaportes() {
     return (
         <View>
             {passaportes.map(passaporte => (
-                <Pressable
-                    key={passaporte.id.toString()}
-                    onPress={() => router.push({pathname: "passaporte/cadastroScreen", params: {id: passaporte.id.toString()}})}
-                >
-                    {passaporte.nome}
-                </Pressable>
+                <View key={passaporte.id.toString()} style={styles.card}>
+                    <Pressable
+                        onPress={() => router.push({ pathname: "passaporte/cadastroScreen", params: { id: passaporte.id.toString() } })}
+                    >
+                        {passaporte.nome}
+                    </Pressable>
+                </View>
             ))}
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+  card: {
+    borderBlockColor: "black",
+    borderWidth: 2,
+    padding: 10,
+    margin: 10,
+    textAlign: "center"
+  }
+});
