@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Expo Router - Projeto Completo</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f3f4f6; color:#1f2937; line-height:1.6; }
+  header { background:#111827; color:white; padding:25px; text-align:center; }
+  section { background:white; margin:20px; padding:25px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  h2 { border-left:5px solid #2563eb; padding-left:10px; }
+  h3 { border-left:3px solid #3b82f6; padding-left:8px; margin-top:15px; }
+  pre { background:#0f172a; color:#e5e7eb; padding:15px; border-radius:6px; overflow-x:auto; }
+  code { font-family: Consolas, monospace; }
+  .alert { background:#fef3c7; border-left:5px solid #f59e0b; padding:15px; margin-top:15px; border-radius:4px; }
+  footer { background:#111827; color:white; text-align:center; padding:20px; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Expo Router - Projeto Completo</h1>
+<p>Fluxo de navegação, parâmetros opcionais, botão de voltar e header customizável</p>
+</header>
+
+<section>
+<h2>1. Introdução</h2>
+<p>
+O <strong>Expo Router</strong> simplifica a navegação em React Native usando um modelo baseado em arquivos.
+Cada arquivo ou pasta dentro de <code>app/</code> cria uma rota automaticamente, sem necessidade de registrar telas manualmente.
+O <code>_layout.tsx</code> funciona como wrapper global para todas as telas daquele grupo.
+</p>
+<p>
+Ele também imita o comportamento de navegação web: você pode passar parâmetros, usar histórico (push/back/replace) e deep linking, mas ainda aproveita toda a performance do React Native.
+</p>
+</section>
+
+<section>
+<h2>2. Pacotes Necessários</h2>
+<p>Dentro do seu projeto Expo (blank template), instale:</p>
+<pre><code>npx expo install expo-router react-native-safe-area-context react-native-screens expo-constants expo-status-bar</code></pre>
+<p>Além disso, se não estiver instalado ainda:</p>
+<pre><code>npx expo install @react-navigation/native</code></pre>
+<div class="alert">
+Esses pacotes são essenciais para que o Expo Router funcione corretamente e forneça stack, parâmetros e navegação entre telas.
+</div>
+</section>
+
+<section>
+<h2>3. package.json</h2>
+<p>
+O <strong>Expo Router</strong> gerencia o ponto de entrada do app automaticamente. Para isso, você precisa que o <code>package.json</code> tenha o campo <code>"main": "expo-router/entry"</code>. 
+Isso indica ao Expo que o app deve iniciar pelo entry point do Router, não pelo padrão React Native.
+</p>
+<pre><code>{
+  "name": "meu-app",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~48.0.0",
+    "expo-router": "^1.8.5",
+    "react-native": "0.71.8",
+    "react-native-safe-area-context": "^4.5.0"
+  }
+}</code></pre>
+<div class="alert">
+Sem o campo <strong>"main": "expo-router/entry"</strong>, o app não reconhece o ponto de entrada do Router e você terá erro de entry file.
+</div>
+</section>
+
+<section>
+<h2>4. Estrutura de Pastas</h2>
+<pre><code>app/
+ ├── _layout.tsx
+ ├── index.tsx
+ └── details.tsx</code></pre>
+</section>
+
+<section>
+<h2>5. Layout (_layout.tsx) – Exemplos de Header e Título</h2>
+
+<h3>5.0. Configuração básica (apenas Stack)</h3>
+<pre><code>import { Stack } from 'expo-router';
+
+export default function Layout() {
+  return &lt;Stack /&gt;;
+}</code></pre>
+<p>
+✅ Header aparece por padrão, mostrando **o nome do arquivo da tela** como título.
+</p>
+
+<h3>5.1. Título único global para todas as telas</h3>
+<pre><code>import { Stack } from 'expo-router';
+
+export default function Layout() {
+  return (
+    &lt;Stack
+      screenOptions={{
+        title: 'Aplicativo de Alunos', // Mesmo título em todas as telas
+        headerShown: true, // Header visível
+      }}
+    /&gt;
+  );
+}</code></pre>
+
+<h3>5.2. Títulos individuais por tela</h3>
+<pre><code>import { Stack } from 'expo-router';
+
+export default function Layout() {
+  return (
+    &lt;Stack&gt;
+      &lt;Stack.Screen
+        name="index"
+        options={{ title: 'Pesquisa de Alunos' }}
+      /&gt;
+      &lt;Stack.Screen
+        name="details"
+        options={{ title: 'Detalhes do Aluno' }}
+      /&gt;
+    &lt;/Stack&gt;
+  );
+}</code></pre>
+
+<h3>5.3. Tela sem header</h3>
+<pre><code>import { Stack } from 'expo-router';
+
+export default function Layout() {
+  return (
+    &lt;Stack&gt;
+      &lt;Stack.Screen
+        name="details"
+        options={{ headerShown: false }}
+      /&gt;
+    &lt;/Stack&gt;
+  );
+}</code></pre>
+
+<div class="alert">
+✅ Você pode combinar todas essas opções: título global + títulos individuais + telas sem header.  
+✅ A configuração básica (5.0) é útil para quem quer **usar os nomes dos arquivos como título automaticamente**.
+</div>
+</section>
+
+<section>
+<h2>6. Tela Home (index.tsx)</h2>
+<pre><code>import { View, Button } from 'react-native';
+import { useRouter } from 'expo-router';
+
+export default function Home() {
+  const router = useRouter();
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+
+      {/* Com parâmetro */}
+      &lt;Button
+        title="Ir para Details com id 10"
+        onPress={() =&gt; router.push({ pathname: '/details', params: { id: 10 } })}
+      /&gt;
+
+      {/* Sem parâmetro */}
+      &lt;Button
+        title="Ir para Details sem id"
+        onPress={() =&gt; router.push('/details')}
+      /&gt;
+
+    &lt;/View&gt;
+  );
+}</code></pre>
+</section>
+
+<section>
+<h2>7. Tela Details (details.tsx)</h2>
+<pre><code>import { View, Text, Button } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+
+export default function Details() {
+    const router = useRouter();
+    const { id } = useLocalSearchParams();
+
+    if (id) {
+        var texto = `O id é ${id}`;
+    } else {
+        var texto = `Nenhum id recebido`;
+    }
+
+    return (
+        &lt;View style={{ padding: 20 }}&gt;
+            &lt;Text&gt;{texto}&lt;/Text&gt;
+
+            &lt;Button
+                title="Voltar"
+                onPress={() =&gt; router.back()}
+            /&gt;
+
+        &lt;/View&gt;
+    );
+}</code></pre>
+<div class="alert">
+O botão "Voltar" finaliza a tela atual e retorna para a anterior, mantendo seus dados.
+</div>
+</section>
+
+<section>
+<h2>8. Fluxo de Teste</h2>
+<ol>
+<li>Clique em "Ir para Details com id 10" → exibe "O id é 10".</li>
+<li>Clique em "Voltar" → retorna para Home, mantendo qualquer estado que estava lá.</li>
+<li>Clique em "Ir para Details sem id" → exibe "Nenhum id recebido".</li>
+<li>Clique em "Voltar" → retorna para Home novamente.</li>
+<li>Se houver uma tela sem header, ela aparecerá fullscreen sem barra de título.</li>
+<li>No cenário básico (5.0), cada tela mostra seu **nome de arquivo como título** automaticamente.</li>
+</ol>
+</section>
+
+<footer>
+Manual completo: Expo Router - Pacotes, entry point, parâmetros opcionais, botão de voltar e header customizável com todos os cenários
+</footer>
+
+</body>
+</html>

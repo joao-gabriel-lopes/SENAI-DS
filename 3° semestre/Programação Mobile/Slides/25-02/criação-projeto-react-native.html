@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manual: Criar Projeto Expo com TypeScript e Web</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f3f4f6; color:#1f2937; line-height:1.6; }
+  header { background:#111827; color:white; padding:25px; text-align:center; }
+  section { background:white; margin:20px; padding:25px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  h2 { border-left:5px solid #2563eb; padding-left:10px; }
+  pre { background:#0f172a; color:#e5e7eb; padding:15px; border-radius:6px; overflow-x:auto; }
+  code { font-family: Consolas, monospace; }
+  .alert { background:#fef3c7; border-left:5px solid #f59e0b; padding:15px; margin-top:15px; border-radius:4px; }
+  footer { background:#111827; color:white; text-align:center; padding:20px; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Manual: Criar Projeto Expo com TypeScript e Web</h1>
+</header>
+
+<section>
+<h2>1. Criar o projeto Expo com template TypeScript</h2>
+<pre><code>npx create-expo-app nome_projeto --template blank-typescript</code></pre>
+<p><strong>Contexto:</strong> Cria um projeto em branco com TypeScript pronto para usar React Native.</p>
+</section>
+
+<section>
+<h2>2. Habilitar suporte à Web</h2>
+<pre><code>npx expo install react-dom react-native-web</code></pre>
+<p><strong>Contexto:</strong></p>
+<ul>
+<li><code>react-dom</code> → permite renderizar React no browser.</li>
+<li><code>react-native-web</code> → traduz componentes React Native para Web.</li>
+<li><code>npx expo install</code> → garante compatibilidade com a versão do React Native do projeto.</li>
+</ul>
+</section>
+
+<section>
+<h2>3. Rodar o projeto</h2>
+<p>Entre no diretório do projeto:</p>
+<pre><code>cd nome_projeto</code></pre>
+<p>Em seguida, inicie o Expo:</p>
+<pre><code>npx expo start</code></pre>
+<p>Isso abre o <strong>Metro Bundler</strong>, que exibe um menu interativo no terminal. Algumas opções importantes:</p>
+<ul>
+<li><strong>w</strong> → abre o projeto na Web (browser), usando react-native-web.</li>
+<li><strong>a</strong> → abre no Android (emulador ou dispositivo físico).</li>
+<li><strong>i</strong> → abre no iOS (emulador ou dispositivo físico).</li>
+<li><strong>q</strong> → fecha o menu do Expo.</li>
+</ul>
+<div class="alert">
+Usando <strong>w</strong>, você pode testar seu app diretamente no browser sem precisar de emulador, útil para desenvolvimento rápido e depuração.
+</div>
+</section>
+
+<section>
+<h2>4. Observações importantes</h2>
+<ul>
+<li>O template <code>blank-typescript</code> já vem configurado para usar TypeScript, então você pode criar arquivos <code>.tsx</code> imediatamente.</li>
+<li>O suporte à Web exige react-dom e react-native-web, que traduzem os componentes para HTML/CSS/JS.</li>
+<li>O menu do Expo (Metro Bundler) permite alternar facilmente entre plataformas sem abrir IDEs complexas.</li>
+</ul>
+</section>
+
+<footer>
+Manual: Criando projeto Expo com TypeScript e Web + execução simplificada
+</footer>
+
+</body>
+</html>

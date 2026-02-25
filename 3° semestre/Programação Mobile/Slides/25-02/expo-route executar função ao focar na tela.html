@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Expo Router: Pesquisa + Detalhes de Alunos</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f3f4f6; color:#1f2937; line-height:1.6; }
+  header { background:#111827; color:white; padding:25px; text-align:center; }
+  section { background:white; margin:20px; padding:25px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  h2 { border-left:5px solid #2563eb; padding-left:10px; }
+  pre { background:#0f172a; color:#e5e7eb; padding:15px; border-radius:6px; overflow-x:auto; }
+  code { font-family: Consolas, monospace; }
+  .alert { background:#fef3c7; border-left:5px solid #f59e0b; padding:15px; margin-top:15px; border-radius:4px; }
+  footer { background:#111827; color:white; text-align:center; padding:20px; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Exemplo Expo Router: Pesquisa + Detalhes de Alunos</h1>
+</header>
+
+<section>
+<h2>1. Estrutura do projeto</h2>
+<pre><code>app/
+ ├── _layout.tsx       ← Stack global
+ ├── index.tsx         ← Tela de Pesquisa de Alunos
+ └── detalhes.tsx      ← Tela de Edição/Detalhes do Aluno</code></pre>
+</section>
+
+<section>
+<h2>2. Layout global (_layout.tsx)</h2>
+<pre><code>import { Stack } from 'expo-router';
+
+export default function Layout() {
+  return &lt;Stack /&gt;;
+}</code></pre>
+<p>O <code>_layout.tsx</code> substitui o <code>NavigationContainer</code> e gerencia a navegação entre telas.</p>
+</section>
+
+<section>
+<h2>3. Tela de Pesquisa de Alunos (index.tsx)</h2>
+<pre><code>import { View, Text, Button, FlatList } from 'react-native';
+import { useRouter, useFocusEffect } from 'expo-router';
+import { useCallback, useState } from 'react';
+
+export default function Pesquisa() {
+  const router = useRouter();
+  const [alunos, setAlunos] = useState([]);
+
+  // Função que simula chamada à API
+  async function ConsultarAlunos() {
+    const dados = [
+      { id: 1, nome: 'João' },
+      { id: 2, nome: 'Maria' },
+      { id: 3, nome: 'Pedro' }
+    ];
+    setAlunos(dados);
+  }
+
+  // Recarrega a lista toda vez que a tela volta ao foco
+  useFocusEffect(
+    useCallback(() => {
+      ConsultarAlunos();
+    }, [])
+  );
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Text style={{ fontWeight: 'bold', marginBottom: 10 }}&gt;Lista de Alunos:&lt;/Text&gt;
+
+      &lt;FlatList
+        data={alunos}
+        keyExtractor={item =&gt; item.id.toString()}
+        renderItem={({ item }) =&gt; (
+          &lt;View style={{ marginBottom: 10 }}&gt;
+            &lt;Text&gt;{item.nome}&lt;/Text&gt;
+            &lt;Button
+              title="Editar"
+              onPress={() =&gt; router.push(`/detalhes?id=${item.id}`)}
+            /&gt;
+          &lt;/View&gt;
+        )}
+      /&gt;
+    &lt;/View&gt;
+  );
+}</code></pre>
+<p>✅ Ao voltar da tela de detalhes, a lista é recarregada automaticamente.</p>
+</section>
+
+<section>
+<h2>4. Tela de Detalhes/Editar Aluno (detalhes.tsx)</h2>
+<pre><code>import { View, Text, Button } from 'react-native';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+
+export default function Detalhes() {
+  const router = useRouter();
+  const { id } = useLocalSearchParams();
+
+  const texto = id ? `Editando aluno com ID: ${id}` : 'Novo aluno';
+
+  return (
+    &lt;View style={{ padding: 20 }}&gt;
+      &lt;Text style={{ marginBottom: 20 }}&gt;{texto}&lt;/Text&gt;
+
+      &lt;Button
+        title="Voltar"
+        onPress={() =&gt; router.back()}
+      /&gt;
+    &lt;/View&gt;
+  );
+}</code></pre>
+<p>✅ A tela mostra o parâmetro opcional <code>id</code> e permite voltar à tela de pesquisa.</p>
+</section>
+
+<section>
+<h2>5. Observações importantes</h2>
+<ul>
+<li>O <code>useFocusEffect + useCallback</code> é suficiente para recarregar a lista ao voltar da tela de edição.</li>
+<li>Não é necessário usar <code>useEffect</code> com <code>[]</code> porque ele só roda na montagem inicial.</li>
+<li>A navegação passa parâmetros usando <code>router.push('/detalhes?id=123')</code> e recupera com <code>useLocalSearchParams()</code>.</li>
+<li>Essa abordagem mantém a tela de pesquisa montada em memória, preservando estados e inputs, mas permite atualizar os dados quando a tela volta a ter foco.</li>
+</ul>
+</section>
+
+<footer>
+Exemplo completo de Pesquisa + Detalhes usando Expo Router e useFocusEffect
+</footer>
+
+</body>
+</html>

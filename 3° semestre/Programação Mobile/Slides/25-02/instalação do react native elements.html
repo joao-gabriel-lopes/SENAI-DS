@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manual: Instalação RNEUI no Expo Router</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f3f4f6; color:#1f2937; line-height:1.6; }
+  header { background:#111827; color:white; padding:25px; text-align:center; }
+  section { background:white; margin:20px; padding:25px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  h2 { border-left:5px solid #2563eb; padding-left:10px; }
+  pre { background:#0f172a; color:#e5e7eb; padding:15px; border-radius:6px; overflow-x:auto; }
+  code { font-family: Consolas, monospace; }
+  .alert { background:#fef3c7; border-left:5px solid #f59e0b; padding:15px; margin-top:15px; border-radius:4px; }
+  footer { background:#111827; color:white; text-align:center; padding:20px; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Manual de Instalação: React Native Elements (RNEUI) no Expo</h1>
+<p>Incluindo ajuste de dependência do <code>react-test-renderer</code></p>
+</header>
+
+<section>
+<h2>1. Contextualização</h2>
+<p>
+Ao instalar pacotes como <strong>@rneui/themed</strong> e <strong>@rneui/base</strong> em um projeto Expo, você pode se deparar com um erro de <code>peer dependency</code> relacionado ao <code>react-test-renderer</code>.  
+Isso acontece porque:
+</p>
+<ul>
+<li>Seu projeto provavelmente usa <strong>React 19.1.0</strong>.</li>
+<li>Algumas bibliotecas, como <strong>@testing-library/jest-native</strong> (dependência de @rneui/base), exigem <strong>react-test-renderer >=19.2.4</strong> por padrão.</li>
+<li>O npm tenta instalar a versão mais nova compatível (^19.2.4), mas ela não bate com o React que você está usando → conflito.</li>
+</ul>
+<p>
+Portanto, precisamos instalar uma versão **exata do renderer** compatível com o React atual e remover o caractere ^ do package.json para fixar a versão.
+</p>
+</section>
+
+<section>
+<h2>2. Passo 1 — Instalar a versão correta do react-test-renderer</h2>
+<p>Execute o comando:</p>
+<pre><code>npm install --save react-test-renderer@19.1.0</code></pre>
+<p>Isso força a instalação da versão <strong>exata 19.1.0</strong>, compatível com seu React, evitando conflitos de dependência.</p>
+</section>
+
+<section>
+<h2>3. Passo 2 — Remover o ^ do package.json</h2>
+<p>No <code>package.json</code>, localize a linha:</p>
+<pre><code>"react-test-renderer": "^19.1.0"</code></pre>
+<p>Substitua por:</p>
+<pre><code>"react-test-renderer": "19.1.0"</code></pre>
+<p>Isso garante que o npm não tente atualizar automaticamente para versões incompatíveis no futuro.</p>
+</section>
+
+<section>
+<h2>4. Passo 3 — Instalar o React Native Elements (RNEUI)</h2>
+<p>Agora que o renderer está compatível, instale os pacotes:</p>
+<pre><code>npx expo install @rneui/themed @rneui/base</code></pre>
+<p>O <code>expo install</code> cuida da compatibilidade de versões com o React Native e Expo, garantindo que tudo funcione corretamente.</p>
+</section>
+
+<section>
+<h2>5. Resumo do fluxo</h2>
+<ol>
+<li>Instalar a versão exata do <code>react-test-renderer</code> para coincidir com a versão do React atual.</li>
+<li>Remover o caret (^) no package.json para fixar a versão.</li>
+<li>Instalar o @rneui/themed e @rneui/base usando <code>npx expo install</code> para garantir compatibilidade com Expo.</li>
+</ol>
+</section>
+
+<section>
+<h2>6. Observações finais</h2>
+<ul>
+<li>Esse ajuste é necessário apenas se você estiver usando uma versão do React **anterior à 19.2.x**.</li>
+<li>Não alterar a versão do React só para satisfazer peer dependencies evita problemas em outros pacotes ou no Expo.</li>
+<li>Depois dessa sequência, você pode importar componentes do RNEUI normalmente, por exemplo:</li>
+<pre><code>import { Button } from '@rneui/themed';</code></pre>
+</ul>
+</section>
+
+<footer>
+Manual completo: Instalação do RNEUI no Expo Router com ajuste de react-test-renderer
+</footer>
+
+</body>
+</html>
