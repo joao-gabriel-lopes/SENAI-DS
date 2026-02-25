@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Manual: Axios com TypeScript no React Native (Expo)</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; background:#f3f4f6; color:#1f2937; line-height:1.6; }
+  header { background:#111827; color:white; padding:25px; text-align:center; }
+  section { background:white; margin:20px; padding:25px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+  h2 { border-left:5px solid #2563eb; padding-left:10px; }
+  pre { background:#0f172a; color:#e5e7eb; padding:15px; border-radius:6px; overflow-x:auto; }
+  code { font-family: Consolas, monospace; }
+  .alert { background:#fef3c7; border-left:5px solid #f59e0b; padding:15px; margin-top:15px; border-radius:4px; }
+  footer { background:#111827; color:white; text-align:center; padding:20px; margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Manual: Axios com TypeScript no React Native (Expo)</h1>
+</header>
+
+<section>
+<h2>1. O que é Axios?</h2>
+<p>Axios é uma biblioteca baseada em Promises utilizada para fazer requisições HTTP (GET, POST, PUT, DELETE).</p>
+<p><strong>Contexto:</strong> Facilita o consumo de APIs REST no React Native, oferecendo melhor organização, tratamento de erros e configuração global.</p>
+<pre><code>npx expo install axios</code></pre>
+</section>
+
+<section>
+<h2>2. Axios vs Fetch</h2>
+<ul>
+<li><strong>Axios</strong> converte JSON automaticamente.</li>
+<li><strong>Axios</strong> possui interceptadores.</li>
+<li><strong>Axios</strong> possui timeout configurável.</li>
+<li><strong>Fetch</strong> é nativo, mas exige mais configuração manual.</li>
+</ul>
+<div class="alert">
+Axios é mais recomendado em projetos médios e grandes por facilitar manutenção e escalabilidade.
+</div>
+</section>
+
+<section>
+<h2>3. O que é Promise?</h2>
+<p>Promise é um objeto que representa o resultado futuro de uma operação assíncrona.</p>
+<ul>
+<li><strong>Pending</strong> → ainda executando</li>
+<li><strong>Fulfilled</strong> → sucesso</li>
+<li><strong>Rejected</strong> → erro</li>
+</ul>
+
+<pre><code>const promessa = new Promise&lt;string&gt;((resolve, reject) =&gt; {
+  resolve("Sucesso!");
+});
+
+async function executar() {
+  try {
+    const resultado = await promessa;
+    console.log(resultado);
+  } catch (erro) {
+    console.log(erro);
+  }
+}</code></pre>
+
+<div class="alert">
+O Axios funciona totalmente baseado em Promises.
+</div>
+</section>
+
+<section>
+<h2>4. Criando a instância do Axios</h2>
+<p>Criar um arquivo <code>api.ts</code> para centralizar configurações:</p>
+
+<pre><code>import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: 'https://sua-api.com',
+  timeout: 5000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});</code></pre>
+
+<p><strong>Contexto:</strong> Centralizar configurações evita repetição de código.</p>
+</section>
+
+<section>
+<h2>5. Criando o contrato (Interface)</h2>
+
+<pre><code>export interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+}</code></pre>
+
+<p><strong>Contexto:</strong> Interface define o formato dos dados recebidos da API.</p>
+</section>
+
+<section>
+<h2>6. Funções CRUD Exportáveis</h2>
+
+<h3>Listar todos</h3>
+<pre><code>export const listarUsuarios = async (): Promise&lt;Usuario[]&gt; =&gt; {
+  const response = await api.get&lt;Usuario[]&gt;('/usuarios');
+  return response.data;
+};</code></pre>
+
+<h3>Buscar por ID</h3>
+<pre><code>export const buscarUsuarioPorId = async (id: number): Promise&lt;Usuario&gt; =&gt; {
+  const response = await api.get&lt;Usuario&gt;(`/usuarios/${id}`);
+  return response.data;
+};</code></pre>
+
+<h3>Criar</h3>
+<pre><code>export const criarUsuario = async (
+  usuario: Omit&lt;Usuario, 'id'&gt;
+): Promise&lt;Usuario&gt; =&gt; {
+  const response = await api.post&lt;Usuario&gt;('/usuarios', usuario);
+  return response.data;
+};</code></pre>
+
+<h3>Atualizar</h3>
+<pre><code>export const atualizarUsuario = async (
+  id: number,
+  usuario: Partial&lt;Usuario&gt;
+): Promise&lt;Usuario&gt; =&gt; {
+  const response = await api.put&lt;Usuario&gt;(`/usuarios/${id}`, usuario);
+  return response.data;
+};</code></pre>
+
+<h3>Excluir</h3>
+<pre><code>export const excluirUsuario = async (id: number): Promise&lt;void&gt; =&gt; {
+  await api.delete(`/usuarios/${id}`);
+};</code></pre>
+
+</section>
+
+<section>
+<h2>7. Exemplo de uso no componente</h2>
+
+<pre><code>import React, { useEffect, useState } from 'react';
+import { View, Text } from 'react-native';
+import { listarUsuarios } from '../services/usuarioService';
+
+export default function TelaUsuarios() {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() =&gt; {
+    carregarUsuarios();
+  }, []);
+
+  const carregarUsuarios = async () =&gt; {
+    try {
+      const dados = await listarUsuarios();
+      setUsuarios(dados);
+    } catch (erro) {
+      console.log(erro);
+    }
+  };
+
+  return (
+    &lt;View&gt;
+      {usuarios.map(usuario =&gt; (
+        &lt;Text key={usuario.id}&gt;{usuario.nome}&lt;/Text&gt;
+      ))}
+    &lt;/View&gt;
+  );
+}</code></pre>
+
+</section>
+
+<section>
+<h2>8. Conclusão</h2>
+<ul>
+<li>Axios utiliza Promises.</li>
+<li>TypeScript garante tipagem forte.</li>
+<li>Separar serviços da interface melhora organização.</li>
+<li>Instância centralizada facilita manutenção.</li>
+</ul>
+</section>
+
+<footer>
+Manual: Axios com TypeScript no React Native (Expo) - Versão para Impressão
+</footer>
+
+</body>
+</html>
