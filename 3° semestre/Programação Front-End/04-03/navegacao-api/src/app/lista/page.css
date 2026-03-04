@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    border-color: "black";
+    border-width: 2;
+    padding: 10;
+    text-align: "center";
+}
+
+.card-botao {
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.card-titulo {
+    font-size: 40px;
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}

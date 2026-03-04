@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-color: "black";
+    border-width: 2px;
+    padding: 10px;
+    margin: 5px 10px;
+    text-align: "center";
+}
+
+.card-input{
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    width: 40%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.card-titulo {
+    font-size: 40px;
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card-botao{
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+}
