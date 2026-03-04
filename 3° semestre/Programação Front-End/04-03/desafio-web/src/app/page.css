@@ -1,0 +1,10 @@
+.container{
+    background-image: url("https://images5.alphacoders.com/135/1350790.png");
+    background-size: cover;
+}
+
+.pagina{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
