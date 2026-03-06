@@ -11,8 +11,11 @@ public class VendaModel
         NomeCliente = nomeCliente;
     }
 
-    public IngressoVendidoModel GerarIngresso(String descricao, decimal valor)
+    public void GerarIngresso(String descricao, decimal valor)
     {
-        return new IngressoVendidoModel(descricao, valor);
+        IngressoVendidoModel ingresso = new IngressoVendidoModel(descricao, valor);
+        _ingressos.Add(ingresso);
+
+        Console.WriteLine($"{NomeCliente} comprou o {ingresso.Descricao} por R${ingresso.Valor}");
     }
 }

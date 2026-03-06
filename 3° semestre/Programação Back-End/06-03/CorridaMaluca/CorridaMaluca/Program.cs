@@ -15,7 +15,7 @@ VendaModel venda2 = new VendaModel("Carlos ALberto");
 VendaModel venda3 = new VendaModel("Nilson Isaías");
 VendaModel venda4 = new VendaModel("Lucas Ferrante");
 
-Console.WriteLine(venda1.GerarIngresso("Assento 1", 350));
-Console.WriteLine(venda2.GerarIngresso("Assento 23", 225));
-Console.WriteLine(venda3.GerarIngresso("Assento 57", 110));
-Console.WriteLine(venda4.GerarIngresso("Assento 249", 50));
+venda1.GerarIngresso("Assento 1", 350);
+venda2.GerarIngresso("Assento 23", 225);
+venda3.GerarIngresso("Assento 57", 110);
+venda4.GerarIngresso("Assento 249", 50);
