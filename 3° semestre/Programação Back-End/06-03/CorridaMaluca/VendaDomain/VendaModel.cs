@@ -13,6 +13,11 @@ public class VendaModel
 
     public void GerarIngresso(String descricao, decimal valor)
     {
+        if(valor < 0)
+        {
+            throw new ArgumentException("O valor não pode ser menor que zero");
+        }
+
         IngressoVendidoModel ingresso = new IngressoVendidoModel(descricao, valor);
         _ingressos.Add(ingresso);
 
