@@ -11,7 +11,7 @@ ferrari.AdicionarPiloto(max);
 ferrari.AdicionarPiloto(lewis);
 
 VendaModel venda1 = new VendaModel("Pedro Albergue");
-VendaModel venda2 = new VendaModel("Carlos ALberto");
+VendaModel venda2 = new VendaModel("Carlos Alberto");
 VendaModel venda3 = new VendaModel("Nilson Isaías");
 VendaModel venda4 = new VendaModel("Lucas Ferrante");
 
