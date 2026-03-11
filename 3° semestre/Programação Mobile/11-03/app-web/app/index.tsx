@@ -11,7 +11,7 @@ export default function Index(){
                 <Text>Lista de carteiras</Text>
             </Link>            
             <Link style={styles.link} href="/cadastro/page">
-                <Text>Cadastro</Text>
+                <Text>Cadastro de carteiras</Text>
             </Link>
         </View>
     );
