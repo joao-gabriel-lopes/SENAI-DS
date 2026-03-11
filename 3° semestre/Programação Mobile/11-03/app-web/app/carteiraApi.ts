@@ -19,7 +19,7 @@ export const BuscarCarteiraPorId = async (id: String): Promise<ICarteira> => {
   return response.data;
 };
 
-export const AtualizarCarteira = async (id: String, cartao: ICarteira): Promise<ICarteira> => {
+export const AtualizarCarteira = async (id: String, cartao: ICarteira) => {
   const payload = {
     ...cartao,
     nascimento: cartao.nascimento instanceof Date 
@@ -30,7 +30,7 @@ export const AtualizarCarteira = async (id: String, cartao: ICarteira): Promise<
   return response.data;
 };
 
-export const InserirCarteira = async (cartao: ICarteira): Promise<ICarteira> => {
+export const InserirCarteira = async (cartao: ICarteira) => {
   const { id, ...carataoBemvindo } = cartao;
   const payload = {
     ...carataoBemvindo,
@@ -43,7 +43,7 @@ export const InserirCarteira = async (cartao: ICarteira): Promise<ICarteira> => 
   return response.data;
 };
 
-export const DeletarCarteira = async (id: String): Promise<void> => {
+export const DeletarCarteira = async (id: String) => {
   const response = await api.delete(`/${id}`);
   return response.data;
 };

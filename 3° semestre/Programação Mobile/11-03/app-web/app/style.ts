@@ -19,7 +19,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         marginBottom: 16,
         fontSize: 18,
-    }
+    },
+    titulo: {
+        fontSize: 24,
+        paddingBottom: 30,
+    },
 });
 
 export default styles;

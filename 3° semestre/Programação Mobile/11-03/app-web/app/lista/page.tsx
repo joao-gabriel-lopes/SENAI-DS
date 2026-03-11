@@ -32,8 +32,11 @@ export default function Lista() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+
       <Text style={styles.cardTitulo}>Carteiras</Text>
+
       <TextInput style={styles.cardInput} onChangeText={(text) => PesquisarCarteira(text)} placeholder="Buscar carteira..." />
+
       {lista.map(carteira => (
         <View key={carteira.id.toString()} style={styles.card}>
           <View key={carteira.id.toString()} style={styles.cardBotao}>
