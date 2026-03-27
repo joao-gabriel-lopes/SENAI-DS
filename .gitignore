@@ -3,6 +3,7 @@
 
 #Visual Studio
 .vs/
+*.csproj.user
 
 ### DotnetCore ###
 # .NET Core build folders
