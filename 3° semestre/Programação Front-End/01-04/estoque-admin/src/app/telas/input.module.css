@@ -1,0 +1,32 @@
+.input {
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    transition: 0.3s;
+    border: 2px outset rgb(108, 108, 108);
+}
+
+.textarea {
+    max-width: 80%;
+    min-width: 80%;
+    min-height: 200px;
+    max-height: 200px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    overflow-y: scroll;
+    border: 2px outset rgb(108, 108, 108);
+    transition: 0.3s;
+}
+
+.input:focus, .textarea:focus{
+    background-color: rgba(0, 140, 255, 0.1);
+    border: 2px rgb(12, 95, 163) outset;
+    outline: none;
+}
+
+.input:hover, .textarea:hover{
+    border: 2px rgb(12, 95, 163) outset;
+}
