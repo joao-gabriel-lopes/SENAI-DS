@@ -1,0 +1,49 @@
+.containerBotao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.botaoSalvar, .botaoExcluir, .botaoVoltar {
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid gray;
+    font-size: 15px;
+    padding: 5px 20px;
+    transition: 0.3s;
+}
+
+.botaoSalvar{
+    background-color: rgb(56, 179, 15);
+}
+
+.botaoExcluir{
+    background-color: rgb(178, 17, 17);
+}
+
+.botaoVoltar{
+    background-color: rgb(167, 167, 167);
+}
+
+.botaoSalvar:hover{
+    color: rgb(56, 179, 15);
+    background-color: white;
+    border-color: rgb(56, 179, 15);
+    cursor: pointer;
+}
+
+.botaoExcluir:hover{
+    color: rgb(178, 17, 17);
+    background-color: white;
+    border-color: rgb(178, 17, 17);
+    cursor: pointer;
+}
+
+.botaoVoltar:hover{
+    color: rgb(167, 167, 167);
+    background-color: white;
+    border-color: rgb(167, 167, 167);
+    cursor: pointer;
+}
