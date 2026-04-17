@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PilotoDomain\PilotoDomain.csproj"/>
+    <ProjectReference Include="..\PilotoDomain\PilotoDomain.csproj" />
   </ItemGroup>
 
 </Project>

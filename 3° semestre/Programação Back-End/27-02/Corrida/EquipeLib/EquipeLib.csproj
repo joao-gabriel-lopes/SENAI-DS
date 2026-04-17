@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PilotoLib\PilotoLib.csproj"/>
+    <ProjectReference Include="..\PilotoLib\PilotoLib.csproj" />
   </ItemGroup>
 
 </Project>

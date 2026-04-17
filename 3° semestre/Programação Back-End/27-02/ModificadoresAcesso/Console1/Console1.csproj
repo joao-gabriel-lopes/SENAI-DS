@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecaClasses1\BibliotecaClasses1.csproj"/>
+    <ProjectReference Include="..\BibliotecaClasses1\BibliotecaClasses1.csproj" />
   </ItemGroup>
 
 </Project>

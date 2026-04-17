@@ -7,8 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PilotoLib\PilotoLib.csproj"/>
-    <ProjectReference Include="..\EquipeLib\EquipeLib.csproj"/>
+    <ProjectReference Include="..\PilotoLib\PilotoLib.csproj" />
+    <ProjectReference Include="..\EquipeLib\EquipeLib.csproj" />
   </ItemGroup>
 
 </Project>

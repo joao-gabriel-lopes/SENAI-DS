@@ -7,9 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PilotoDomain\PilotoDomain.csproj"/>
-    <ProjectReference Include="..\EquipeDomain\EquipeDomain.csproj"/>    
-    <ProjectReference Include="..\VendaDomain\VendaDomain.csproj"/>
+    <ProjectReference Include="..\PilotoDomain\PilotoDomain.csproj" />
+    <ProjectReference Include="..\EquipeDomain\EquipeDomain.csproj" />    
+    <ProjectReference Include="..\VendaDomain\VendaDomain.csproj" />
   </ItemGroup>
 
 </Project>
