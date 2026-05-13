@@ -1,0 +1,82 @@
+import { ImageBackground, ScrollView, Text, Image, TextInput, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import globals from "../../../style";
+import styles from "./style";
+import { useRouter } from "expo-router";
+import { useEffect, useState } from "react";
+import IProduto from "@/app/interfaces/iProduto";
+import IUnidadeMedida from "@/app/interfaces/iUnidadeMedida";
+import ICategoria from "@/app/interfaces/iCategoria";
+import { ListarCategorias, ListarProdutos, ListarProdutosFiltrados, ListarUnidadesMedida } from "@/app/api";
+import IFiltro from "@/app/interfaces/iFiltro";
+
+export default function PesquisaProdutos() {
+    const [produtos, setProdutos] = useState<IProduto[]>([])
+    const [unidades, setUnidades] = useState<IUnidadeMedida[]>([])
+    const [categorias, setCategorias] = useState<ICategoria[]>([])
+    const [filtro, setFiltro] = useState<IFiltro>({
+        nome: null,
+        categoriaProdutoId: null
+    })
+
+    useEffect(() => {
+        const conteudo = async () => {
+            const unidades = await ListarUnidadesMedida();
+            setUnidades(unidades);
+            const categorias = await ListarCategorias();
+            setCategorias(categorias);
+            const produtos = await ListarProdutos();
+            setProdutos(produtos);
+        };
+        conteudo();
+    }, []);
+
+    const ObterNomeCategoria = (id: string) => categorias.find(categoria => categoria.id === id)?.nome ?? "";
+
+    const ObterSiglaUnidadeMedida = (id: string) => unidades.find(unidade => unidade.id === id)?.sigla ?? "";
+
+    const mudarFiltro = async (e: string) => {
+        setFiltro({ ...filtro, nome: e });
+        setProdutos(await ListarProdutosFiltrados({ ...filtro, nome: e }));
+    }
+
+    return (
+        <SafeAreaProvider>
+            <View style={globals.container}>
+
+                <ImageBackground style={globals.background} source={require("../../../../assets/images/background.jpg")} resizeMode="cover">
+
+                    <ScrollView contentContainerStyle={styles.conteudoContainer}>
+
+                        <TextInput style={styles.input} placeholder="Digite o nome ou categoria do produto 🔍︎" onChangeText={async (e) => {mudarFiltro(e)}} />
+
+                        <View style={styles.cardContainer}>
+
+                            {
+                                produtos.map(produto => (
+                                    <View key={produto.id} style={styles.card}>
+
+                                        <View>
+                                            <Image source={{ uri: `http://apiestoque.runasp.net/imagens/${produto.nomeArquivoFoto}` }} style={styles.cardImagem} />
+                                        </View>
+
+                                        <View style={styles.cardConteudo}>
+                                            <Text style={styles.cardTexto}>Categoria: {ObterNomeCategoria(produto.categoriaProdutoId)}</Text>
+                                            <Text style={styles.cardTexto}>{produto.nome}</Text>
+                                            <Text style={styles.cardTexto}>Quantidade: {produto.quantidadeAtual} {ObterSiglaUnidadeMedida(produto.unidadeMedidaId)}</Text>
+                                        </View>
+
+                                    </View>
+                                ))
+                            }
+
+                        </View>
+
+                    </ScrollView>
+
+                </ImageBackground>
+
+            </View>
+        </SafeAreaProvider>
+    );
+}
