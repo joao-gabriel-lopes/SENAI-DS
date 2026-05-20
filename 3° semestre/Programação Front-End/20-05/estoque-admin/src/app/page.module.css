@@ -1,0 +1,14 @@
+.container{
+    height: 100%;
+    background-image: url("https://images.hdqwalls.com/wallpapers/bliss-windows-xp-remastered-2025-5k-vt.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.titulo{
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.7);
+}
