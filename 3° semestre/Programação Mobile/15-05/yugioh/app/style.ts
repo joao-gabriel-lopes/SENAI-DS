@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        gap: 10
     },
     container: {
         flex: 1,
@@ -49,6 +50,19 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         fontSize: 20,
         marginTop: 9
+    },
+    button: {
+        paddingHorizontal: 5,
+        paddingVertical: 10,
+        borderRadius: 10,
+    },
+    containerBotao: {        
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        paddingHorizontal: 6,
+        gap: 40,
+        marginTop: 1
     }
 })
 

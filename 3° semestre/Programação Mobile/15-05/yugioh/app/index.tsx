@@ -9,10 +9,7 @@ export default function Index() {
     const router = useRouter();
 
     const { id } = useLocalSearchParams();
-
-    if(id === undefined) {
-        router.push("/1");
-    }
+    const idInt = Number(id)
 
     const [cartas] = useState([
         {
@@ -143,34 +140,57 @@ export default function Index() {
         },
     ])
 
+
+    if (idInt === undefined) {
+        router.push("/?id=1");
+    }
+
+    function GerarCard(id: number) {
+        const carta = cartas.find(carta => carta.id == id)
+
+        return (
+            (
+                <ImageBackground style={styles.card} source={require("../assets/images/carta.jpg")}>
+                    <Text style={styles.cardTexto}>Nome: {carta?.nome}</Text>
+
+                    <Text style={styles.cardEstrelas}>
+                        {Array(carta?.estrelas).fill("✪").join("") == "" ? "☥" : Array(carta?.estrelas).fill("✪").join("")}
+                    </Text>
+
+                    <View>
+                        <Image source={carta?.caminhoFoto} style={styles.cardImagem} />
+                    </View>
+
+                    <View style={styles.cardConteudo}>
+                        <Text style={styles.cardTexto}>{carta?.descricao}</Text>
+                    </View>
+
+                    <View style={styles.danoContainer}>
+                        <Text style={styles.cardTexto}>{carta?.ataque}</Text>
+                        <Text style={styles.cardTexto}>{carta?.defesa}</Text>
+                    </View>
+                </ImageBackground>
+            )
+        )
+    }
+
     return (
         <SafeAreaProvider>
             <View style={styles.container}>
 
                 <ImageBackground style={styles.background} source={require("../assets/images/background.jpg")} resizeMode="cover">
 
-                    {cartas.find(carta => carta.id === id) && (
-                        <ImageBackground style={styles.card} source={require("../assets/images/carta.jpg")}>
-                            <Text style={styles.cardTexto}>Nome: {carta.nome}</Text>
+                    {GerarCard(idInt)}
 
-                            <Text style={styles.cardEstrelas}>
-                                {Array(carta.estrelas).fill("✪").join("")}
-                            </Text>
+                    <View style={styles.containerBotao}>
+                        <Button style={styles.button} mode="contained" buttonColor="#78620c" onPress={() => { router.push(`/?id=${idInt - 1 < 1 ? 1 : idInt - 1}`) }}>
+                            {"⫷"}
+                        </Button>
 
-                            <View>
-                                <Image source={carta.caminhoFoto} style={styles.cardImagem} />
-                            </View>
-
-                            <View style={styles.cardConteudo}>
-                                <Text style={styles.cardTexto}>{carta.descricao}</Text>
-                            </View>
-
-                            <View style={styles.danoContainer}>
-                                <Text style={styles.cardTexto}>{carta.ataque}</Text>
-                                <Text style={styles.cardTexto}>{carta.defesa}</Text>
-                            </View>
-                        </ImageBackground>
-                    )}
+                        <Button style={styles.button} mode="contained" buttonColor="#78620c" onPress={() => { router.push(`/?id=${idInt + 1 > cartas.length ? cartas.length : idInt + 1}`) }}>
+                            {"⫸"}
+                        </Button>
+                    </View>
 
                 </ImageBackground>
 
