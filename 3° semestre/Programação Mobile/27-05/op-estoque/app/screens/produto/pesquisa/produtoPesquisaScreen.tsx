@@ -3,27 +3,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import globals from "../../../style";
 import styles from "./style";
 import { useEffect, useState } from "react";
-import IUnidadeMedida from "@/app/interfaces/iUnidadeMedida";
-import ICategoria from "@/app/interfaces/iCategoria";
-import { ListarCategorias, ListarProdutoPorId, ListarProdutos, ListarProdutosFiltrados, ListarUnidadesMedida } from "@/app/api";
-import IFiltro from "@/app/interfaces/iFiltro";
+import { ListarProdutos, ListarProdutosFiltrados } from "@/app/api";
 import IProdutoPesquisa from "@/app/interfaces/iProdutoPesquisa";
 
 export default function PesquisaProdutos() {
     const [produtos, setProdutos] = useState<IProdutoPesquisa[]>([])
-    const [unidades, setUnidades] = useState<IUnidadeMedida[]>([])
-    const [categorias, setCategorias] = useState<ICategoria[]>([])
-    const [filtro, setFiltro] = useState<IFiltro>({
-        nome: null,
-        categoriaNome: null
-    })
 
     useEffect(() => {
         const conteudo = async () => {
-            const unidades = await ListarUnidadesMedida();
-            setUnidades(unidades);
-            const categorias = await ListarCategorias();
-            setCategorias(categorias);
             const produtos = await ListarProdutos();
             setProdutos(produtos);
         };
@@ -31,7 +18,6 @@ export default function PesquisaProdutos() {
     }, []);
 
     async function mudarFiltro(e: string) {
-        setFiltro({nome: e, categoriaNome: e});
         setProdutos(await ListarProdutosFiltrados({nome: e, categoriaNome: e}));
     }
 

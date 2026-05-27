@@ -2,7 +2,7 @@ import { ImageBackground, ScrollView, Text, TextInput, Image, View } from "react
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import globals from "../../../style";
 import styles from "./style";
-import { useRouter, useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import { Button } from "react-native-paper";
 import IOperacaoDetalhes from "@/app/interfaces/iOperacaoDetalhes";
 import { useState } from "react";
@@ -22,8 +22,6 @@ function EntradaSaida() {
 }
 
 export default function MovimentacaoProdutos() {
-    const router = useRouter();
-
     const dataAtual = new Intl.DateTimeFormat('pt-BR', {
         day: '2-digit',
         month: '2-digit',
