@@ -1,0 +1,47 @@
+.container {
+    background-color: rgb(224, 224, 224);
+    margin: auto;
+    margin-top: 15px;
+    padding: 30px 20px;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 20px;
+}
+
+.containerSelect{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 2px outset rgb(108, 108, 108);
+    transition: 0.3s;
+}
+
+.label{
+    align-self: flex-start;
+    font-size: 17px;
+}
+
+.select:focus{
+    background-color: rgba(0, 140, 255, 0.1);
+    border: 2px rgb(12, 95, 163) outset;
+    outline: none;
+}
+
+.select:hover{
+    border: 2px rgb(12, 95, 163) outset;
+    cursor: pointer;
+}
