@@ -34,7 +34,7 @@ namespace ApiControleEstoque.Controllers
                 QuantidadeAtual = prod.QuantidadeAtual,
                 UnidadeMedida = prod.UnidadeMedida != null ? prod.UnidadeMedida.Sigla : "",
                 Descricao = prod.Descricao != null ? prod.Descricao : "",
-                NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : ""
+                NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : "no-image.png"
             }).ToListAsync();
         }
 
@@ -79,7 +79,7 @@ namespace ApiControleEstoque.Controllers
                 QuantidadeAtual = prod.QuantidadeAtual,
                 UnidadeMedida = prod.UnidadeMedida != null ? prod.UnidadeMedida.Sigla : "",
                 Descricao = prod.Descricao != null ? prod.Descricao : "",
-                NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : ""
+                NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : "no-image.png"
             }).ToListAsync();
         }
 
