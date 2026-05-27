@@ -2,9 +2,7 @@ import { ImageBackground, ScrollView, Text, Image, TextInput, View } from "react
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import globals from "../../../style";
 import styles from "./style";
-import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import IProduto from "@/app/interfaces/iProduto";
 import IUnidadeMedida from "@/app/interfaces/iUnidadeMedida";
 import ICategoria from "@/app/interfaces/iCategoria";
 import { ListarCategorias, ListarProdutoPorId, ListarProdutos, ListarProdutosFiltrados, ListarUnidadesMedida } from "@/app/api";
@@ -17,7 +15,7 @@ export default function PesquisaProdutos() {
     const [categorias, setCategorias] = useState<ICategoria[]>([])
     const [filtro, setFiltro] = useState<IFiltro>({
         nome: null,
-        categoriaProdutoId: null
+        categoriaNome: null
     })
 
     useEffect(() => {
@@ -32,13 +30,9 @@ export default function PesquisaProdutos() {
         conteudo();
     }, []);
 
-    const ObterNomeCategoria = (id: string) => categorias.find(categoria => categoria.id === id)?.nome ?? "";
-
-    const ObterSiglaUnidadeMedida = (id: string) => unidades.find(unidade => unidade.id === id)?.sigla ?? "";
-
-    const mudarFiltro = async (e: string) => {
-        setFiltro({ ...filtro, nome: e });
-        setProdutos(await ListarProdutosFiltrados({ ...filtro, nome: e }));
+    async function mudarFiltro(e: string) {
+        setFiltro({nome: e, categoriaNome: e});
+        setProdutos(await ListarProdutosFiltrados({nome: e, categoriaNome: e}));
     }
 
     return (
@@ -49,7 +43,7 @@ export default function PesquisaProdutos() {
 
                     <ScrollView contentContainerStyle={styles.conteudoContainer}>
 
-                        <TextInput style={styles.input} placeholder="Digite o nome ou categoria do produto 🔍︎" onChangeText={async (e) => {mudarFiltro(e)}} />
+                        <TextInput style={styles.input} placeholder="Digite o nome ou categoria do produto 🔍︎" onChangeText={async (e) => { mudarFiltro(e) }} />
 
                         <View style={styles.cardContainer}>
 

@@ -34,7 +34,7 @@ export async function ListarCategoriaPorId(id: string): Promise<ICategoria> {
 
     } catch (error) {
         console.error("Falha ao buscar categoria:", error);
-        return {id: null, nome: "", descricao: null};
+        return { id: null, nome: "", descricao: null };
     }
 }
 
@@ -68,7 +68,7 @@ export async function ListarUnidadesMedidaPorId(id: string): Promise<IUnidadeMed
 
     } catch (error) {
         console.error("Falha ao buscar unidade de medida:", error);
-        return {id: null, sigla: "", descricao: null, fracionavel: true};
+        return { id: null, sigla: "", descricao: null, fracionavel: true };
     }
 }
 
@@ -102,7 +102,7 @@ export async function ListarProdutoPorId(id: string): Promise<IProduto> {
 
     } catch (error) {
         console.error("Falha ao buscar produto:", error);
-        return {id: null, nome: "", descricao: null, habilitado: true, categoriaProdutoId: "", unidadeMedidaId: "", nomeArquivoFoto: "", quantidadeAtual: 0};
+        return { id: null, nome: "", descricao: null, habilitado: true, categoriaProdutoId: "", unidadeMedidaId: "", nomeArquivoFoto: "", quantidadeAtual: 0 };
     }
 }
 
@@ -114,18 +114,36 @@ export async function ListarProdutosFiltrados(filtro: IFiltro): Promise<IProduto
             params.append('nome', filtro.nome);
         }
 
-        if (filtro.categoriaProdutoId) {
-            params.append('categoriaProdutoId', filtro.categoriaProdutoId);
+        if (filtro.categoriaNome) {
+            params.append('categoriaNome', filtro.categoriaNome);
         }
 
-        const response = await fetch(`https://apiestoque.runasp.net/api/Produto/filtrados?${params.toString()}`);
+        const response = await fetch(`https://apiestoque.runasp.net/api/Produto`);
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status} ${response.statusText}`);
         }
 
-        const data: IProdutoPesquisa[] = await response.json();
-        return data;
+        const produtos: IProdutoPesquisa[] = await response.json();
+
+        const produtosFiltrados: IProdutoPesquisa[] = [];
+
+        produtos.forEach(produto => {
+            const nome = params.get("nome")?.toLowerCase()
+            const categoriaNome = params.get("categoriaNome")?.toLowerCase()
+
+            if (nome && categoriaNome) {
+                if (produto.produtoNome.toLowerCase().includes(nome) || produto.categoriaNome.toLowerCase().includes(categoriaNome)) {
+                    produtosFiltrados.push(produto)
+                }
+            }
+        });
+
+        if (produtosFiltrados.length == 0 && params.get("nome") == null && params.get("categoriaNome") == null) {
+            return produtos
+        } else {
+            return produtosFiltrados;
+        }
 
     } catch (error) {
         console.error("Falha ao buscar produtos filtrados:", error);
