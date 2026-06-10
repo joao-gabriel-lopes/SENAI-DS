@@ -253,19 +253,17 @@ export async function AtualizarProduto(produto: IProduto): Promise<void> {
 
 export async function AtualizarProdutoImagem(produtoId: string, produtoImagem: File): Promise<void> {
     try {
-        const response = await fetch(`${urlBase}Produto/${produtoId}`, {
+        const imagem = new FormData();
+        imagem.append("arquivo", produtoImagem);
+
+        const response = await fetch(`${urlBase}Produto/imagem/${produtoId}`, {
             method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: produtoImagem
+            body: imagem
         });
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status} ${response.statusText}`);
         }
-
-        window.location.href = `/telas/produto/cadastro?id=${produtoId}`;
 
     } catch (error) {
         console.error('Falha ao inserir produto:', error);

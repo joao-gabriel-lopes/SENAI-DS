@@ -22,19 +22,20 @@ export default function CadastroProduto() {
     const [categorias, setCategorias] = useState<ICategoria[]>([])
     const [produtoImagem, setProdutoImagem] = useState<File>()
 
-    const AtualizarImagemEvento = (e: any) =>{
+    const AtualizarImagemEvento = (e: any) => {
         const arquivo = e.target.files[0]
 
-        if(arquivo){
+        if (arquivo) {
             setProdutoImagem(arquivo)
         }
     }
 
-    const AtualizarTudo = async (produtoImagem: File, produto: IProduto) =>{
-        await AtualizarProduto(produto)
-        if(produto.id != null){
+    const AtualizarTudo = async (produtoImagem: File, produto: IProduto) => {
+        if (produto.id != null) {
             await AtualizarProdutoImagem(produto.id, produtoImagem)
+            console.log("a")
         }
+        await AtualizarProduto(produto)
     }
 
     useEffect(() => {
@@ -117,7 +118,7 @@ export default function CadastroProduto() {
 
                             <article className={buttonStyles.containerBotao}>
 
-                                <button onClick={() => produtoImagem == null ? AtualizarProduto(produto) : AtualizarTudo(produtoImagem, produto)}className={buttonStyles.botaoSalvar}>Salvar</button>
+                                <button onClick={() => produtoImagem == null ? AtualizarProduto(produto) : AtualizarTudo(produtoImagem, produto)} className={buttonStyles.botaoSalvar}>Salvar</button>
                                 <button onClick={() => produto.id != null ? DeletarProduto(produto.id) : null} className={buttonStyles.botaoExcluir}>Excluir</button>
                                 <button onClick={() => router.push("/telas/produto/pesquisa")} className={buttonStyles.botaoVoltar}>Voltar</button>
 
