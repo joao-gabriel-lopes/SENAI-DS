@@ -5,6 +5,8 @@ import IUnidadeMedida from "./interfaces/iUnidadeMedida";
 import IFiltro from "./interfaces/iFiltro";
 import IProdutoLista from "./interfaces/iProdutoLista";
 import IPostProduto from "./interfaces/iPostProduto";
+import ICategoriaPost from "./interfaces/iCategoriaPost";
+import IUnidadeMedidaPost from "./interfaces/iUnidadeMedidaPost";
 
 const urlBase = "https://apiestoque.runasp.net/api/";
 
@@ -62,6 +64,48 @@ export async function DeletarCategoria(id: string): Promise<void> {
     }
 }
 
+export async function InserirCategoria(categoria: ICategoriaPost): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(categoria)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/categoria/cadastro';
+
+    } catch (error) {
+        console.error('Falha ao inserir categoria:', error);
+    }
+}
+
+export async function AtualizarCategoria(categoria: ICategoria): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto/${categoria.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(categoria)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = `/telas/categoria/cadastro?id=${categoria.id}`;
+
+    } catch (error) {
+        console.error('Falha ao atualizar categoria:', error);
+    }
+}
+
 export async function ListarUnidadesMedida(): Promise<IUnidadeMedida[]> {
     try {
         const response = await fetch(`${urlBase}UnidadeMedida`);
@@ -113,6 +157,48 @@ export async function DeletarUnidadeMedida(id: string): Promise<void> {
 
     } catch (error) {
         console.error('Falha ao excluir unidade de medida:', error);
+    }
+}
+
+export async function InserirUnidadeMedida(unidadeMedida: IUnidadeMedidaPost): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}unidadeMedida`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(unidadeMedida)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/unidadeMedida/cadastro';
+
+    } catch (error) {
+        console.error('Falha ao inserir unidade de medida:', error);
+    }
+}
+
+export async function AtualizarUnidadeMedida(unidadeMedida: IUnidadeMedida): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}unidadeMedida/${unidadeMedida.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(unidadeMedida)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = `/telas/unidadeMedida/cadastro?id=${unidadeMedida.id}`;
+
+    } catch (error) {
+        console.error('Falha ao atualizar unidade de medida:', error);
     }
 }
 
@@ -247,7 +333,7 @@ export async function AtualizarProduto(produto: IProduto): Promise<void> {
         window.location.href = `/telas/produto/cadastro?id=${produto.id}`;
 
     } catch (error) {
-        console.error('Falha ao inserir produto:', error);
+        console.error('Falha ao atualizar produto:', error);
     }
 }
 
@@ -266,6 +352,6 @@ export async function AtualizarProdutoImagem(produtoId: string, produtoImagem: F
         }
 
     } catch (error) {
-        console.error('Falha ao inserir produto:', error);
+        console.error('Falha ao atualizar a imagem produto:', error);
     }
 }
