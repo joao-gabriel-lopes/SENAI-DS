@@ -1,0 +1,68 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    padding: 30px 0px;
+}
+
+.containerCadastro {
+    background-color: rgb(224, 224, 224);
+    margin: auto;
+    padding: 30px 20px;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 20px;
+}
+
+.containerSelect {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 2px outset rgb(108, 108, 108);
+    transition: 0.3s;
+}
+
+.label {
+    align-self: flex-start;
+    font-size: 17px;
+}
+
+.select:focus {
+    background-color: rgba(0, 140, 255, 0.1);
+    border: 2px rgb(12, 95, 163) outset;
+    outline: none;
+}
+
+.select:hover {
+    border: 2px rgb(12, 95, 163) outset;
+    cursor: pointer;
+}
+
+.imagemProduto {
+    width: 50%;
+    height: 50%;
+    border: 2px outset rgb(108, 108, 108);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.imagemProduto:hover {
+    border: 2px rgb(12, 95, 163) outset;
+}
