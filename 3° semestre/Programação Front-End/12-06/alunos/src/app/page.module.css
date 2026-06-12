@@ -1,0 +1,75 @@
+
+.conteudoPrincipal{ 
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ededed;
+  padding: 30px 50px;
+  margin-top: 30px;
+  border-radius: 30px;
+  box-shadow: 8px 8px 8px rgb(168, 168, 168);
+  gap: 30px;
+}
+
+.containerPesquisa{  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.conteudoSelect{
+  font-size: 16px;
+  width: 20%;
+  padding: 5px 10px;
+}
+
+.conteudoInput{
+  width: 50%;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.conteudoInput:hover, .conteudoInput:focus{
+  outline: none;
+}
+
+.conteudoBotao{
+  font-size: 16px;
+  padding: 4px 20px;
+}
+
+.conteudoBotao:hover{
+  cursor: pointer;
+}
+
+.containerTabela{
+  width: 100%;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.conteudoTabela{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.conteudoTabelaTituloLinha, .conteudoTabelaTituloColuna, .conteudoTabelaColuna, .conteudoTabelaLinha{
+  border: 1px solid black;
+  padding: 3px 5px;
+}
+
+.conteudoTabelaTituloColuna{
+  font-size: 18px;
+  text-align: center;
+}
+
+.conteudoTabelaColuna{
+  font-size: 16px;
+}
