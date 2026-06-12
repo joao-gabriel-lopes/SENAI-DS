@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.Protocol" Version="7.6.0" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BibliotecaClasses1\BibliotecaClasses1.csproj" />
   </ItemGroup>
