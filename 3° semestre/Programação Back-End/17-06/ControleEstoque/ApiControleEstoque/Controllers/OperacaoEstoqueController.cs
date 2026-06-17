@@ -108,7 +108,14 @@ namespace ApiControleEstoque.Controllers
                     }
                     else
                     {
-                        operacaoEstoque.CriarDetalhe(produto, detalhe.Quantidade);
+                        try
+                        {
+                            operacaoEstoque.CriarDetalhe(produto, detalhe.Quantidade);
+                        }
+                        catch (ArgumentException erro)
+                        {
+                            return BadRequest(erro.Message);
+                        }
                     }
 
                 }
@@ -120,7 +127,7 @@ namespace ApiControleEstoque.Controllers
 
             if (produtosNaoEncontrados.Any())
             {
-                return BadRequest("Erro ao encontrar ids dos produtos: " + string.Join(", ", produtosNaoEncontrados));
+                return BadRequest("Erro ao encontrar ids dos produtos: \n" + string.Join("\n", produtosNaoEncontrados));
             }
 
             _context.OperacaoEstoque.Add(operacaoEstoque);
@@ -133,15 +140,13 @@ namespace ApiControleEstoque.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOperacaoEstoque(Guid id)
         {
-            var operacaoEstoque = await _context.OperacaoEstoque.FindAsync(id);
+            var operacaoEstoque = await _context.OperacaoEstoque
+                .Include(o => o.Detalhes)
+                .FirstOrDefaultAsync(o => o.Id == id);
 
-            if (operacaoEstoque == null)
-            {
-                return NotFound();
-            }
+            if (operacaoEstoque == null) return NotFound();
 
             _context.OperacaoEstoque.Remove(operacaoEstoque);
-
             await _context.SaveChangesAsync();
 
             return NoContent();
