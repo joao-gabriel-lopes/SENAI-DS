@@ -48,15 +48,15 @@ namespace ApiControleEstoque.Controllers
                         Motivo = op.Motivo,
                         Detalhes = op.Detalhes
                         .Select(detalhe => new GetOperacaoDetalheResponse
-                            {
-                                Id = detalhe.Id,
-                                Quantidade = detalhe.Quantidade,
-                                ProdutoNome = detalhe.Produto != null ? detalhe.Produto.Nome : "",
-                                UnidadeMedidaSigla = 
+                        {
+                            Id = detalhe.Id,
+                            Quantidade = detalhe.Quantidade,
+                            ProdutoNome = detalhe.Produto != null ? detalhe.Produto.Nome : "",
+                            UnidadeMedidaSigla =
                                     detalhe.Produto != null ?
-                                    detalhe.Produto.UnidadeMedida != null?
-                                    detalhe.Produto.UnidadeMedida.Sigla : "" : "" 
-                            }
+                                    detalhe.Produto.UnidadeMedida != null ?
+                                    detalhe.Produto.UnidadeMedida.Sigla : "" : ""
+                        }
                         ).ToList()
                     }
                 ).FirstOrDefaultAsync();

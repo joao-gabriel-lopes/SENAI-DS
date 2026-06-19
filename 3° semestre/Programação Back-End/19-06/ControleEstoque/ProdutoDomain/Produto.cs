@@ -29,5 +29,15 @@ namespace ProdutoDomain
             QuantidadeAtual = quantidadeAtual >= 0 ? quantidadeAtual : throw new ArgumentException("A quantidade em estoque não pode ser menor que zero");
         }
 
+        public void Adicionar(decimal quantidade)
+        {
+            QuantidadeAtual += quantidade;
+        }
+
+        public void Retirar(decimal quantidade)
+        {
+            QuantidadeAtual -= quantidade;
+        }
+
     }
 }

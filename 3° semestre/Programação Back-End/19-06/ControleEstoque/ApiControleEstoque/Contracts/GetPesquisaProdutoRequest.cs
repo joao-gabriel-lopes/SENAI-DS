@@ -8,7 +8,7 @@ namespace ApiControleEstoque.Contracts
         public required String CategoriaNome { get; set; }
         public required String UnidadeMedida { get; set; }
         public required String Descricao { get; set; }
-
+        public required Boolean Habilitado { get; set; }
         public required String NomeArquivoImagem { get; set; }
         public required decimal QuantidadeAtual { get; set; }
     }

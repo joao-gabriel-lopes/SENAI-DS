@@ -33,6 +33,7 @@ namespace ApiControleEstoque.Controllers
                 ProdutoNome = prod.Nome,
                 QuantidadeAtual = prod.QuantidadeAtual,
                 UnidadeMedida = prod.UnidadeMedida != null ? prod.UnidadeMedida.Sigla : "",
+                Habilitado = prod.Habilitado,
                 Descricao = prod.Descricao != null ? prod.Descricao : "",
                 NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : "no-image.png"
             }).ToListAsync();
@@ -78,6 +79,7 @@ namespace ApiControleEstoque.Controllers
                 ProdutoNome = prod.Nome,
                 QuantidadeAtual = prod.QuantidadeAtual,
                 UnidadeMedida = prod.UnidadeMedida != null ? prod.UnidadeMedida.Sigla : "",
+                Habilitado = prod.Habilitado,
                 Descricao = prod.Descricao != null ? prod.Descricao : "",
                 NomeArquivoImagem = prod.NomeArquivoFoto != null ? prod.NomeArquivoFoto : "no-image.png"
             }).ToListAsync();

@@ -39,8 +39,17 @@ namespace OperacionalDomain
             {
                 throw new ArgumentException("Não é possível fazer uma saída com uma quantidade maior que a disponível no estoque");
             }
-            
-            OperacaoEstoqueDetalhe detalhe = new (produto.Id, quantidade);
+
+            if (EntradaSaida.ToUpper() == "E")
+            {
+                produto.Adicionar(quantidade);
+            }
+            else if (EntradaSaida.ToUpper() == "S")
+            {
+                produto.Retirar(quantidade);
+            }
+
+            OperacaoEstoqueDetalhe detalhe = new(produto.Id, quantidade);
 
             _detalhes.Add(detalhe);
         }
