@@ -24,7 +24,7 @@ export default function Contracapa() {
             Voltar ao Sumário
           </p>
         </Button>
-        <Button className="button" variant="contained" onClick={() => { router.push("/pages/paginas/paginas5") }}>
+        <Button className="button" variant="contained" onClick={() => { router.push("/pages/capitulos/capitulo5") }}>
           <p className="seta">
             ◀
           </p>

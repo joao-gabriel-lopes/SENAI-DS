@@ -26,24 +26,24 @@ export default function Sumario() {
             Sumário -------------------------------------------------------------------------- 3
           </p>
 
-          <p className="textoSumario" onClick={() => router.push("/pages/paginas/pagina1")}>
-            Página 1 -------------------------------------------------------------------------- 4
+          <p className="textoSumario" onClick={() => router.push("/pages/capitulos/capitulo1")}>
+            Capítulo 1 ------------------------------------------------------------------------ 4
           </p>
 
-          <p className="textoSumario" onClick={() => router.push("/pages/paginas/pagina2")}>
-            Página 2 -------------------------------------------------------------------------- 5
+          <p className="textoSumario" onClick={() => router.push("/pages/capitulos/capitulo2")}>
+            Capítulo 2 ------------------------------------------------------------------------ 5
           </p>
 
-          <p className="textoSumario" onClick={() => router.push("/pages/paginas/pagina3")}>
-            Página 3 -------------------------------------------------------------------------- 6
+          <p className="textoSumario" onClick={() => router.push("/pages/capitulos/capitulo3")}>
+            Capítulo 3 ------------------------------------------------------------------------ 6
           </p>
 
-          <p className="textoSumario" onClick={() => router.push("/pages/paginas/pagina4")}>
-            Página 4 -------------------------------------------------------------------------- 7
+          <p className="textoSumario" onClick={() => router.push("/pages/capitulos/capitulo4")}>
+            Capítulo 4 ------------------------------------------------------------------------ 7
           </p>
 
-          <p className="textoSumario" onClick={() => router.push("/pages/paginas/pagina5")}>
-            Página 5 -------------------------------------------------------------------------- 8
+          <p className="textoSumario" onClick={() => router.push("/pages/capitulos/capitulo5")}>
+            Capítulo 5 ------------------------------------------------------------------------ 8
           </p>
 
           <p className="textoSumario" onClick={() => router.push("/pages/contracapa")}>
@@ -64,7 +64,7 @@ export default function Sumario() {
             ◀
           </p>
         </Button>
-        <Button className="button" variant="contained" onClick={() => { router.push("/pages/paginas/pagina1") }}>
+        <Button className="button" variant="contained" onClick={() => { router.push("/pages/capitulos/capitulo1") }}>
           <p className="seta">
             ▶
           </p>

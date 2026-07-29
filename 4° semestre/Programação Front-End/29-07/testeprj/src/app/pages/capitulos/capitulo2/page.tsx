@@ -4,16 +4,18 @@ import { Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 import "../../.././globals.css";
 
-export default function Pagina4() {
+export default function Pagina2() {
   const router = useRouter();
 
   return (
     <div className="containerConteudo">
       <div className="containerLivro">
+
         <div className="cabecalho">
           <p className="titulo">Capítulo II</p>
           <p className="subtitulo">O Emplasto</p>
         </div>
+
         <div className="rodape">
           <p className="textoLivro">
             Com efeito, um dia de manhã, estando a passear na chácara,
@@ -35,7 +37,17 @@ export default function Pagina4() {
             nas caixinhas do remédio, estas três palavras: Emplasto Brás Cubas.
             Para que negá-lo? Eu tinha a paixão do arruído, do cartaz, do foguete
             de lágrimas. Talvez os modestos me argúam esse defeito; fio, porém,
-            que esse talento me hão de reconhecer os hábeis.
+            que esse talento me hão de reconhecer os hábeis. Assim, a minha
+            idéia trazia duas faces, como as medalhas, uma virada para o
+            público, outra para mim. De um lado, filantropia e lucro; de outro
+            lado, sede de nomeada. Digamos: — amor da glória.
+            Um tio meu, cônego de prebenda inteira, costumava dizer que o
+            amor da glória temporal era a perdição das almas, que só devem
+            cobiçar a glória eterna. Ao que retorquia outro tio, oficial de um dos
+            antigos terços de infantaria, que o amor da glória era a coisa mais
+            verdadeiramente humana que há no homem, e, conseguintemente, a
+            sua mais genuína feição.
+            Decida o leitor entre o militar e o cônego; eu volto ao emplasto.
           </p>
         </div>
       </div>
@@ -46,12 +58,12 @@ export default function Pagina4() {
             Voltar ao Sumário
           </p>
         </Button>
-        <Button className="button" variant="contained" onClick={() => { router.push("/pages/paginas/pagina3") }}>
+        <Button className="button" variant="contained" onClick={() => { router.push("/pages/capitulos/capitulo1") }}>
           <p className="seta">
             ◀
           </p>
         </Button>
-        <Button className="button" variant="contained" onClick={() => { router.push("/pages/paginas/pagina5") }}>
+        <Button className="button" variant="contained" onClick={() => { router.push("/pages/capitulos/capitulo3") }}>
           <p className="seta">
             ▶
           </p>
