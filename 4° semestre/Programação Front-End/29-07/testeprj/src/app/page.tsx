@@ -3,6 +3,7 @@
 import { Button } from "@mui/material";
 import { useRouter } from "next/navigation";
 import "./globals.css";
+import img_capa from "../images/./bras_cubas.jpg"
 
 export default function Index() {
   const router = useRouter();
@@ -10,14 +11,15 @@ export default function Index() {
   return (
     <div className="containerConteudo">
       <div className="containerLivro">
-        <div className="cabecalho">
+        {/* <div className="cabecalho">
           <p className="titulo">Memórias Póstumas de Brás Cubas</p>
           <p className="subtitulo">As confissões irônicas de um defunto autor</p>
         </div>
         <div className="rodape">
           <p className="textoLivro">Machado de Assis</p>
           <p className="textoLivro">1881</p>
-        </div>
+        </div> */}
+        <img className="img-capa" src={img_capa.src} alt="" />
       </div>
 
       <div className="containerButton">

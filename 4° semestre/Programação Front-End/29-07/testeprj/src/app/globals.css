@@ -3,12 +3,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.principal{
     background-color: #dfdfdf;
+    margin: 0px;
     overflow: hidden;
 }
 
+.img-capa{
+    width: 320px;
+    height: 530px;
+}
+
+.rodape-principal{
+    height: 25px;
+    width: 100%;
+    background-color: rgb(20, 88, 148);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecalho-principal{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(20, 88, 148);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .containerConteudo {
-    padding: 30px 20px;
+    padding: 30px 20px 17px 20px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -16,7 +45,7 @@
 }
 
 .containerLivro {
-    height: 550px;
+    height: 520px;
     display: flex;
     justify-content: space-around;
     align-items: center;
