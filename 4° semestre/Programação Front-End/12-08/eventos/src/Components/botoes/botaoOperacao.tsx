@@ -11,19 +11,11 @@ export function BotaoOperacao({ distancia, eventoDecrementar, eventoIncrementar 
         <div style={{
             width: distancia || 50,
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between"
+            flexDirection: "column",
+            justifyContent: "space-between",
+            gap: 5
         }}
         >
-            <button
-                onClick={eventoDecrementar}
-                style={{
-                    backgroundColor: "lightred"
-                }}
-            >
-                {"-"}
-            </button>
-
             <button
                 onClick={eventoIncrementar}
                 style={{
@@ -32,6 +24,16 @@ export function BotaoOperacao({ distancia, eventoDecrementar, eventoIncrementar 
             >
                 {"+"}
             </button>
+
+            <button
+                onClick={eventoDecrementar}
+                style={{
+                    backgroundColor: "red"
+                }}
+            >
+                {"-"}
+            </button>
+
         </div>
     )
 }
