@@ -2,6 +2,7 @@
 import { BotaoPadrao } from "@/Components/botoes/botaoPadrao";
 import { BotaoNavegacao } from "@/Components/botoes/botaoNavegacao";
 import styles from "./globals.css";
+import { BotaoOperacao } from "@/Components/botoes/botaoOperacao";
 
 export default function Index() {
   return (
@@ -14,6 +15,8 @@ export default function Index() {
       </div>
 
       <BotaoNavegacao eventoVoltar={() => alert("Voltar")} eventoAvancar={() => alert("Avançar")} />
+      
+      <BotaoOperacao eventoDecrementar={() => alert("Decrementar")} eventoIncrementar={() => alert("Incrementar")}/>
     </div>
   );
 }

@@ -1,17 +1,15 @@
 'use client'
 
-import { MouseEventHandler } from "react"
-
-interface IBotaonavegacao {
+interface IBotaoNavegacao {
     distancia?: number,
     eventoVoltar: () => void,
     eventoAvancar: () => void
 }
 
-export function BotaoNavegacao({ distancia, eventoVoltar, eventoAvancar }: IBotaonavegacao) {
+export function BotaoNavegacao({ distancia, eventoVoltar, eventoAvancar }: IBotaoNavegacao) {
     return (
         <div style={{
-            width: distancia || 50,
+            width: distancia || 80,
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between"
