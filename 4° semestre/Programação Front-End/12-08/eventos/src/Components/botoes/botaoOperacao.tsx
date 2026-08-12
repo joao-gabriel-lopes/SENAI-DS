@@ -17,12 +17,18 @@ export function BotaoOperacao({ distancia, eventoDecrementar, eventoIncrementar 
         >
             <button
                 onClick={eventoDecrementar}
+                style={{
+                    backgroundColor: "lightred"
+                }}
             >
                 {"-"}
             </button>
 
             <button
                 onClick={eventoIncrementar}
+                style={{
+                    backgroundColor: "blue"
+                }}
             >
                 {"+"}
             </button>
