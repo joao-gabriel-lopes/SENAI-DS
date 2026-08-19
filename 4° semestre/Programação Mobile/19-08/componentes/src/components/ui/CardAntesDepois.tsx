@@ -1,6 +1,6 @@
 import { Text, ColorValue, View, Image, AnimatableNumericValue, DimensionValue } from "react-native";
 
-interface ICardAntesDepois {
+export interface ICardAntesDepois {
     titulo: string,
     imgAntes: string,
     imgDepois: string,
@@ -10,12 +10,17 @@ interface ICardAntesDepois {
     alturaCard?: DimensionValue,
     corTexto?: ColorValue,
     larguraImagem?: DimensionValue,
-    alturaImagem?: DimensionValue
+    alturaImagem?: DimensionValue,
+    key?: string
 }
 
-export function CardAntesDepois({ titulo, imgAntes, imgDepois, borderRadius, corFundo, larguraCard, alturaCard, corTexto, larguraImagem, alturaImagem }: ICardAntesDepois) {
+interface IListaCardAntesDepois {
+    listaCards: ICardAntesDepois[]
+}
+
+export function CardAntesDepois({ titulo, imgAntes, imgDepois, borderRadius, corFundo, larguraCard, alturaCard, corTexto, larguraImagem, alturaImagem, key }: ICardAntesDepois) {
     return (
-        <View style={{
+        <View key={key ?? null} style={{
             width: larguraCard || "auto",
             height: alturaCard || "auto",
             display: "flex",
@@ -103,5 +108,13 @@ export function CardAntesDepois({ titulo, imgAntes, imgDepois, borderRadius, cor
             </View>
 
         </View>
+    );
+}
+
+export function ListaCardAntesDepois({ listaCards }: IListaCardAntesDepois) {
+    return (
+        listaCards.map((card) =>(
+            CardAntesDepois(card)
+        ))
     );
 }

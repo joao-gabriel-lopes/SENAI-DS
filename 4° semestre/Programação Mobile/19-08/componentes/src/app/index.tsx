@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { CardFoto } from "@/components/ui/Cards";
 import styles from "./style";
-import { CardAntesDepois } from "@/components/ui/CardAntesDepois";
+import { CardAntesDepois, ICardAntesDepois, ListaCardAntesDepois } from "@/components/ui/CardAntesDepois";
 
 export default function Index() {
   return (
@@ -55,6 +55,23 @@ export default function Index() {
           titulo="Xandão"
           imgAntes="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqX8DmtnxoQ_Sp7PuWsPialUJ0781v5FvagbjpS-t88g&s=10"
           imgDepois="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXGtL-b76vKHgqiN-CL_jM0jNN9WRnI92lsX70f6_tcA&s=10"
+        />
+
+        <ListaCardAntesDepois
+          listaCards={[
+            {
+              key: "1",
+              titulo: "Peixe",
+              imgAntes: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJxWHFtbHVfHX8v2fTC3uoqvLjD99FJZweDySd0HTxdg&s=10",
+              imgDepois: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHs4sfTQdcgPxRbY1d830Dq0KZE5AA6joDa0DjRRWcmg&s=10"
+            },
+            {
+              key: "2",
+              titulo: "As árvores somos nozes",
+              imgAntes: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNqeG-i2RRTIQ2k3xnSswcybeGYkQq9QgFwACErxoKzQ&s=10",
+              imgDepois: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzigIsBEn-IP7-ruDYNSLgvtAOH2ytaT5h3zT3f8BRng&s=10"
+            }
+          ]}
         />
 
       </ScrollView>
