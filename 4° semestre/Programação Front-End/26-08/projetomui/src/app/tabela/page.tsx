@@ -58,7 +58,7 @@ export default function Index() {
     function filtrarFuncionarios(pesquisa: string, funcionarios: funcionario[]) {
         var lista: funcionario[] = []
 
-        linhas.forEach(funcionario => {
+        funcionarios.forEach(funcionario => {
                 if(funcionario.nome.toLowerCase().includes(pesquisa.toLowerCase()) || funcionario.id.toLowerCase() == pesquisa.toLowerCase()){
                     lista.push(funcionario);
                 }
