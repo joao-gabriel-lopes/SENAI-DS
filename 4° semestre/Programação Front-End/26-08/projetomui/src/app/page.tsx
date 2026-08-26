@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import theme from "@/themes/greyButton";
 import { useState } from "react";
 import PedalBikeIcon from '@mui/icons-material/PedalBike';
-import { DataGrid } from '@mui/x-data-grid';
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface Colunas {
@@ -175,6 +175,8 @@ const linhas: informacao[] = [
 ];
 
 export default function Index() {
+  const router = useRouter();
+
   const [estado, setEstado] = useState(false)
 
   const [pagina, setPagina] = useState(0);
@@ -277,6 +279,10 @@ export default function Index() {
             onRowsPerPageChange={MudarLinhaPorPagina}
           />
         </Paper>
+
+        <Button variant="contained" onClick={() => router.push("/tabela/")}>
+          Ir para tabela
+        </Button>
 
       </main>
     </ThemeProvider>

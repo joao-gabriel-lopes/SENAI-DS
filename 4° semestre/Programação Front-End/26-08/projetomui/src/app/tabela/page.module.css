@@ -1,0 +1,25 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 20px 70px 20px;
+  gap: 20px
+}
+
+.container{
+  height: 53px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputSearch{
+  width: 70%;
+}
+
+.botaoSearch{
+  width: 10%;
+  height: 100%;
+}
