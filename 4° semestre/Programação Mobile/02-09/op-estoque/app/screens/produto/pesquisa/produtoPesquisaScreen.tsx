@@ -45,9 +45,7 @@ export default function PesquisaProdutos() {
                                         quantidadeAtual={produto.quantidadeAtual}
                                         unidadeMedida={produto.unidadeMedida}
                                     />
-                                ))
-
-                                
+                                ))                                
                             }
 
                         </View>

@@ -86,9 +86,7 @@ export default function MovimentacaoProdutos() {
                                         <Text style={styles.cardTexto}>{detalhe.nome}</Text>
                                         <Text style={styles.cardTexto}>Quantidade: {detalhe.quantidade} {detalhe.unidadeMedida}</Text>
                                     </View>
-                                </View>
-
-                                
+                                </View>                                
                             ))}
 
                         </View>
