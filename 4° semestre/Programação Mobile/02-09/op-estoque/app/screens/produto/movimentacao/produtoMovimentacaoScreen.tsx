@@ -8,17 +8,20 @@ import IOperacaoDetalhes from "@/app/interfaces/iOperacaoDetalhes";
 import { useState } from "react";
 import React from "react";
 import { CardProduto } from "@/app/components/cards";
+import { Texto } from "@/app/components/text";
+import { TextoInput } from "@/app/components/textInput";
+import { Painel } from "@/app/components/painelOperacao";
 
 function EntradaSaida() {
     const { movimentacao } = useLocalSearchParams();
 
     if (movimentacao == "entrada") {
         return (
-            <Text style={styles.texto}>Entrada de Produtos</Text>
+            <Painel texto="Entrada de Produtos" corFundo={"#0a6300"} largura={"90%"} corTexto={"#ffffff"}/>
         )
     } else if (movimentacao == "saida") {
         return (
-            <Text style={styles.texto}>Saída de Produtos</Text>
+            <Painel texto="Saida de Produtos" corFundo={"#830000"} largura={"90%"} corTexto={"#ffffff"}/>
         )
     }
 }
@@ -54,24 +57,19 @@ export default function MovimentacaoProdutos() {
 
                     <ScrollView contentContainerStyle={styles.conteudoContainer}>
 
+                        {EntradaSaida()}
+
                         <View style={styles.textoContainer}>
-                            {EntradaSaida()}
-                            <Text style={styles.texto}>{dataAtual}</Text>
+                            <Texto texto={dataAtual}/>
                         </View>
 
-                        <View style={styles.motivoContainer}>
-                            <Text style={styles.texto}>Motivo:</Text>
-                            <TextInput
-                                style={styles.textArea}
-                                multiline={true}
-                                numberOfLines={10}
-                                textAlignVertical="top"
-                            />
-                        </View>
+                        <TextoInput texto="Motivo:" />
 
                         <Button style={globals.button} mode="contained" buttonColor="#0c5a78" onPress={() => { }}>
                             Procurar Produto
                         </Button>
+
+                        <Painel texto="Detalhes da operação" corFundo={"#737373"} largura={"90%"} corTexto={"#ffffff"}/>
 
                         <View style={styles.cardContainer}>
 

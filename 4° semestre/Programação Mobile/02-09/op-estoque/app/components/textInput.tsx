@@ -11,7 +11,7 @@ interface ITextInput {
     borderRadius?: string | AnimatableNumericValue
 }
 
-export function Texto({ texto, corTexto, corFundo, alturaInput, borderRadius }: ITextInput) {
+export function TextoInput({ texto, corTexto, corFundo, alturaInput, borderRadius }: ITextInput) {
     return (
         <View style={{
             width: "90%",
@@ -31,7 +31,7 @@ export function Texto({ texto, corTexto, corFundo, alturaInput, borderRadius }: 
                     backgroundColor: corFundo || "#ffffff",
                     height: alturaInput || 200,
                     width: "100%",
-                    borderRadius: 10,
+                    borderRadius: borderRadius || 10,
                     fontSize: 16,
                     padding: 10
                 }}
