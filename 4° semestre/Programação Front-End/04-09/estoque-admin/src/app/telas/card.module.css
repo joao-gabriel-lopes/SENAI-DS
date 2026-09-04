@@ -1,0 +1,131 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    overflow-y: scroll;
+    padding: 20px;
+    padding-bottom: 70px;
+}
+
+.card {
+    background-color: rgba(29, 94, 148, 0.25);
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 1.5px rgb(29, 94, 148);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 1px 1px 4px 1.5 rgb(29, 94, 148);
+}
+
+.cardCriar {
+    background-color: rgba(29, 140, 148, 0.25);
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 1.5px rgb(29, 140, 148);
+    font-size: 32px;
+    transition: 0.3s;
+    color: black;
+}
+
+.cardCriar:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+    box-shadow: 1px 1px 4px 1.5 rgb(29, 140, 148);
+}
+
+.containerCardProduto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    overflow-y: scroll;
+    padding: 20px;
+    padding-bottom: 7rem;
+}
+
+.cardProduto{
+    width: 80%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(221, 221, 221);
+    font-size: 17px;
+    border-radius: 10px;
+    border: 2px solid rgb(220, 220, 220);
+    transition: 0.3s;
+}
+
+.cardProduto:hover{
+    transform: translateY(-4px);
+    box-shadow: 0px 5px 8px 1px rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+.cardNome{
+    width: 15%;
+}
+
+.cardCategoria{
+    width: 20%;
+}
+
+.cardDescricao{
+    width: 20%;
+}
+
+.cardQuantidade{
+    width: 10%;
+}
+
+.cardProdutoTitulo{
+    width: 80%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(29, 94, 148);
+    color: white;
+    font-size: 22px;
+    border-radius: 10px;    
+}
+
+.cardProdutoAdicionar{
+    width: 80%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(29, 140, 148, 0.25);
+    font-size: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.cardProdutoAdicionar:hover{
+    transform: translateY(-4px);
+    box-shadow: 0px 5px 8px 1px rgb(29, 140, 148, 0.5);
+    cursor: pointer;
+}

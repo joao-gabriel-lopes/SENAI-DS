@@ -1,0 +1,68 @@
+.containerPesquisa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px outset rgba(0, 0, 0, 0.397);
+}
+
+.inputPesquisa{
+    width: 20%;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: 0.3s;
+    border: 2px outset rgb(108, 108, 108);
+}
+
+.inputPesquisa:focus{
+    background-color: rgba(0, 140, 255, 0.1);
+    border-color: rgb(12, 95, 163);
+    outline: none;
+}
+
+.inputPesquisa:hover, .textarea:hover{
+    border-color: rgb(12, 95, 163);
+}
+
+.selectPesquisa{
+    width: 16%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: white;
+    border: 2px outset rgb(108, 108, 108);
+}
+
+.selectPesquisa:focus{
+    background-color: rgba(0, 140, 255, 0.1);
+    border-color: rgb(12, 95, 163);
+    outline: none;
+}
+
+.selectPesquisa:hover{
+    border-color: rgb(12, 95, 163);
+    cursor: pointer;
+}
+
+.botaoEnviar{
+    width: 7%;
+    border: 2px outset rgb(108, 108, 108);
+    color: white;
+    background-color: rgb(12, 95, 163);
+    transition: 0.3S;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.botaoEnviar:hover{
+    color: rgb(12, 95, 163);
+    background-color: white;
+    border-color: rgb(12, 95, 163);
+    cursor: pointer;
+}
+
+.titulo{
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 2px outset rgba(0, 0, 0, 0.397);
+}

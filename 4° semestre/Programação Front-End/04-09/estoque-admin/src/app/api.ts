@@ -1,0 +1,357 @@
+import { notFound } from "next/navigation";
+import ICategoria from "./interfaces/iCategoria";
+import IProduto from "./interfaces/iProduto";
+import IUnidadeMedida from "./interfaces/iUnidadeMedida";
+import IFiltro from "./interfaces/iFiltro";
+import IProdutoLista from "./interfaces/iProdutoLista";
+import IPostProduto from "./interfaces/iPostProduto";
+import ICategoriaPost from "./interfaces/iCategoriaPost";
+import IUnidadeMedidaPost from "./interfaces/iUnidadeMedidaPost";
+
+const urlBase = "https://apiestoque.runasp.net/api/";
+
+export async function ListarCategorias(): Promise<ICategoria[]> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: ICategoria[] = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar categorias:", error);
+        return [];
+    }
+}
+
+export async function ListarCategoriaPorId(id: string): Promise<ICategoria> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto/${id}`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: ICategoria = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar categoria:", error);
+        return notFound();
+    }
+}
+
+export async function DeletarCategoria(id: string): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/categoria/lista';
+
+    } catch (error) {
+        console.error('Falha ao excluir categoria:', error);
+    }
+}
+
+export async function InserirCategoria(categoria: ICategoriaPost): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(categoria)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/categoria/cadastro';
+
+    } catch (error) {
+        console.error('Falha ao inserir categoria:', error);
+    }
+}
+
+export async function AtualizarCategoria(categoria: ICategoria): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}CategoriaProduto/${categoria.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(categoria)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = `/telas/categoria/cadastro?id=${categoria.id}`;
+
+    } catch (error) {
+        console.error('Falha ao atualizar categoria:', error);
+    }
+}
+
+export async function ListarUnidadesMedida(): Promise<IUnidadeMedida[]> {
+    try {
+        const response = await fetch(`${urlBase}UnidadeMedida`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: IUnidadeMedida[] = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar unidades de medida:", error);
+        return [];
+    }
+}
+
+export async function ListarUnidadesMedidaPorId(id: string): Promise<IUnidadeMedida> {
+    try {
+        const response = await fetch(`${urlBase}UnidadeMedida/${id}`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: IUnidadeMedida = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar unidade de medida:", error);
+        return notFound();
+    }
+}
+
+export async function DeletarUnidadeMedida(id: string): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}UnidadeMedida/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/unidadeMedida/lista';
+
+    } catch (error) {
+        console.error('Falha ao excluir unidade de medida:', error);
+    }
+}
+
+export async function InserirUnidadeMedida(unidadeMedida: IUnidadeMedidaPost): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}unidadeMedida`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(unidadeMedida)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/unidadeMedida/cadastro';
+
+    } catch (error) {
+        console.error('Falha ao inserir unidade de medida:', error);
+    }
+}
+
+export async function AtualizarUnidadeMedida(unidadeMedida: IUnidadeMedida): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}unidadeMedida/${unidadeMedida.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(unidadeMedida)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = `/telas/unidadeMedida/cadastro?id=${unidadeMedida.id}`;
+
+    } catch (error) {
+        console.error('Falha ao atualizar unidade de medida:', error);
+    }
+}
+
+export async function ListarProdutos(): Promise<IProdutoLista[]> {
+    try {
+        const response = await fetch(`${urlBase}Produto`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: IProdutoLista[] = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar produtos:", error);
+        return [];
+    }
+}
+
+export async function ListarProdutosPorId(id: string): Promise<IProduto> {
+    try {
+        const response = await fetch(`${urlBase}Produto/${id}`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: IProduto = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar produto:", error);
+        return notFound();
+    }
+}
+
+export async function ListarProdutosFiltrados(filtro: IFiltro): Promise<IProdutoLista[]> {
+    try {
+        const params = new URLSearchParams();
+
+        if (filtro.nome) {
+            params.append('nome', filtro.nome);
+        }
+
+        if (filtro.quantidadeMinima !== null) {
+            params.append('quantidadeMinima', String(filtro.quantidadeMinima));
+        }
+
+        if (filtro.categoriaProdutoId) {
+            params.append('categoriaProdutoId', filtro.categoriaProdutoId);
+        }
+
+        if (filtro.unidadeMedidaId) {
+            params.append('unidadeMedidaId', filtro.unidadeMedidaId);
+        }
+
+        if (filtro.habilitado !== null) {
+            params.append('habilitado', String(filtro.habilitado));
+        }
+
+        const response = await fetch(`${urlBase}Produto/filtrados?${params.toString()}`);
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        const data: IProdutoLista[] = await response.json();
+        return data;
+
+    } catch (error) {
+        console.error("Falha ao buscar produtos filtrados:", error);
+        return [];
+    }
+}
+
+export async function DeletarProduto(id: string): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}Produto/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/produto/pesquisa';
+
+    } catch (error) {
+        console.error('Falha ao excluir produto:', error);
+    }
+}
+
+export async function InserirProduto(produto: IPostProduto): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}Produto`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(produto)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = '/telas/produto/cadastro';
+
+    } catch (error) {
+        console.error('Falha ao inserir produto:', error);
+    }
+}
+
+export async function AtualizarProduto(produto: IProduto): Promise<void> {
+    try {
+        const response = await fetch(`${urlBase}Produto/${produto.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(produto)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+        window.location.href = `/telas/produto/cadastro?id=${produto.id}`;
+
+    } catch (error) {
+        console.error('Falha ao atualizar produto:', error);
+    }
+}
+
+export async function AtualizarProdutoImagem(produtoId: string, produtoImagem: File): Promise<void> {
+    try {
+        const imagem = new FormData();
+        imagem.append("arquivo", produtoImagem);
+
+        const response = await fetch(`${urlBase}Produto/imagem/${produtoId}`, {
+            method: 'PATCH',
+            body: imagem
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro: ${response.status} ${response.statusText}`);
+        }
+
+    } catch (error) {
+        console.error('Falha ao atualizar a imagem produto:', error);
+    }
+}

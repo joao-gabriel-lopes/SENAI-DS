@@ -1,0 +1,14 @@
+import { Stack } from 'expo-router';
+import React from 'react';
+
+export default function RootLayout() {
+
+  return (
+      <Stack>
+        <Stack.Screen name="index" options={{ title: 'Tela inicial', headerTitleAlign: 'center'}} />
+        <Stack.Screen name="screens/sobre/sobreScreen" options={{ title: 'Sobre nós', headerTitleAlign: 'center'}} />
+        <Stack.Screen name="screens/produto/pesquisa/produtoPesquisaScreen" options={{title: 'Pesquisa de produtos', headerTitleAlign: 'center'}} />
+        <Stack.Screen name="screens/produto/movimentacao/produtoMovimentacaoScreen" options={{ title: 'Operação de estoque', headerTitleAlign: 'center'}} />
+      </Stack>
+  );
+}
