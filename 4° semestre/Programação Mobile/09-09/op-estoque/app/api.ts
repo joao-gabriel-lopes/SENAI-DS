@@ -161,8 +161,6 @@ export async function SalvarOperacoesEstoque(motivo: string, entradaSaida: strin
             detalhes,
         };
 
-        console.log(payload)
-
         const response = await fetch(`https://apiestoque.runasp.net/api/OperacaoEstoque`, {
             method: "POST",
             headers: {
@@ -170,8 +168,6 @@ export async function SalvarOperacoesEstoque(motivo: string, entradaSaida: strin
             },
             body: JSON.stringify(payload)
         });
-
-        console.log(response)
 
         if (!response.ok) {
             throw new Error(`Erro: ${response.status} ${response.statusText}`);
