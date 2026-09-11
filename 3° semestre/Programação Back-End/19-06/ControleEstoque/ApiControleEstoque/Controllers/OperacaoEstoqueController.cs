@@ -26,12 +26,31 @@ namespace ApiControleEstoque.Controllers
 
         // GET: api/OperacaoEstoque
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<OperacaoEstoque>>> GetOperacaoEstoque()
+        public async Task<ActionResult<IEnumerable<GetOperacaoResponse>>> GetOperacaoEstoque()
         {
             return await _context.OperacaoEstoque
-                .Include(o => o.Detalhes)
-                .ThenInclude(d => d.Produto)
-                .ToListAsync();
+                .Select(
+                    op => new GetOperacaoResponse
+                    {
+                        Id = op.Id,
+                        Hora = op.Hora,
+                        EntradaSaida = op.EntradaSaida,
+                        Motivo = op.Motivo,
+                        Detalhes = op.Detalhes
+                        .Select(detalhe => new GetOperacaoDetalheResponse
+                        {
+                            Id = detalhe.Id,
+                            Quantidade = detalhe.Quantidade,
+                            ProdutoNome = detalhe.Produto != null ? detalhe.Produto.Nome : "",
+                            CategoriaNome = detalhe.Produto != null ? detalhe.Produto.CategoriaProduto != null ? detalhe.Produto.CategoriaProduto.Nome : "" : "",
+                            UnidadeMedidaSigla =
+                                    detalhe.Produto != null ?
+                                    detalhe.Produto.UnidadeMedida != null ?
+                                    detalhe.Produto.UnidadeMedida.Sigla : "" : ""
+                        }
+                        ).ToList()
+                    }
+                ).ToListAsync();
         }
 
         // GET: api/OperacaoEstoque/5
@@ -52,6 +71,7 @@ namespace ApiControleEstoque.Controllers
                             Id = detalhe.Id,
                             Quantidade = detalhe.Quantidade,
                             ProdutoNome = detalhe.Produto != null ? detalhe.Produto.Nome : "",
+                            CategoriaNome = detalhe.Produto != null ? detalhe.Produto.CategoriaProduto != null ? detalhe.Produto.CategoriaProduto.Nome : "" : "",
                             UnidadeMedidaSigla =
                                     detalhe.Produto != null ?
                                     detalhe.Produto.UnidadeMedida != null ?

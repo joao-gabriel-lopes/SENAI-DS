@@ -21,5 +21,6 @@ public record GetOperacaoDetalheResponse
     public Guid Id { get; set; }
     public Decimal Quantidade { get; set; }
     public String? ProdutoNome { get; set; }
+    public String? CategoriaNome { get; set; }
     public String? UnidadeMedidaSigla { get; set; }
 }
