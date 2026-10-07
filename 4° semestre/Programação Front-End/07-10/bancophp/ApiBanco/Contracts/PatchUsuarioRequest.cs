@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiBanco.Contracts
 {
-    public class PatchUsuario
+    public class PatchUsuarioRequest
     {
         public string? Nome { get; set; }
         public string? Cpf { get; set; }

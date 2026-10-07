@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ApiBanco.Contracts
 {
-    public record PostVerificarUsuario
+    public record PostVerificarUsuarioRequest
     {
-        public required string Nome { get; set; }
+        public required string Cpf { get; set; }
         public required string Senha { get; set; }
     }
 }

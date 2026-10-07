@@ -1,8 +1,19 @@
 "use client"
 import { Button, TextField } from "@mui/material";
 import styles from "./page.module.css"
+import { InserirUsuario } from "@/api";
+import { useState } from "react";
+import IUsuario from "@/Contracts/IUsuario";
 
 export default function Home() {
+  const [usuario, setUsuario] = useState<IUsuario>({
+    id: null,
+    nome: "",
+    cpf: "",
+    rg: "",
+    senha: "",
+  });
+
   return (
     <section className={styles.container}>
 
@@ -42,6 +53,7 @@ export default function Home() {
               color: "#fff",
             },
           }}
+          onChange={(e) => setUsuario({...usuario, nome: e.target.value})}
         />
 
         <TextField
@@ -73,7 +85,8 @@ export default function Home() {
             "& input": {
               color: "#fff",
             },
-          }}
+          }}          
+          onChange={(e) => setUsuario({...usuario, cpf: e.target.value})}
         />
 
         <TextField
@@ -105,7 +118,8 @@ export default function Home() {
             "& input": {
               color: "#fff",
             },
-          }}
+          }}          
+          onChange={(e) => setUsuario({...usuario, rg: e.target.value})}
         />
 
         <TextField
@@ -138,6 +152,8 @@ export default function Home() {
               color: "#fff",
             },
           }}
+          
+          onChange={(e) => setUsuario({...usuario, senha: e.target.value})}
         />
 
         <div className={styles.botaoContainer}>
@@ -156,6 +172,7 @@ export default function Home() {
                 backgroundColor: "#16314f",
               },
             }}
+            onClick={() => InserirUsuario(usuario)}
           >
             Salvar
           </Button>

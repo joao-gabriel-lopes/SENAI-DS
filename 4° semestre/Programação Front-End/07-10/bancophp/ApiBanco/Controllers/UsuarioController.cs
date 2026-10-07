@@ -40,7 +40,7 @@ public class UsuarioController : ControllerBase
     // PUT: api/Usuario/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPatch("{id}")]
-    public async Task<IActionResult> PatchUsuario(Guid id, PatchUsuario request)
+    public async Task<IActionResult> PatchUsuario(Guid id, PatchUsuarioRequest request)
     {
         var usuario = await _context.Usuario.FindAsync(id);
 
@@ -102,12 +102,12 @@ public class UsuarioController : ControllerBase
         return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
     }
 
-    // POST: api/Usuario
+    // POST: api/Usuario/Verificar
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPost("verificar")]
-    public async Task<ActionResult<Usuario>> VerificarUsuario(PostVerificarUsuario request)
+    [HttpPost("Verificar")]
+    public async Task<ActionResult<Usuario>> VerificarUsuario(PostVerificarUsuarioRequest request)
     {
-        var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.Nome == request.Nome);
+        var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.Cpf == request.Cpf);
 
         if (usuario == null)
         {
@@ -116,12 +116,14 @@ public class UsuarioController : ControllerBase
 
         var resultado = _passwordhasher.VerifyHashedPassword(usuario, usuario.Senha, request.Senha);
 
-        if (resultado == PasswordVerificationResult.Failed)
+        if (resultado == PasswordVerificationResult.Success)
         {
-            return BadRequest("A senha inserida está incorreta");
-        }
+            return Ok(true);
 
-        return Ok("Login realizado com sucesso");
+        } else{
+            
+            return Unauthorized(false);
+        }
     }
 
     // DELETE: api/Usuario/5
