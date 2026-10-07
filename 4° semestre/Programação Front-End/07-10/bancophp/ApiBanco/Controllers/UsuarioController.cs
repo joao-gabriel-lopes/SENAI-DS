@@ -39,15 +39,35 @@ public class UsuarioController : ControllerBase
 
     // PUT: api/Usuario/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutUsuario(System.Guid? id, Usuario usuario)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchUsuario(Guid id, PatchUsuario request)
     {
-        if (id != usuario.Id)
+        var usuario = await _context.Usuario.FindAsync(id);
+
+        if (usuario == null)
         {
-            return BadRequest();
+            return NotFound();
         }
 
-        _context.Entry(usuario).State = EntityState.Modified;
+        if (request.Nome != null)
+        {
+            usuario.Nome = request.Nome;
+        }
+
+        if (request.Cpf != null)
+        {
+            usuario.Cpf = request.Cpf;
+        }
+
+        if (request.Rg != null)
+        {
+            usuario.Rg = request.Rg;
+        }
+
+        if (request.Senha != null)
+        {
+            usuario.Senha = _passwordhasher.HashPassword(usuario, request.Senha);
+        }
 
         try
         {
