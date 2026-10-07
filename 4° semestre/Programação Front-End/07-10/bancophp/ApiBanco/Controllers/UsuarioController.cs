@@ -93,6 +93,21 @@ public class UsuarioController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
     {
+        if (usuario == null)
+        {
+            return BadRequest();
+        }
+
+        if (usuario.Id == Guid.Empty)
+        {
+            usuario.Id = Guid.NewGuid();
+        }
+
+        if (string.IsNullOrWhiteSpace(usuario.Senha))
+        {
+            return BadRequest("Senha é obrigatória.");
+        }
+
         usuario.Senha = _passwordhasher.HashPassword(usuario, usuario.Senha);
 
         _context.Usuario.Add(usuario);

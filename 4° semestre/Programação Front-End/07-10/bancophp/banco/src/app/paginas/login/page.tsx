@@ -1,19 +1,16 @@
 "use client"
 import { Button, TextField } from "@mui/material";
-import styles from "./page.module.css"
-import { InserirUsuario } from "@/api";
+import styles from "../.././page.module.css"
+import { InserirUsuario, VerificarUsuario } from "@/api";
 import { useState } from "react";
-import IUsuario from "@/Contracts/IUsuario";
+import IVerificarUsuario from "@/Contracts/IVerificarUsuario";
 import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function Login() {
   const router = useRouter();
 
-  const [usuario, setUsuario] = useState<IUsuario>({
-    id: "",
-    nome: "",
+  const [usuario, setUsuario] = useState<IVerificarUsuario>({
     cpf: "",
-    rg: "",
     senha: "",
   });
 
@@ -23,41 +20,8 @@ export default function Home() {
       <div className={styles.formContainer}>
 
         <h1 className={styles.titulo}>
-          Crie sua conta
+          Faça login em sua conta
         </h1>
-
-        <TextField
-          id="nome"
-          label="Nome"
-          variant="outlined"
-          sx={{
-            width: "100%",
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              borderRadius: "12px",
-              color: "#fff",
-              "& fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.6)",
-              },
-              "&:hover fieldset": {
-                borderColor: "#fff",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#fff",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "#EAF1F7",
-            },
-            "&:hover label": {
-              color: "white"
-            },
-            "& input": {
-              color: "#fff",
-            },
-          }}
-          onChange={(e) => setUsuario({...usuario, nome: e.target.value})}
-        />
 
         <TextField
           id="cpf"
@@ -90,39 +54,6 @@ export default function Home() {
             },
           }}          
           onChange={(e) => setUsuario({...usuario, cpf: e.target.value})}
-        />
-
-        <TextField
-          id="rg"
-          label="RG"
-          variant="outlined"
-          sx={{
-            width: "100%",
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              borderRadius: "12px",
-              color: "#fff",
-              "& fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.6)",
-              },
-              "&:hover fieldset": {
-                borderColor: "#fff",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#fff",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "#EAF1F7",
-            },
-            "&:hover label": {
-              color: "white"
-            },
-            "& input": {
-              color: "#fff",
-            },
-          }}          
-          onChange={(e) => setUsuario({...usuario, rg: e.target.value})}
         />
 
         <TextField
@@ -175,7 +106,7 @@ export default function Home() {
                 backgroundColor: "#16314f",
               },
             }}
-            onClick={() => InserirUsuario(usuario)}
+            onClick={() => VerificarUsuario(usuario)}
           >
             Salvar
           </Button>
@@ -194,9 +125,9 @@ export default function Home() {
                 backgroundColor: "rgba(255,255,255,0.08)",
               },
             }}
-            onClick={() => router.push("/paginas/login/")}
+            onClick={() => router.push("/")}
           >
-            Login
+            Cadastro
           </Button>
 
         </div>

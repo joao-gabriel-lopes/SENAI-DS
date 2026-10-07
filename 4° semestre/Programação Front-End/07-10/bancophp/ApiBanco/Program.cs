@@ -8,6 +8,18 @@ var connectionString = builder.Configuration.GetConnectionString("ApiBancoContex
 builder.Services.AddDbContext<ApiBancoContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "FrontEnd",
+        policy =>
+            {
+                policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
+});
+
 // Add services to the container.
 builder.Services.AddSwaggerGen();
 
@@ -24,6 +36,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("FrontEnd");
 
 app.UseHttpsRedirection();
 
