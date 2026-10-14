@@ -12,7 +12,7 @@ export default function OperacoesEstoque() {
     useEffect(() => {
         const conteudo = async () => {
             const operacoes = await ListarOperacoesEstoque();
-            setOperacoes(operacoes);
+            setOperacoes(operacoes.reverse());
         };
         conteudo();
     }, []);

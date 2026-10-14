@@ -61,12 +61,12 @@ export default function MovimentacaoOperacoesEstoque() {
 
     function AdicionarOperacao(id: number, produtoId: string, produtoNome: string, unidadeMedida: string, quantidade: number) {
         const operacao: IOperacaoDetalhe = { id, produtoId, produtoNome, unidadeMedida, quantidade };
-        setListaOperacoes(prev => [...prev, operacao]);
-        setNumeroOperacao(prev => prev + 1);
+        setListaOperacoes(operacaoAnterior => [...operacaoAnterior, operacao]);
+        setNumeroOperacao(operacaoAnterior => operacaoAnterior + 1);
     }
 
     function RemoverOperacao(operacaoId: number) {
-        setListaOperacoes(prev => prev.filter(operacao => operacao.id !== operacaoId));
+        setListaOperacoes(operacaoAnterior => operacaoAnterior.filter(operacao => operacao.id !== operacaoId));
     }
 
     async function EnviarDados() {
@@ -78,6 +78,7 @@ export default function MovimentacaoOperacoesEstoque() {
         const entradaSaida = movimentacao == "entrada" ? "E" : movimentacao == "saida" ? "S" : "";
 
         await SalvarOperacoesEstoque(motivo.trim(), entradaSaida, detalhes);
+        window.location.reload()
     }
 
     function CarregarCampos() {
