@@ -48,6 +48,9 @@ export default function Home() {
             "& .MuiInputLabel-root": {
               color: "#EAF1F7",
             },
+            "& label.Mui-focused": {
+              color: "#fff",
+            },
             "&:hover label": {
               color: "white"
             },
@@ -81,6 +84,9 @@ export default function Home() {
             "& .MuiInputLabel-root": {
               color: "#EAF1F7",
             },
+            "& label.Mui-focused": {
+              color: "#fff",
+            },
             "&:hover label": {
               color: "white"
             },
@@ -113,6 +119,9 @@ export default function Home() {
             },
             "& .MuiInputLabel-root": {
               color: "#EAF1F7",
+            },
+            "& label.Mui-focused": {
+              color: "#fff",
             },
             "&:hover label": {
               color: "white"

@@ -22,13 +22,13 @@ export default function Login() {
   function CampoEstado() {
     if (estadoLogin == true) {
       return (
-        <p style={{color: "#40cf5a", fontSize: "1.4rem"}}>
+        <p style={{ color: "#40cf5a", fontSize: "1.4rem" }}>
           Sucesso ao realizar login
         </p>
       )
     } else if (estadoLogin != null) {
       return (
-        <p style={{color: "#dd0a0a", fontSize: "1.4rem"}}>
+        <p style={{ color: "#dd0a0a", fontSize: "1.4rem" }}>
           Erro ao realizar login
         </p>
       )
@@ -71,6 +71,9 @@ export default function Login() {
             "& .MuiInputLabel-root": {
               color: "#EAF1F7",
             },
+            "& label.Mui-focused": {
+              color: "#fff",
+            },
             "&:hover label": {
               color: "white"
             },
@@ -103,6 +106,9 @@ export default function Login() {
             },
             "& .MuiInputLabel-root": {
               color: "#EAF1F7",
+            },
+            "& label.Mui-focused": {
+              color: "#fff",
             },
             "&:hover label": {
               color: "white"
