@@ -1,0 +1,14 @@
+* {
+  padding: 0%;
+  margin: 0px;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("/images/banco_background.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 50px;
+}
