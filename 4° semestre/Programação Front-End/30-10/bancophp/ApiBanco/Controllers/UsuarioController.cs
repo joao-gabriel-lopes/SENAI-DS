@@ -1,0 +1,193 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ApiBanco;
+using Microsoft.AspNetCore.Identity;
+using ApiBanco.Contracts;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
+[Authorize]
+[Route("api/[controller]")]
+[ApiController]
+public class UsuarioController : ControllerBase
+{
+    private readonly ApiBancoContext _context;
+    private readonly IPasswordHasher<Usuario> _passwordhasher;
+    private readonly IConfiguration _configuration;
+    public UsuarioController(ApiBancoContext context, IPasswordHasher<Usuario> passwordhasher, IConfiguration configuration)
+    {
+        _context = context;
+        _passwordhasher = passwordhasher;
+        _configuration = configuration;
+    }
+
+    // GET: api/Usuario
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
+    {
+        return await _context.Usuario.ToListAsync();
+    }
+
+    // GET: api/Usuario/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Usuario>> GetUsuario(System.Guid id)
+    {
+        var usuario = await _context.Usuario.FindAsync(id);
+
+        if (usuario == null)
+        {
+            return NotFound();
+        }
+
+        return usuario;
+    }
+
+    // PUT: api/Usuario/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchUsuario(Guid id, PatchUsuarioRequest request)
+    {
+        var usuario = await _context.Usuario.FindAsync(id);
+
+        if (usuario == null)
+        {
+            return NotFound();
+        }
+
+        if (request.Nome != null)
+        {
+            usuario.Nome = request.Nome;
+        }
+
+        if (request.Cpf != null)
+        {
+            usuario.Cpf = request.Cpf;
+        }
+
+        if (request.Senha != null)
+        {
+            usuario.Senha = _passwordhasher.HashPassword(usuario, request.Senha);
+        }
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!UsuarioExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+    }
+
+    // POST: api/Usuario
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [AllowAnonymous]
+    [HttpPost]
+    public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+    {
+        if (usuario == null)
+        {
+            return BadRequest();
+        }
+
+        if (usuario.Id == Guid.Empty)
+        {
+            usuario.Id = Guid.NewGuid();
+        }
+
+        if (string.IsNullOrWhiteSpace(usuario.Senha))
+        {
+            return BadRequest("Senha é obrigatória.");
+        }
+
+        usuario.Senha = _passwordhasher.HashPassword(usuario, usuario.Senha);
+
+        _context.Usuario.Add(usuario);
+
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
+    }
+
+    // POST: api/Usuario/Verificar
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [AllowAnonymous]
+    [HttpPost("Verificar")]
+    public async Task<ActionResult<Usuario>> VerificarUsuario(PostVerificarUsuarioRequest request)
+    {
+        var usuario = await _context.Usuario.FirstOrDefaultAsync(u => u.Cpf == request.Cpf);
+
+        if (usuario == null)
+        {
+            return NotFound();
+        }
+
+        var resultado = _passwordhasher.VerifyHashedPassword(usuario, usuario.Senha, request.Senha);
+
+        if (resultado == PasswordVerificationResult.Success)
+        {
+            var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, usuario.Cpf),
+            new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+        };
+
+            var secretKey = _configuration.GetValue<string>("JwtSettings:SecretKey")
+                ?? throw new InvalidOperationException("Chave secreta não configurada.");
+            var expirationInMinutes = _configuration.GetValue<int>("JwtSettings:ExpirationInMinutes");
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(expirationInMinutes == 0 ? 60 : expirationInMinutes),
+                signingCredentials: creds
+            );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return Ok(new { token = tokenString, tipo = "Bearer" });
+
+        }
+        else
+        {
+
+            return Unauthorized(false);
+        }
+
+    }
+
+    // DELETE: api/Usuario/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUsuario(System.Guid? id)
+    {
+        var usuario = await _context.Usuario.FindAsync(id);
+        if (usuario == null)
+        {
+            return NotFound();
+        }
+
+        _context.Usuario.Remove(usuario);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    private bool UsuarioExists(System.Guid? id)
+    {
+        return _context.Usuario.Any(e => e.Id == id);
+    }
+}
