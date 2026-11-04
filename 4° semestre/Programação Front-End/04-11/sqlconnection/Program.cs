@@ -6,11 +6,14 @@ conexao.ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=
 
 string opcao = "";
 
-while (opcao != "0")
+while (opcao != "9")
 {
-
     Console.WriteLine("");
-    Console.WriteLine("Circo App");
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("Circo App");
+    Console.WriteLine("");
+    Console.ResetColor();
+
     Console.WriteLine("");
     Console.WriteLine("1 - Listar Colaboradores");
     Console.WriteLine("2 - Criar Colaborador");
@@ -20,7 +23,8 @@ while (opcao != "0")
     Console.WriteLine("6 - Criar Atração");
     Console.WriteLine("7 - Atualizar Atração");
     Console.WriteLine("8 - Excluir Atração");
-    Console.WriteLine("0 - Sair");
+    Console.WriteLine("");
+    Console.WriteLine("9 - Sair");
     Console.WriteLine("");
 
     Console.Write("Selecione a opção desejada: ");
@@ -52,7 +56,7 @@ while (opcao != "0")
         case "8":
             ExcluirAtracao();
             break;
-        case "0":
+        case "9":
             break;
         default:
             Console.WriteLine("Opção inválida!");
