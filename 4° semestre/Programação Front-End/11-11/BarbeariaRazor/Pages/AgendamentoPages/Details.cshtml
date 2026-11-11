@@ -1,0 +1,43 @@
+@page
+@model BarbeariaRazor.Pages.AgendamentoPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Agendamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agendamento.Horario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agendamento.Horario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agendamento.Confirmado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agendamento.Confirmado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agendamento.Cliente!.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agendamento.Cliente!.Nome)
+        </dd>        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agendamento.Cliente!.NumeroTelefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agendamento.Cliente!.NumeroTelefone)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Agendamento.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

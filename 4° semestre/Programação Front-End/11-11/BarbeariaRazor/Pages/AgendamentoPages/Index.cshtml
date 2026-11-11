@@ -1,0 +1,48 @@
+@page
+@model BarbeariaRazor.Pages.AgendamentoPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Agendamento[0].Horario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agendamento[0].Confirmado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agendamento[0].Cliente!.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Agendamento) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Horario)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Confirmado)
+            </td>
+            <td>
+                @(item.Cliente?.Nome ?? "Não informado")
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

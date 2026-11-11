@@ -1,0 +1,58 @@
+@page
+@using BarbeariaRazor.Models
+@model BarbeariaRazor.Pages.ClientePages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente.NumeroTelefone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.NumeroTelefone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.Email)
+        </dd>
+    </dl>
+    <h5>Agendamentos</h5>
+    <table class="table">
+
+        <thead>
+            <th>Horário</th>
+            <th>Confirmado</th>
+        </thead>
+
+        <tbody>
+            @if (Model.Cliente.Agendamentos != null)
+            {
+                @foreach (Agendamento agendamento in Model.Cliente.Agendamentos)
+                {
+                    <td>@agendamento.Horario</td>
+                    <td>@(agendamento.Confirmado ? "Sim" : "Não")</td>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Cliente.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
