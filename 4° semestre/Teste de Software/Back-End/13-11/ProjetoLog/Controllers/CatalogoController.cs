@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using ProjetoLog.Models;
+using Serilog;
 
 namespace ProjetoLog.Controllers
 {
@@ -39,6 +40,7 @@ namespace ProjetoLog.Controllers
 
             if (catalogo == null)
             {
+                _logger.LogError("Erro get com id");
                 return NotFound();
             }
 
