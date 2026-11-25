@@ -16,3 +16,7 @@ a{
     background-color: burlywood;
     gap: 20px;
 }
+
+button a {
+    padding: 0px 45%;
+}
