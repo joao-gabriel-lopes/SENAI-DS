@@ -1,0 +1,6 @@
+@ApiaMadeira_HostAddress = http://localhost:5109
+
+GET {{ApiaMadeira_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
