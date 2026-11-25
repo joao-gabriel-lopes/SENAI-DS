@@ -1,0 +1,12 @@
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(244, 209, 163);
+    border: 2px solid rgb(159, 126, 82);
+}
+
+button:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    color: green;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: burlywood;
+}
