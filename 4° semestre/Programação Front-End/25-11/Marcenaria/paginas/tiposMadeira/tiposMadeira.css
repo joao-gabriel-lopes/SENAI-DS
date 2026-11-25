@@ -1,10 +1,13 @@
 .conteudo{
+    width: 500px;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     background-color: rgb(244, 209, 163);
     border: 2px solid rgb(159, 126, 82);
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 button:hover{
