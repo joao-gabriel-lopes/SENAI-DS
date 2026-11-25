@@ -4,7 +4,20 @@ var connectionString = builder.Configuration.GetConnectionString("ApiaMadeiraCon
 
 builder.Services.AddDbContext<ApiaMadeiraContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "FrontEnd",
+        policy =>
+            {
+                policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
+});
+
 // Add services to the container.
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -17,6 +30,11 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseCors("FrontEnd");
 
 app.UseHttpsRedirection();
 

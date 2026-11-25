@@ -69,29 +69,11 @@ public class TipoMadeiraController : ControllerBase
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
     public async Task<ActionResult<TipoMadeira>> PostTipoMadeira(TipoMadeira tipomadeira)
-    {
-        using SqlConnection conexao = new();
-        conexao.ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MadeiraDB;Integrated Security=True;";
+    {     
+        _context.TipoMadeira.Add(tipomadeira);
+        await _context.SaveChangesAsync();
 
-        conexao.Open();
-
-        using SqlCommand comando = new();
-        comando.Connection = conexao;
-        comando.CommandText = "INSERT INTO TipoMadeira (Id, Nome, PrecoPorVolume, Descricao)" +
-            "VALUES (@P1, @P2, @P3, @P4)";
-        comando.Parameters.AddWithValue("@P1", tipomadeira.Id);
-        comando.Parameters.AddWithValue("@P2", tipomadeira.Nome);
-        comando.Parameters.AddWithValue("@P3", tipomadeira.PrecoPorVolume);
-        comando.Parameters.AddWithValue("@P4", tipomadeira.Descricao);
-
-        comando.ExecuteNonQuery();
-
-        return StatusCode(201);
-
-        //_context.TipoMadeira.Add(tipomadeira);
-        //await _context.SaveChangesAsync();
-
-        //return CreatedAtAction("GetTipoMadeira", new { id = tipomadeira.Id }, tipomadeira);
+        return CreatedAtAction("GetTipoMadeira", new { id = tipomadeira.Id }, tipomadeira);
     }
 
     // DELETE: api/TipoMadeira/5

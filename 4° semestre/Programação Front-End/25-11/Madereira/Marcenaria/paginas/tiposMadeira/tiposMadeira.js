@@ -1,9 +1,12 @@
-const urlBase = ""
+const urlBase = "https://localhost:7007/api/TipoMadeira"
 
-async function Post() {
+async function Post(event) {
+    event.preventDefault();
+
     try {
-    const form = document.getElementById("madeira-tipo-form")
-    const data = Object.fromEntries(new FormData(form));
+        const form = document.getElementById("form")
+        const data = Object.fromEntries(new FormData(form));
+        data.precoPorVolume = Number(data.precoPorVolume);
 
         const response = await fetch(`${urlBase}`, {
             method: 'POST',
